@@ -16,9 +16,7 @@ import {
   CircleHelp,
   Wrench,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
-import MetaPanel from "@/components/meta-panel";
 import TechnicalSpecs from "@/components/technical-specs";
 import CompatibleModels from "@/components/compatible-models";
 import ReliabilityIssues from "@/components/reliability-issues";
@@ -33,14 +31,6 @@ export const metadata: Metadata = {
     "Complete database & guide to BMW N47D20A: specs, compatible models (1 Series, 3 Series, X3), common problems. Known for fuel efficiency & tuning potential.",
 };
 
-export function SpecLine(props: { label: string; value: string | number }) {
-  return (
-    <div className="flex items-center justify-between py-2">
-      <span className="font-medium">{props.value}</span>
-      <span className="text-muted-foreground">{props.label}</span>
-    </div>
-  );
-}
 const engine = {
   name: "BMW N47D20A Engine (2007-2011) - Specs, Problems & Compatibility Database",
   code: "N47D20A",

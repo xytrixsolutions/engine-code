@@ -2,7 +2,14 @@ import { JSX } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { SpecLine } from "@/app/page";
+function SpecLine(props: { label: string; value: string | number }) {
+  return (
+    <div className="flex items-center justify-between py-2">
+      <span className="font-medium">{props.value}</span>
+      <span className="text-muted-foreground">{props.label}</span>
+    </div>
+  );
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Overview = ({ engine }: { engine: any }): JSX.Element => {
