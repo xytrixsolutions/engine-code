@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CommonReliabilityIssuesData } from "../types";
 import { H1, P, SH, Strong } from "@/components/Typography";
 
 const CommonReliabilityIssues = ({

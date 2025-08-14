@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import FAQs from "./components/FAQs";
 import ResearchResources from "./components/ResearchResources";
 import { pageData } from "./data/data";
+import Banner from "./components/Banner";
 
 const brand = "bmw";
 const engine = "n47d20a";
@@ -18,6 +19,7 @@ const Page = (): JSX.Element => {
     <>
       <Hero {...engineData.hero} />
       <TechnicalSpecifications {...engineData.technicalSpecifications} />
+      <Banner />
       <CompatibleModels {...engineData.compatibleModels} />
       <CommonReliabilityIssues {...engineData.commonReliabilityIssues} />
       <FAQs faqData={engineData.faqs} />

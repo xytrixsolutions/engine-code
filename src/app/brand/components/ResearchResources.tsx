@@ -8,7 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
-import { ResourceSection } from "../types";
 
 interface ResearchResourcesProps {
   sections: ResourceSection[];

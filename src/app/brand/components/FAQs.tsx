@@ -40,26 +40,6 @@ const FAQs = ({ faqData }: { faqData: FAQItem[] }): JSX.Element => {
           ))}
         </Accordion>
       </div>
-
-      {/* <div className="mt-12 text-center"> */}
-      {/*   <p className="text-muted-foreground mb-4"> */}
-      {/*     {"Didn't find what you're looking for?"} */}
-      {/*   </p> */}
-      {/*   <div className="flex flex-col sm:flex-row gap-4 justify-center"> */}
-      {/*     <a */}
-      {/*       href="#contact" */}
-      {/*       className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors" */}
-      {/*     > */}
-      {/*       Contact Support */}
-      {/*     </a> */}
-      {/*     <a */}
-      {/*       href="#help" */}
-      {/*       className="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors" */}
-      {/*     > */}
-      {/*       Visit Help Center */}
-      {/*     </a> */}
-      {/*   </div> */}
-      {/* </div> */}
     </Container>
   );
 };

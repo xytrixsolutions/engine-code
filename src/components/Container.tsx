@@ -9,7 +9,7 @@ interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 const Container = ({ children, className, ...props }: WrapperProps) => {
   return (
     <div
-      className={cn("w-11/12 2xl:w-8/12 mx-auto py-16", className)}
+      className={cn("w-11/12 md:w-10/12 2xl:w-8/12 mx-auto py-16", className)}
       {...props}
     >
       {children}
