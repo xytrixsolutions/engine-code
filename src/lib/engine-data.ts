@@ -20,3 +20,19 @@ export function getEnginePageData(brand: string, engine: string) {
     },
   };
 }
+export function getAllEngineSlugs() {
+  const slugs = [];
+
+  for (const brandKey in pageData) {
+    const brandData = pageData[brandKey];
+
+    for (const engineKey in brandData.engines) {
+      slugs.push({
+        brand: brandKey,
+        engine: engineKey,
+      });
+    }
+  }
+
+  return slugs;
+}

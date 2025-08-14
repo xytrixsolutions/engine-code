@@ -42,7 +42,7 @@
 //
 // export default Page;
 // app/[brand]/[engine]/page.tsx
-import { getEnginePageData } from "@/lib/engine-data";
+import { getAllEngineSlugs, getEnginePageData } from "@/lib/engine-data";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import StickyButton from "./components/StickyButton";
@@ -53,6 +53,15 @@ import Banner from "./components/Banner";
 import CommonReliabilityIssues from "./components/CommonReliabilityIssues";
 import FAQs from "./components/FAQs";
 import ResearchResources from "./components/ResearchResources";
+
+export async function generateStaticParams() {
+  const slugs = getAllEngineSlugs();
+
+  return slugs.map(({ brand, engine }) => ({
+    brand,
+    engine,
+  }));
+}
 
 export async function generateMetadata({
   params,
