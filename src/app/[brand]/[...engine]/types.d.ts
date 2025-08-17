@@ -208,7 +208,7 @@ interface ResourceSection {
   title: string;
   icon: React.ReactNode;
   description: string;
-  categories: ResourceCategory[];
+  categories?: ResourceCategory[];
 }
 
 interface HeroData {

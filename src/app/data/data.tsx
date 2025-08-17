@@ -743,23 +743,10 @@ creating interchange limitations with pre-LCI models.`,
             ],
           },
           {
-            icon: <Info className="h-5 w-5 text-primary" />,
-            title: "Verification & Updates",
-            description: "Data integrity and update policy",
-            categories: [
-              {
-                type: "text-block",
-                icon: <AlertCircle className="h-4 w-4" />,
-                title: "Last Updated",
-                content: [
-                  {
-                    title: "Last Updated: 16 August 2025",
-                    description:
-                      "All specifications and compatibility data verified against official BMW documentation and EU/UK regulatory texts. Where official data is unavailable, entries are marked 'Undisclosed'.",
-                  },
-                ],
-              },
-            ],
+            icon: <AlertCircle className="h-4 w-4" />,
+            title: "Last Updated",
+            description:
+              "All specifications and compatibility data verified against official BMW documentation and EU/UK regulatory texts. Where official data is unavailable, entries are marked 'Undisclosed'.",
           },
         ],
       },
