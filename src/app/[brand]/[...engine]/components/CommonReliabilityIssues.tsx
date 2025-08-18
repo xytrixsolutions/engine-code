@@ -2,6 +2,41 @@
 // import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // import { H1, P, SH, Strong } from "@/components/Typography";
 // import Container from "@/components/Container";
+// import { AlertCircle } from "lucide-react";
+// import "./accent.css";
+//
+// const getCardStyles = (index: number) => {
+//   const isMobileEven = index % 2 === 0;
+//   const row = Math.floor(index / 2);
+//   const col = index % 2;
+//   const isDesktopEven = (row + col) % 2 === 0;
+//
+//   const baseClasses =
+//     "transition-colors duration-300 backdrop-blur-sm border-0";
+//
+//   // Mobile: even → accent, odd → primary
+//   const mobileBg = isMobileEven
+//     ? "bg-[hsl(var(--accent)/0.13)] dark:bg-[hsl(var(--accent)/0.18)]"
+//     : "bg-primary/25 dark:bg-primary/30";
+//
+//   const mobileText = isMobileEven
+//     ? "text-accent-foreground"
+//     : "text-foreground";
+//
+//   // Desktop: checkerboard
+//   const desktopBg = isDesktopEven
+//     ? "md:bg-[hsl(var(--accent)/0.13)] md:dark:bg-[hsl(var(--accent)/0.18)]"
+//     : "md:bg-primary/25 md:dark:bg-primary/30";
+//
+//   const desktopText = isDesktopEven
+//     ? "md:text-accent-foreground"
+//     : "md:text-foreground";
+//
+//   return {
+//     className: `${baseClasses} ${mobileBg} ${desktopBg}`,
+//     textClass: `${mobileText} ${desktopText}`,
+//   };
+// };
 //
 // const CommonReliabilityIssues = ({
 //   issues,
@@ -14,31 +49,71 @@
 //       <H1>{heading}</H1>
 //       <SH>{subheading}</SH>
 //
-//       <div className="grid gap-6 md:grid-cols-2">
-//         {issues.map((issue) => {
+//       <div className="grid gap-6 md:grid-cols-2 mt-8">
+//         {issues.map((issue, idx) => {
 //           const Icon = issue.icon;
+//           const FixIcon = issue.fixIcon;
+//           const { className: cardClass, textClass } = getCardStyles(idx);
+//
 //           return (
-//             <Card key={issue.title}>
-//               <CardHeader className="pb-3">
-//                 <CardTitle className="flex items-center gap-2 text-lg">
-//                   <Icon className="h-4 w-4 text-amber-500" />
+//             <Card
+//               key={issue.title}
+//               className={`shadow-lg border border-border ${cardClass} relative overflow-hidden`}
+//             >
+//               {/* Simplified gradient overlay - more visible */}
+//               <div className="absolute inset-0 pointer-events-none opacity-40">
+//                 <div
+//                   className={`absolute inset-0 ${idx % 2 === 0 ? "dark:from-primary/10 from-primary/5" : "dark:from-secondary/10 from-secondary/5"}`}
+//                 />
+//               </div>
+//
+//               <CardHeader className="pb-3 relative z-10">
+//                 <CardTitle className="flex items-center gap-2 text-lg text-foreground">
+//                   <Icon className="h-5 w-5 text-amber-500" />
 //                   {issue.title}
 //                 </CardTitle>
 //               </CardHeader>
-//               <CardContent className="space-y-3">
-//                 <div className="mb-3">
-//                   <Icon className="mt-0.5 h-4 w-4 text-muted-foreground inline-block" />
-//                   <span className="text-sm font-semibold"> Cause: </span>
-//                   <span className="text-sm text-muted-foreground">
-//                     {issue.cause}
-//                   </span>
+//               <CardContent className="space-y-4 relative z-10">
+//                 <div>
+//                   <div className="flex items-start">
+//                     <AlertCircle className="mt-0.5 h-4 w-4 text-muted-foreground flex-shrink-0" />
+//                     <span className="ml-2">
+//                       <span className="text-sm font-semibold text-foreground">
+//                         Symptoms:{" "}
+//                       </span>
+//                       <span className="text-sm text-muted-foreground">
+//                         {issue.symptoms}
+//                       </span>
+//                     </span>
+//                   </div>
 //                 </div>
-//                 <div className="mb-3">
-//                   <issue.fixIcon className="mt-0.5 h-4 w-4 text-muted-foreground inline" />
-//                   <span className="text-sm font-semibold"> Fix: </span>
-//                   <span className="text-sm text-muted-foreground">
-//                     {issue.fix}
-//                   </span>
+//
+//                 <div>
+//                   <div className="flex items-start">
+//                     <Icon className="mt-0.5 h-4 w-4 text-muted-foreground flex-shrink-0" />
+//                     <span className="ml-2">
+//                       <span className="text-sm font-semibold text-foreground">
+//                         Cause:{" "}
+//                       </span>
+//                       <span className="text-sm text-muted-foreground">
+//                         {issue.cause}
+//                       </span>
+//                     </span>
+//                   </div>
+//                 </div>
+//
+//                 <div>
+//                   <div className="flex items-start">
+//                     <FixIcon className="mt-0.5 h-4 w-4 text-muted-foreground flex-shrink-0" />
+//                     <span className="ml-2">
+//                       <span className="text-sm font-semibold text-foreground">
+//                         Fix:{" "}
+//                       </span>
+//                       <span className="text-sm text-muted-foreground">
+//                         {issue.fix}
+//                       </span>
+//                     </span>
+//                   </div>
 //                 </div>
 //               </CardContent>
 //             </Card>
@@ -49,8 +124,7 @@
 //       {infoBlock && (
 //         <Card className="mt-12 rounded-xl shadow-lg border bg-card border-border relative overflow-hidden">
 //           <div
-//             className="absolute inset-0 pointer-events-none
-//                bg-gradient-to-r"
+//             className="absolute inset-0 pointer-events-none bg-gradient-to-r"
 //             style={{ background: infoBlock.gradient }}
 //           />
 //           <CardContent>
@@ -75,7 +149,61 @@ import { JSX } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { H1, P, SH, Strong } from "@/components/Typography";
 import Container from "@/components/Container";
-import { AlertCircle } from "lucide-react"; // Import icons used in data
+import { AlertCircle } from "lucide-react";
+import "./accent.css";
+
+// Define responsive checkerboard styles
+const getCardStyles = (index: number) => {
+  const isMobileEven = index % 2 === 0;
+  const row = Math.floor(index / 2);
+  const col = index % 2;
+  const isDesktopEven = (row + col) % 2 === 0;
+
+  const baseClasses =
+    "transition-colors duration-300 backdrop-blur-sm border-0";
+
+  // Mobile: alternate every card
+  const mobileBg = isMobileEven
+    ? "bg-[hsl(var(--accent)/0.13)] dark:bg-[hsl(var(--accent)/0.18)]"
+    : "bg-primary/25 dark:bg-primary/30";
+
+  const mobileText = isMobileEven
+    ? "text-accent-foreground"
+    : "text-foreground";
+
+  // Desktop: checkerboard pattern
+  const desktopBg = isDesktopEven
+    ? "md:bg-[hsl(var(--accent)/0.13)] md:dark:bg-[hsl(var(--accent)/0.18)]"
+    : "md:bg-primary/25 md:dark:bg-primary/30";
+
+  const desktopText = isDesktopEven
+    ? "md:text-accent-foreground"
+    : "md:text-foreground";
+
+  return {
+    className: `${baseClasses} ${mobileBg} ${desktopBg}`,
+    textClass: `${mobileText} ${desktopText}`,
+  };
+};
+
+type CommonReliabilityIssuesData = {
+  issues: {
+    title: string;
+    symptoms: string;
+    cause: string;
+    fix: string;
+    icon: React.ComponentType<{ className?: string }>;
+    fixIcon: React.ComponentType<{ className?: string }>;
+  }[];
+  heading: string;
+  subheading: string;
+  infoBlock?: {
+    title: string;
+    description: string;
+    icon: React.ComponentType<{ className?: string }>;
+    gradient: string;
+  };
+};
 
 const CommonReliabilityIssues = ({
   issues,
@@ -87,100 +215,81 @@ const CommonReliabilityIssues = ({
     <Container>
       <H1>{heading}</H1>
       <SH>{subheading}</SH>
-      {/* Added text-center for consistency */}
-      {/* === ISSUES GRID === */}
+
       <div className="grid gap-6 md:grid-cols-2 mt-8">
-        {issues.map((issue) => {
+        {issues.map((issue, idx) => {
           const Icon = issue.icon;
-          const FixIcon = issue.fixIcon; // Get the fix icon component
+          const FixIcon = issue.fixIcon;
+          const { className: cardClass, textClass } = getCardStyles(idx);
+
           return (
             <Card
               key={issue.title}
-              className="shadow-lg border-0 bg-background/80 dark:bg-card/80 backdrop-blur-sm"
+              className={`shadow-lg border border-border ${cardClass} relative overflow-hidden`}
             >
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-2 text-lg text-foreground">
-                  <Icon className="h-5 w-5 text-amber-500" />
+              {/* Subtle gradient overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: `linear-gradient(
+                    to top right,
+                    hsla(var(--accent), ${idx % 2 === 0 ? 0.1 : 0.05}) 0%,
+                    transparent 70%
+                  )`,
+                }}
+              />
+
+              <CardHeader className={`pb-3 relative z-10 ${textClass}`}>
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <Icon className="h-5 w-5 text-current" />
                   {issue.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+
+              <CardContent className={`space-y-4 relative z-10 ${textClass}`}>
                 {/* Symptoms */}
-                <div>
-                  <div className="flex items-start">
-                    <AlertCircle className="mt-0.5 h-4 w-4 text-muted-foreground flex-shrink-0" />
-                    <span className="ml-2">
-                      <span className="text-sm font-semibold text-foreground">
-                        Symptoms:{" "}
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {issue.symptoms}
-                      </span>
-                    </span>
-                  </div>
+                <div className="flex items-start">
+                  <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-current" />
+                  <span className="ml-2">
+                    <span className="text-sm font-semibold">Symptoms: </span>
+                    <span className="text-sm">{issue.symptoms}</span>
+                  </span>
                 </div>
 
                 {/* Cause */}
-                <div>
-                  <div className="flex items-start">
-                    <Icon className="mt-0.5 h-4 w-4 text-muted-foreground flex-shrink-0" />
-                    <span className="ml-2">
-                      <span className="text-sm font-semibold text-foreground">
-                        Cause:{" "}
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {issue.cause}
-                      </span>
-                    </span>
-                  </div>
+                <div className="flex items-start">
+                  <Icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-current" />
+                  <span className="ml-2">
+                    <span className="text-sm font-semibold">Cause: </span>
+                    <span className="text-sm">{issue.cause}</span>
+                  </span>
                 </div>
 
                 {/* Fix */}
-                <div>
-                  <div className="flex items-start">
-                    <FixIcon className="mt-0.5 h-4 w-4 text-muted-foreground flex-shrink-0" />
-                    <span className="ml-2">
-                      <span className="text-sm font-semibold text-foreground">
-                        Fix:{" "}
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {issue.fix}
-                      </span>
-                    </span>
-                  </div>
+                <div className="flex items-start">
+                  <FixIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-current" />
+                  <span className="ml-2">
+                    <span className="text-sm font-semibold">Fix: </span>
+                    <span className="text-sm">{issue.fix}</span>
+                  </span>
                 </div>
               </CardContent>
             </Card>
           );
         })}
       </div>
-      {/* <Card */}
-      {/*   className="mt-10 border-l-4 border-l-blue-500 bg-gradient-to-r from-blue-50/50 to-transparent dark:from-blue-900/20" */}
-      {/*   // id="verification-note" // Optional ID if needed for anchoring */}
-      {/* > */}
-      {/*   <CardHeader> */}
-      {/*     <CardTitle className="text-xl flex items-center gap-2 text-blue-800 dark:text-blue-200"> */}
-      {/*       <infoBlock.icon className="h-5 w-5" /> */}
-      {/*       {infoBlock.title} */}
-      {/*     </CardTitle> */}
-      {/*   </CardHeader> */}
-      {/*   <CardContent> */}
-      {/*     <P className="text-muted-foreground leading-relaxed"> */}
-      {/*       {infoBlock.description} */}
-      {/*     </P> */}
-      {/*   </CardContent> */}
-      {/* </Card> */}
+
+      {/* Info Block */}
       {infoBlock && (
         <Card className="mt-12 rounded-xl shadow-lg border bg-card border-border relative overflow-hidden">
           <div
-            className="absolute inset-0 pointer-events-none
-         bg-gradient-to-r"
+            className="absolute inset-0 pointer-events-none bg-gradient-to-r"
             style={{ background: infoBlock.gradient }}
           />
           <CardContent>
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0">
-                <infoBlock.icon />
+                <infoBlock.icon className="h-6 w-6 text-primary" />
               </div>
               <div className="space-y-2">
                 <Strong>{infoBlock.title}</Strong>

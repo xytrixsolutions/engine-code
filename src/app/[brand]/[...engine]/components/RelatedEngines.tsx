@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const RelatedEngines = () => {
   return (
-    <Card className="bg-background border border-border shadow-sm">
+    <Card className="bg-gradient-to-br from-white via-yellow-50 to-yellow-100 dark:from-gray-900 dark:via-yellow-950/30 dark:to-yellow-900 border border-border shadow-sm">
       <CardContent className="p-6 space-y-4">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-yellow-400 dark:bg-yellow-500 rounded-lg">
