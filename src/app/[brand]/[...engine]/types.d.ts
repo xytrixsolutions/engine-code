@@ -33,6 +33,7 @@ interface TechnicalSpecsData {
     primarySources: string[];
   };
 }
+
 interface TechnicalSpecsProps extends TechnicalSpecsData {
   engine: string;
 }
@@ -40,13 +41,17 @@ interface TechnicalSpecsProps extends TechnicalSpecsData {
 interface AdditionalInfoBlock {
   [key: string]: string | string[];
 }
+interface ExtraNoteItem {
+  key: string;
+  [k: string]: string | string[];
+}
 
 interface CompatibleModelsData {
   description: string;
   compatibleModels: TableData;
   guidanceTitle: string;
   guidanceText: string;
-  [key: string]: string | TableData | AdditionalInfoBlock;
+  extraNotes: ExtraNoteItem[];
 }
 
 interface CompatibleModelsProps extends CompatibleModelsData {

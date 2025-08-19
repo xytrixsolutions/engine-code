@@ -1,16 +1,16 @@
 import { getAllEngineSlugs, getEnginePageData } from "@/app/lib/engine-data";
 import type { Metadata } from "next";
+import Head from "next/head";
 import { notFound } from "next/navigation";
-import StickyButton from "./components/StickyButton";
-import Hero from "./components/Hero";
-import TechnicalSpecifications from "./components/TechnicalSpecifications";
-import CompatibleModels from "./components/CompatibleModels";
+import { JSX } from "react";
 import Banner from "./components/Banner";
 import CommonReliabilityIssues from "./components/CommonReliabilityIssues";
+import CompatibleModels from "./components/CompatibleModels";
 import FAQs from "./components/FAQs";
+import Hero from "./components/Hero";
 import ResearchResources from "./components/ResearchResources";
-import { JSX } from "react";
-import Head from "next/head";
+import StickyButton from "./components/StickyButton";
+import TechnicalSpecifications from "./components/TechnicalSpecifications";
 
 const generateStaticParams = async (): Promise<EnginePageProps[]> => {
   const slugs = await getAllEngineSlugs();
@@ -81,4 +81,4 @@ const EnginePage = async (props: {
 
 export const dynamicParams = false;
 export default EnginePage;
-export { generateStaticParams, generateMetadata };
+export { generateMetadata, generateStaticParams };
