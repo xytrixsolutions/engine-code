@@ -1,21 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Info } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { JSX } from "react";
 import { H1, H6, P, SH } from "@/components/Typography";
-import Link from "next/link";
 import RelatedEngines from "./RelatedEngines";
 
 const Hero = ({
-  heading,
   intro,
   image,
   disclaimer,
+  brand,
+  engine,
+  years,
 }: HeroDataProps): JSX.Element => {
   return (
     <Container>
-      <H1>{heading}</H1>
+      <H1>
+        {brand.toUpperCase()} {engine.toUpperCase()} engine {years} – Specs,
+        Problems & Compatibility Database
+      </H1>
       <div className="flex flex-col lg:flex-row gap-12 my-5">
         <div className="lg:w-7/10 w-full">
           {intro.map((paragraph, idx) => (

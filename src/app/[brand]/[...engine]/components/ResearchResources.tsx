@@ -7,17 +7,268 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ExternalLink } from "lucide-react";
+import {
+  BookOpen,
+  FileText,
+  Globe,
+  Info,
+  Shield,
+  ExternalLink,
+} from "lucide-react";
 
 interface ResearchResourcesProps {
-  sections: ResourceSection[];
+  brand: string;
+  researchResources: ResearchResourcesShort;
 }
 
 export default function ResearchResources({
-  sections,
+  brand,
+  researchResources,
 }: ResearchResourcesProps) {
-  console.log("sections ===>", JSON.stringify(sections));
-  sections.pop();
+  const Brand = brand.toUpperCase();
+  const sections: ResourceSection[] = [
+    {
+      icon: <Info className="h-5 w-5 text-primary" />,
+      title: "About EngineCode.uk",
+      description:
+        "Independent technical reference for engine identification and verification",
+      categories: [
+        {
+          type: "text-block",
+          icon: <Info className="h-4 w-4" />,
+          title: "Platform Overview",
+          content: [
+            {
+              title: "Independent Technical Reference",
+              description: `EngineCode.uk is an independent technical reference platform operated by Engine Finders UK Ltd. We are not affiliated with ${Brand} or any other manufacturer. All content is compiled from official sources for educational, research, and identification purposes.`,
+            },
+          ],
+        },
+        {
+          type: "text-block",
+          icon: <Shield className="h-4 w-4" />,
+          title: "Sourcing Policy",
+          content: [
+            {
+              title: "Strict Sourcing Protocol",
+              description:
+                "Only official OEM publications and government portals are cited.",
+            },
+            {
+              title: "No Unverified Sources",
+              description:
+                "No Wikipedia, forums, blogs, or third-party aggregators are used.",
+            },
+            {
+              title: "Transparency in Gaps",
+              description:
+                "If a data point is not officially disclosed, it is marked 'Undisclosed'.",
+            },
+            {
+              title: "Regulatory Stability",
+              description:
+                "EU regulations are referenced using CELEX identifiers for long-term stability.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      icon: <BookOpen className="h-5 w-5 text-primary" />,
+      title: "Primary Sources & Documentation",
+      description:
+        "Official OEM and government publications used for data verification",
+      categories: [
+        {
+          type: "text-block",
+          icon: <Globe className="h-4 w-4" />,
+          title: "Primary Sources",
+          content: [
+            {
+              title: `${Brand} Official Site`,
+              description:
+                "Owner literature, service manuals, technical releases, and plant documentation.",
+            },
+            {
+              title: "EUR-Lex",
+              description:
+                "EU emissions and type-approval regulations (e.g., CELEX:32007R0715, CELEX:32017R1151).",
+            },
+            {
+              title: "GOV.UK: Vehicle Approval & V5C",
+              description:
+                "UK vehicle approval processes, import rules, and MoT guidance.",
+            },
+            {
+              title: "DVLA: Engine Changes & MoT",
+              description:
+                "Official guidance on engine swaps and inspection implications.",
+            },
+            {
+              title: "Vehicle Certification Agency (VCA)",
+              description:
+                "UK type-approval authority for automotive products.",
+            },
+          ],
+        },
+        {
+          type: "link",
+          icon: <FileText className="h-4 w-4" />,
+          title: "Official Documentation",
+          links: [
+            {
+              title: `${Brand} Service Manual`,
+              href: `${researchResources.serviceManual}`,
+            },
+            {
+              title: `${Brand} Technical Service Bulletins`,
+              href: `${researchResources.serviceManual}`,
+            },
+          ],
+        },
+        {
+          type: "link",
+          icon: <Shield className="h-4 w-4" />,
+          title: "Regulatory Compliance",
+          links: [
+            {
+              title: "UK VCA Type Approval Database",
+              href: "https://www.gov.uk/vehicle-approval",
+            },
+            {
+              title: "EU Commission Regulation (EC) No 715/2007",
+              href: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715",
+            },
+            {
+              title: "Commission Regulation (EU) 2017/1151 (WLTP/RDE)",
+              href: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017R1151",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      icon: <FileText className="h-5 w-5 text-primary" />,
+      title: "Regulatory Context & Methodology",
+      description:
+        "Framework and processes ensuring data accuracy and compliance",
+      categories: [
+        {
+          type: "text-block",
+          icon: <Globe className="h-4 w-4" />,
+          title: "Regulatory Context",
+          content: [
+            {
+              title: "Regulation (EC) No 715/2007",
+              description:
+                "Euro emissions framework for vehicle type approval.",
+            },
+            {
+              title: "Commission Regulation (EU) 2017/1151",
+              description:
+                "WLTP and RDE testing procedures for emissions certification.",
+            },
+            {
+              title: "GOV.UK: Vehicle Approval",
+              description:
+                "UK compliance and certification requirements for imported and modified vehicles.",
+            },
+            {
+              title: "VCA Certification Portal",
+              description: "Type-approval guidance and documentation.",
+            },
+          ],
+        },
+        {
+          type: "text-block",
+          icon: <Info className="h-4 w-4" />,
+          title: "Methodology",
+          content: [
+            {
+              title: "Data Compilation",
+              description:
+                "All data is compiled from OEM and government publications, reviewed by our editorial team, and updated regularly.",
+            },
+            {
+              title: "Corrections & Submissions",
+              description:
+                "To request a correction or submit documentation, email: corrections@enginecode.uk",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      icon: <Shield className="h-5 w-5 text-primary" />,
+      title: "Legal, Privacy & Commercial Disclosure",
+      description: "Copyright, data privacy, and funding transparency",
+      categories: [
+        {
+          type: "text-block",
+          icon: <Info className="h-4 w-4" />,
+          title: "Copyright & Legal",
+          content: [
+            {
+              title: "Fair Dealing Use",
+              description:
+                "All engine and vehicle images are used under UK 'fair dealing' principles for technical identification and educational use. Rights remain with their respective owners.",
+            },
+            {
+              title: "Copyright Concerns",
+              description:
+                "For copyright concerns, email: copyrights@enginecode.uk",
+            },
+          ],
+        },
+        {
+          type: "text-block",
+          icon: <Shield className="h-4 w-4" />,
+          title: "Data Privacy",
+          content: [
+            {
+              title: "GDPR Compliance",
+              description:
+                "EngineCode.uk complies with UK GDPR. We do not collect personal data unless explicitly provided.",
+            },
+            {
+              title: "Data Requests",
+              description:
+                "For access, correction, or deletion requests, email: gdpr@enginecode.uk",
+            },
+          ],
+        },
+        {
+          type: "text-block",
+          icon: <Info className="h-4 w-4" />,
+          title: "Trademarks",
+          content: [
+            {
+              title: "Trademark Notice",
+              description:
+                "All trademarks, logos, and engine codes are the property of their respective owners. Use on this site is strictly for reference and identification.",
+            },
+          ],
+        },
+        {
+          type: "text-block",
+          icon: <Shield className="h-4 w-4" />,
+          title: "Commercial Disclosure",
+          content: [
+            {
+              title: "No Paid Endorsements",
+              description:
+                "This website contains no paid endorsements, affiliate links, or commercial partnerships. We do not sell parts or services.",
+            },
+            {
+              title: "Funding Model",
+              description:
+                "Our mission is to provide accurate, verifiable, and neutral technical data for owners, restorers, and technicians. This site is self-funded.",
+            },
+          ],
+        },
+      ],
+    },
+  ];
   return (
     <Container>
       <H1>Research Resources</H1>
@@ -100,7 +351,6 @@ export default function ResearchResources({
         ))}
       </div>
 
-      {/* === FULL-WIDTH VERIFICATION CARD === */}
       <Card className="mt-10 " id="verification-note">
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
@@ -124,12 +374,11 @@ export default function ResearchResources({
         <CardContent>
           <p className="text-muted-foreground leading-relaxed">
             All specifications and compatibility data verified against official
-            BMW documentation and EU/UK regulatory texts. Where official data is
-            unavailable, entries are marked &ldquo;Undisclosed&ldquo; .
+            {Brand} documentation and EU/UK regulatory texts. Where official
+            data is unavailable, entries are marked &ldquo;Undisclosed&ldquo; .
           </p>
         </CardContent>
       </Card>
-      {/* === END VERIFICATION CARD === */}
 
       <div className="mt-8 text-center">
         <p className="text-sm text-muted-foreground">

@@ -10,6 +10,7 @@ import CommonReliabilityIssues from "./components/CommonReliabilityIssues";
 import FAQs from "./components/FAQs";
 import ResearchResources from "./components/ResearchResources";
 import { JSX } from "react";
+import Head from "next/head";
 
 const generateStaticParams = async (): Promise<EnginePageProps[]> => {
   const slugs = await getAllEngineSlugs();
@@ -47,19 +48,33 @@ const EnginePage = async (props: {
     bannerImage,
     commonReliabilityIssues,
     faqs,
+    schema,
     researchResources,
   } = engineData;
 
   return (
     <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      </Head>
       <StickyButton engineCode={engine} />
-      <Hero {...hero} />
-      <TechnicalSpecifications {...technicalSpecifications} />
-      <CompatibleModels {...compatibleModels} />
+      <Hero {...hero} brand={params.brand} engine={engine} />
+      <TechnicalSpecifications {...technicalSpecifications} engine={engine} />
+      <CompatibleModels {...compatibleModels} engine={engine} />
       <Banner hidden bannerImage={bannerImage} />
-      <CommonReliabilityIssues {...commonReliabilityIssues} />
-      <FAQs faqData={faqs} />
-      <ResearchResources sections={researchResources} />
+      <CommonReliabilityIssues
+        {...commonReliabilityIssues}
+        engine={engine}
+        brand={params.brand}
+      />
+      <FAQs faqData={faqs} brand={params.brand} engine={engine} />
+      <ResearchResources
+        researchResources={researchResources}
+        brand={params.brand}
+      />
     </>
   );
 };

@@ -7,12 +7,21 @@ import {
 import { JSX } from "react";
 import Container from "@/components/Container";
 
-const FAQs = ({ faqData }: { faqData: FAQItem[] }): JSX.Element => {
+const FAQs = ({
+  faqData,
+  brand,
+  engine,
+}: {
+  faqData: FAQItem[];
+  brand: string;
+  engine: string;
+}): JSX.Element => {
   return (
     <Container>
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-relaxed text-center mb-6">
-          Frequently Asked Questions
+          Frequently Asked Questions about {brand.toUpperCase()}{" "}
+          {engine.toUpperCase()}
         </h1>
         <p className="text-muted-foreground mb-8 text-lg leading-relaxed text-center">
           Find answers to common questions about our products, shipping, and

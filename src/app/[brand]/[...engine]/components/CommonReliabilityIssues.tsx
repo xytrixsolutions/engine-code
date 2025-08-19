@@ -1,155 +1,8 @@
-// import { JSX } from "react";
-// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-// import { H1, P, SH, Strong } from "@/components/Typography";
-// import Container from "@/components/Container";
-// import { AlertCircle } from "lucide-react";
-// import "./accent.css";
-//
-// const getCardStyles = (index: number) => {
-//   const isMobileEven = index % 2 === 0;
-//   const row = Math.floor(index / 2);
-//   const col = index % 2;
-//   const isDesktopEven = (row + col) % 2 === 0;
-//
-//   const baseClasses =
-//     "transition-colors duration-300 backdrop-blur-sm border-0";
-//
-//   // Mobile: even → accent, odd → primary
-//   const mobileBg = isMobileEven
-//     ? "bg-[hsl(var(--accent)/0.13)] dark:bg-[hsl(var(--accent)/0.18)]"
-//     : "bg-primary/25 dark:bg-primary/30";
-//
-//   const mobileText = isMobileEven
-//     ? "text-accent-foreground"
-//     : "text-foreground";
-//
-//   // Desktop: checkerboard
-//   const desktopBg = isDesktopEven
-//     ? "md:bg-[hsl(var(--accent)/0.13)] md:dark:bg-[hsl(var(--accent)/0.18)]"
-//     : "md:bg-primary/25 md:dark:bg-primary/30";
-//
-//   const desktopText = isDesktopEven
-//     ? "md:text-accent-foreground"
-//     : "md:text-foreground";
-//
-//   return {
-//     className: `${baseClasses} ${mobileBg} ${desktopBg}`,
-//     textClass: `${mobileText} ${desktopText}`,
-//   };
-// };
-//
-// const CommonReliabilityIssues = ({
-//   issues,
-//   heading,
-//   subheading,
-//   infoBlock,
-// }: CommonReliabilityIssuesData): JSX.Element => {
-//   return (
-//     <Container>
-//       <H1>{heading}</H1>
-//       <SH>{subheading}</SH>
-//
-//       <div className="grid gap-6 md:grid-cols-2 mt-8">
-//         {issues.map((issue, idx) => {
-//           const Icon = issue.icon;
-//           const FixIcon = issue.fixIcon;
-//           const { className: cardClass, textClass } = getCardStyles(idx);
-//
-//           return (
-//             <Card
-//               key={issue.title}
-//               className={`shadow-lg border border-border ${cardClass} relative overflow-hidden`}
-//             >
-//               {/* Simplified gradient overlay - more visible */}
-//               <div className="absolute inset-0 pointer-events-none opacity-40">
-//                 <div
-//                   className={`absolute inset-0 ${idx % 2 === 0 ? "dark:from-primary/10 from-primary/5" : "dark:from-secondary/10 from-secondary/5"}`}
-//                 />
-//               </div>
-//
-//               <CardHeader className="pb-3 relative z-10">
-//                 <CardTitle className="flex items-center gap-2 text-lg text-foreground">
-//                   <Icon className="h-5 w-5 text-amber-500" />
-//                   {issue.title}
-//                 </CardTitle>
-//               </CardHeader>
-//               <CardContent className="space-y-4 relative z-10">
-//                 <div>
-//                   <div className="flex items-start">
-//                     <AlertCircle className="mt-0.5 h-4 w-4 text-muted-foreground flex-shrink-0" />
-//                     <span className="ml-2">
-//                       <span className="text-sm font-semibold text-foreground">
-//                         Symptoms:{" "}
-//                       </span>
-//                       <span className="text-sm text-muted-foreground">
-//                         {issue.symptoms}
-//                       </span>
-//                     </span>
-//                   </div>
-//                 </div>
-//
-//                 <div>
-//                   <div className="flex items-start">
-//                     <Icon className="mt-0.5 h-4 w-4 text-muted-foreground flex-shrink-0" />
-//                     <span className="ml-2">
-//                       <span className="text-sm font-semibold text-foreground">
-//                         Cause:{" "}
-//                       </span>
-//                       <span className="text-sm text-muted-foreground">
-//                         {issue.cause}
-//                       </span>
-//                     </span>
-//                   </div>
-//                 </div>
-//
-//                 <div>
-//                   <div className="flex items-start">
-//                     <FixIcon className="mt-0.5 h-4 w-4 text-muted-foreground flex-shrink-0" />
-//                     <span className="ml-2">
-//                       <span className="text-sm font-semibold text-foreground">
-//                         Fix:{" "}
-//                       </span>
-//                       <span className="text-sm text-muted-foreground">
-//                         {issue.fix}
-//                       </span>
-//                     </span>
-//                   </div>
-//                 </div>
-//               </CardContent>
-//             </Card>
-//           );
-//         })}
-//       </div>
-//
-//       {infoBlock && (
-//         <Card className="mt-12 rounded-xl shadow-lg border bg-card border-border relative overflow-hidden">
-//           <div
-//             className="absolute inset-0 pointer-events-none bg-gradient-to-r"
-//             style={{ background: infoBlock.gradient }}
-//           />
-//           <CardContent>
-//             <div className="flex items-start gap-4">
-//               <div className="flex-shrink-0">
-//                 <infoBlock.icon />
-//               </div>
-//               <div className="space-y-2">
-//                 <Strong>{infoBlock.title}</Strong>
-//                 <P>{infoBlock.description}</P>
-//               </div>
-//             </div>
-//           </CardContent>
-//         </Card>
-//       )}
-//     </Container>
-//   );
-// };
-//
-// export default CommonReliabilityIssues;
 import { JSX } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { H1, P, SH, Strong } from "@/components/Typography";
 import Container from "@/components/Container";
-import { AlertCircle } from "lucide-react";
+import { Activity, AlertOctagon, CircleHelp, Info, Wrench } from "lucide-react";
 import "./accent.css";
 
 // Define responsive checkerboard styles
@@ -192,34 +45,33 @@ type CommonReliabilityIssuesData = {
     symptoms: string;
     cause: string;
     fix: string;
-    icon: React.ComponentType<{ className?: string }>;
-    fixIcon: React.ComponentType<{ className?: string }>;
   }[];
-  heading: string;
+  heading?: string;
+  brand: string;
+  engine: string;
   subheading: string;
   infoBlock?: {
     title: string;
     description: string;
-    icon: React.ComponentType<{ className?: string }>;
     gradient: string;
   };
 };
-
 const CommonReliabilityIssues = ({
   issues,
-  heading,
+  brand,
+  engine,
   subheading,
   infoBlock,
 }: CommonReliabilityIssuesData): JSX.Element => {
   return (
     <Container>
-      <H1>{heading}</H1>
+      <H1>
+        Common Reliability Issues - {brand.toUpperCase()} {engine.toUpperCase()}
+      </H1>
       <SH>{subheading}</SH>
 
       <div className="grid gap-6 md:grid-cols-2 mt-8">
         {issues.map((issue, idx) => {
-          const Icon = issue.icon;
-          const FixIcon = issue.fixIcon;
           const { className: cardClass, textClass } = getCardStyles(idx);
 
           return (
@@ -241,7 +93,7 @@ const CommonReliabilityIssues = ({
 
               <CardHeader className={`pb-3 relative z-10 ${textClass}`}>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Icon className="h-5 w-5 text-current" />
+                  <AlertOctagon className="h-5 w-5 text-current" />
                   {issue.title}
                 </CardTitle>
               </CardHeader>
@@ -249,7 +101,7 @@ const CommonReliabilityIssues = ({
               <CardContent className={`space-y-4 relative z-10 ${textClass}`}>
                 {/* Symptoms */}
                 <div className="flex items-start">
-                  <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-current" />
+                  <Activity />
                   <span className="ml-2">
                     <span className="text-sm font-semibold">Symptoms: </span>
                     <span className="text-sm">{issue.symptoms}</span>
@@ -258,7 +110,7 @@ const CommonReliabilityIssues = ({
 
                 {/* Cause */}
                 <div className="flex items-start">
-                  <Icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-current" />
+                  <CircleHelp />
                   <span className="ml-2">
                     <span className="text-sm font-semibold">Cause: </span>
                     <span className="text-sm">{issue.cause}</span>
@@ -267,7 +119,7 @@ const CommonReliabilityIssues = ({
 
                 {/* Fix */}
                 <div className="flex items-start">
-                  <FixIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-current" />
+                  <Wrench />
                   <span className="ml-2">
                     <span className="text-sm font-semibold">Fix: </span>
                     <span className="text-sm">{issue.fix}</span>
@@ -289,7 +141,7 @@ const CommonReliabilityIssues = ({
           <CardContent>
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0">
-                <infoBlock.icon className="h-6 w-6 text-primary" />
+                <Info className="h-6 w-6 text-primary" />
               </div>
               <div className="space-y-2">
                 <Strong>{infoBlock.title}</Strong>

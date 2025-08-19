@@ -116,8 +116,6 @@ export default function StickyButton({
           </form>
         </div>
       </div>
-
-      {/* Inline script for toggling */}
       <ToggleForm />
     </>
   );

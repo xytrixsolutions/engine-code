@@ -17,6 +17,9 @@ export const getEnginePageData = async (brand: string, engine: string) => {
       ...engineData.hero,
       image: brandHeroImage,
     },
+    researchResources: {
+      ...brandData.researchResources,
+    },
   };
 };
 export const getAllEngineSlugs = async (): Promise<
