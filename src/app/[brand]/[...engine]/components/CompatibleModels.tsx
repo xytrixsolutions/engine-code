@@ -46,7 +46,7 @@ const DynamicSection = ({ title, data, icon }: DynamicSectionProps) => {
           }
 
           return (
-            <div key={key} className="p-3 rounded-lg bg-muted">
+            <div key={key} className="px-3 py-1">
               {/* Optional: Display the key as a label if it's informative */}
               {/* Example heuristic: Show key if it's not 'evidence' */}
               {/* Adjust this logic based on your actual data structure */}

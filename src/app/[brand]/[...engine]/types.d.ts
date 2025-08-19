@@ -38,16 +38,7 @@ interface TechnicalSpecsProps extends TechnicalSpecsData {
 }
 
 interface AdditionalInfoBlock {
-  // You can adjust these key names if the structure isn't always exactly these three
-  [key: string]: string | string[]; // Allows for string or string[] values inside the object
-  // Example known keys (optional, for better intellisense if structures are similar)
-  // location?: string;
-  // visualCues?: string[];
-  // evidence?: string;
-  // issue?: string;
-  // recommendation?: string;
-  // flywheel?: string;
-  // timingComponents?: string;
+  [key: string]: string | string[];
 }
 
 interface CompatibleModelsData {
@@ -55,21 +46,6 @@ interface CompatibleModelsData {
   compatibleModels: TableData;
   guidanceTitle: string;
   guidanceText: string;
-  // identificationDetails: {
-  //   location: string;
-  //   visualCues: string[];
-  //   evidence: string;
-  // };
-  // compatibilityNotes: {
-  //   flywheel: string;
-  //   timingComponents: string;
-  //   evidence: string;
-  // };
-  // tensionerUpgrade: {
-  //   issue: string;
-  //   recommendation: string;
-  //   evidence: string;
-  // };
   [key: string]: string | TableData | AdditionalInfoBlock;
 }
 
@@ -166,9 +142,9 @@ interface Organization {
 
 interface QuantitativeValue {
   "@type": "QuantitativeValue";
-  value: string; // e.g., "350-380"
-  unitCode: string; // e.g., "NMT", "HPP"
-  unitText: string; // e.g., "Nm", "PS"
+  value: string;
+  unitCode: string;
+  unitText: string;
 }
 
 interface Vehicle {
@@ -198,7 +174,7 @@ interface DatasetSourceOrganization {
 
 interface DataDownload {
   "@type": "DataDownload";
-  encodingFormat: string; // e.g., "text/html"
+  encodingFormat: string;
   contentUrl: string;
 }
 
@@ -234,8 +210,8 @@ interface WebSite extends GraphItem {
   publisher: Organization;
   potentialAction: {
     "@type": "SearchAction";
-    target: string; // e.g., "https://www.enginecode.uk/search?q={search_term_string}"
-    "query-input": string; // e.g., "required name=search_term_string"
+    target: string;
+    "query-input": string;
   };
 }
 
@@ -245,13 +221,13 @@ interface Article extends GraphItem {
   isPartOf: { "@id": string };
   headline: string;
   description: string;
-  author: Organization; // Assuming Organization based on provided data
+  author: Organization;
   publisher: Organization;
-  datePublished: string; // ISO 8601 format date
-  dateModified: string; // ISO 8601 format date
+  datePublished: string;
+  dateModified: string;
   mainEntityOfPage: { "@id": string };
   articleSection: string;
-  inLanguage: string; // e.g., "en-GB"
+  inLanguage: string;
   copyrightNotice: string;
   funding: {
     "@type": "Grant";

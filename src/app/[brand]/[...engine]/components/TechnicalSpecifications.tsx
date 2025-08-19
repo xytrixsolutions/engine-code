@@ -37,7 +37,7 @@ const TechnicalSpecifications = ({
                 {Object.entries(
                   practicalImplications.dataVerificationNotes,
                 ).map(([key, value]) => (
-                  <div key={key} className="p-3 rounded-lg bg-muted">
+                  <div key={key} className="px-3 py-1">
                     <p className="font-medium text-foreground">
                       <strong>
                         {key
@@ -67,7 +67,7 @@ const TechnicalSpecifications = ({
                     : source;
 
                   return (
-                    <div key={index} className="p-3 rounded-lg bg-muted">
+                    <div key={index} className="px-3 py-1">
                       <p className="font-medium text-foreground">
                         {url ? (
                           <a

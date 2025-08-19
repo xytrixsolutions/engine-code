@@ -9,23 +9,23 @@ import Container from "@/components/Container";
 
 const FAQs = ({
   faqData,
-  brand,
-  engine,
+  brand: brandName,
+  engine: engineName,
 }: {
   faqData: FAQItem[];
   brand: string;
   engine: string;
 }): JSX.Element => {
+  const brand = brandName.toUpperCase();
+  const engine = engineName.toUpperCase();
   return (
     <Container>
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-relaxed text-center mb-6">
-          Frequently Asked Questions about {brand.toUpperCase()}{" "}
-          {engine.toUpperCase()}
+          Frequently Asked Questions about {brand} {engine}
         </h1>
         <p className="text-muted-foreground mb-8 text-lg leading-relaxed text-center">
-          Find answers to common questions about our products, shipping, and
-          policies.
+          Find answers to most commonly asked questions about {brand} {engine}.
         </p>
       </div>
 
