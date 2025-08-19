@@ -97,7 +97,7 @@ const CompatibleModels = ({
         <CardContent className="space-y-6">
           <P>{guidanceText}</P>
 
-          {extraNotes.map((note) => {
+          {extraNotes?.map((note) => {
             // Extract the key and the rest of the properties
             const { key, ...data } = note;
 

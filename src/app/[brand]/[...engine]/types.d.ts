@@ -51,7 +51,7 @@ interface CompatibleModelsData {
   compatibleModels: TableData;
   guidanceTitle: string;
   guidanceText: string;
-  extraNotes: ExtraNoteItem[];
+  extraNotes?: ExtraNoteItem[];
 }
 
 interface CompatibleModelsProps extends CompatibleModelsData {
