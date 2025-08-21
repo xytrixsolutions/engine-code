@@ -25,7 +25,9 @@ interface InfoBlock {
 
 interface TechnicalSpecsData {
   description: string;
-  engineSpecs: TableData;
+  engineSpecs:
+    | TableData
+    | { parameter: string; value: string; source: string }[];
   practicalImplications: {
     heading: string;
     content: string;
@@ -36,6 +38,7 @@ interface TechnicalSpecsData {
 
 interface TechnicalSpecsProps extends TechnicalSpecsData {
   engine: string;
+  fuelType: string;
 }
 
 interface AdditionalInfoBlock {
@@ -56,6 +59,7 @@ interface CompatibleModelsData {
 
 interface CompatibleModelsProps extends CompatibleModelsData {
   engine: string;
+  fuelType: string;
 }
 
 interface CommonReliabilityIssuesData {
@@ -109,6 +113,7 @@ interface HeroDataProps extends HeroData {
   brand: string;
   engine: string;
   years: string;
+  fuelType: string;
 }
 interface WithContext {
   "@context": "https://schema.org";

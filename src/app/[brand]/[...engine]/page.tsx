@@ -51,6 +51,7 @@ const EnginePage = async (props: {
     schema,
     researchResources,
   } = engineData;
+  const fuelType = technicalSpecifications.engineSpecs[1].value as string;
 
   return (
     <>
@@ -61,14 +62,28 @@ const EnginePage = async (props: {
         />
       </Head>
       <StickyButton engineCode={engine} />
-      <Hero {...hero} brand={params.brand} engine={engine} />
-      <TechnicalSpecifications {...technicalSpecifications} engine={engine} />
-      <CompatibleModels {...compatibleModels} engine={engine} />
+      <Hero
+        {...hero}
+        brand={params.brand}
+        engine={engine}
+        fuelType={fuelType}
+      />
+      <TechnicalSpecifications
+        {...technicalSpecifications}
+        engine={engine}
+        fuelType={fuelType}
+      />
+      <CompatibleModels
+        {...compatibleModels}
+        engine={engine}
+        fuelType={fuelType}
+      />
       <Banner hidden bannerImage={bannerImage} />
       <CommonReliabilityIssues
         {...commonReliabilityIssues}
         engine={engine}
         brand={params.brand}
+        fuelType={fuelType}
       />
       <FAQs faqData={faqs} brand={params.brand} engine={engine} />
       <ResearchResources

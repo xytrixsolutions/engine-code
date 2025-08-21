@@ -13,12 +13,13 @@ const Hero = ({
   brand,
   engine,
   years,
+  fuelType,
 }: HeroDataProps): JSX.Element => {
   return (
     <Container>
       <H1>
-        {brand.toUpperCase()} {engine.toUpperCase()} engine {years} – Specs,
-        Problems & Compatibility Database
+        {brand.toUpperCase()} {engine.toUpperCase()} {fuelType} engine {years} –
+        Specs, Problems & Compatibility Database
       </H1>
       <div className="flex flex-col lg:flex-row gap-12 my-5">
         <div className="lg:w-7/10 w-full">
