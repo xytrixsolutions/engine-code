@@ -3494,7 +3494,7 @@ Designed to meet Euro 6 standards, it balances sporty driving dynamics with mode
 
     },
   },
-  alfaromeo: {
+  "alfa-romeo": {
     heroImage: {
       src: "/bmw-sample-engine.jpg",
       alt: "BMW N47D20A Engine",
@@ -18058,7 +18058,7 @@ Designed to meet Euro 6c standards, it integrates emissions control within the e
 
     },
   },
-  landrover: {
+  "land-rover": {
     heroImage: {
       src: "/bmw-sample-engine.jpg",
       alt: "BMW N47D20A Engine",
