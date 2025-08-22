@@ -49,7 +49,7 @@ type CommonReliabilityIssuesData = {
   heading?: string;
   brand: string;
   engine: string;
-  fuelType: string;
+  fuelType?: string;
   subheading: string;
   infoBlock?: {
     title: string;
@@ -63,13 +63,13 @@ const CommonReliabilityIssues = ({
   engine,
   subheading,
   infoBlock,
-  fuelType,
+  // fuelType,
 }: CommonReliabilityIssuesData): JSX.Element => {
   return (
     <Container>
       <H1>
         Common Reliability Issues - {brand.toUpperCase()} {engine.toUpperCase()}{" "}
-        {fuelType}
+        {/* {fuelType} */}
       </H1>
       <SH>{subheading}</SH>
 

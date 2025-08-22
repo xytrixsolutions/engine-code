@@ -10,12 +10,12 @@ const TechnicalSpecifications = ({
   description,
   engineSpecs,
   practicalImplications,
-  fuelType,
+  // fuelType,
 }: TechnicalSpecsProps): JSX.Element => {
   return (
     <Container>
       <H1>
-        {engine.toUpperCase()} {fuelType} Technical Specifications
+        {engine.toUpperCase()} {/*fuelType*/} Technical Specifications
       </H1>
       <SH className="mt-2">{description}</SH>
 

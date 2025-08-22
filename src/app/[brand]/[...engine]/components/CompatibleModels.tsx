@@ -179,7 +179,7 @@ const CompatibleModels = ({
   guidanceTitle,
   guidanceText,
   extraNotes,
-  fuelType,
+  // fuelType,
 }: CompatibleModelsProps): JSX.Element => {
   const getIcon = (key: string) => {
     const keyLower = key.toLowerCase();
@@ -195,7 +195,7 @@ const CompatibleModels = ({
   return (
     <Container>
       <H1>
-        {engine.toUpperCase()} {fuelType} Compatible Models
+        {engine.toUpperCase()} {/*fuelType*/} Compatible Models
       </H1>
       <SH className="mt-2" dangerouslySetInnerHTML={{ __html: description }} />
 

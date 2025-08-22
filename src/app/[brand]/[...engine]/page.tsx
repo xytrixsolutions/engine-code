@@ -71,19 +71,19 @@ const EnginePage = async (props: {
       <TechnicalSpecifications
         {...technicalSpecifications}
         engine={engine}
-        fuelType={fuelType}
+        // fuelType={fuelType}
       />
       <CompatibleModels
         {...compatibleModels}
         engine={engine}
-        fuelType={fuelType}
+        // fuelType={fuelType}
       />
       <Banner hidden bannerImage={bannerImage} />
       <CommonReliabilityIssues
         {...commonReliabilityIssues}
         engine={engine}
         brand={params.brand}
-        fuelType={fuelType}
+        // fuelType={fuelType}
       />
       <FAQs faqData={faqs} brand={params.brand} engine={engine} />
       <ResearchResources
