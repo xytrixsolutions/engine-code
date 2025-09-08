@@ -1,10 +1,9 @@
-// ingest-engines.ts
-import { Client } from "pg";
-import * as dotenv from "dotenv";
+const { Client } = require("pg");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
-import { pageData } from "./src/app/data/data.ts";
+const { pageData } = require("./src/app/data/data.ts");
 
 function sanitizeForJSON(obj) {
   if (obj === null || obj === undefined) return null;
@@ -41,18 +40,33 @@ async function main() {
     console.log("Connected to PostgreSQL");
 
     // Ensure table exists
+    // await client.query(`
+    //   CREATE TABLE IF NOT EXISTS engines (
+    //     id SERIAL PRIMARY KEY,
+    //     brand TEXT NOT NULL,
+    //     engine_code TEXT NOT NULL,
+    //     data JSONB NOT NULL,
+    //     created_at TIMESTAMPTZ DEFAULT NOW(),
+    //     UNIQUE(brand, engine_code)
+    //   );
+    //
+    //   CREATE INDEX IF NOT EXISTS idx_engine_data_gin ON engines USING GIN (data);
+    // `);
     await client.query(`
-      CREATE TABLE IF NOT EXISTS engines (
-        id SERIAL PRIMARY KEY,
-        brand TEXT NOT NULL,
-        engine_code TEXT NOT NULL,
-        data JSONB NOT NULL,
-        created_at TIMESTAMPTZ DEFAULT NOW(),
-        UNIQUE(brand, engine_code)
-      );
+  DROP TABLE IF EXISTS engines;
+  CREATE TABLE IF NOT EXISTS engines (
+    id SERIAL PRIMARY KEY,
+    brand TEXT NOT NULL,
+    engine_code TEXT NOT NULL,
+    data JSONB NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+  );
 
-      CREATE INDEX IF NOT EXISTS idx_engine_data_gin ON engines USING GIN (data);
-    `);
+  CREATE UNIQUE INDEX IF NOT EXISTS uq_engines_brand_engine_code 
+    ON engines (brand, engine_code);
+
+  CREATE INDEX IF NOT EXISTS idx_engine_data_gin ON engines USING GIN (data);
+`);
 
     let count = 0;
 
@@ -76,13 +90,22 @@ async function main() {
         };
 
         const cleanData = sanitizeForJSON(enrichedData);
+        // await client.query(
+        //   `
+        //   INSERT INTO engines (brand, engine_code, data)
+        //   VALUES ($1, $2, $3)
+        //   ON CONFLICT (brand, engine_code) DO UPDATE
+        //   SET data = EXCLUDED.data, created_at = NOW()
+        // `,
+        //   [brandKey, engineCode, JSON.stringify(cleanData)],
+        // );
         await client.query(
           `
-          INSERT INTO engines (brand, engine_code, data)
-          VALUES ($1, $2, $3)
-          ON CONFLICT (brand, engine_code) DO UPDATE
-          SET data = EXCLUDED.data, created_at = NOW()
-        `,
+  INSERT INTO engines (brand, engine_code, data)
+  VALUES ($1, $2, $3)
+  ON CONFLICT (brand, engine_code) DO UPDATE
+  SET data = EXCLUDED.data, created_at = NOW()
+`,
           [brandKey, engineCode, JSON.stringify(cleanData)],
         );
 
