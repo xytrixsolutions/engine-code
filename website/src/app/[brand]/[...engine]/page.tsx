@@ -100,5 +100,6 @@ const EnginePage = async (props: {
 };
 
 export const dynamicParams = false;
+export const revalidate = 86400; // regenerate once a day
 export default EnginePage;
 export { generateMetadata, generateStaticParams };

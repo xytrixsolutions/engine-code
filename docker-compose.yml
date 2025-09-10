@@ -1,0 +1,52 @@
+version: "3.9"
+networks:
+  web:
+    external: true 
+volumes:
+  pgdata:
+  pgadmin-data:
+services:
+  webapp:
+    build: ./website
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.webapp.rule=Host(`khaki-kangaroo-21779.zap.cloud`)"
+      - "traefik.http.routers.webapp.entrypoints=websecure"
+      - "traefik.http.routers.webapp.tls.certresolver=le"
+      - "traefik.http.routers.webapp-http.rule=Host(`khaki-kangaroo-21779.zap.cloud`)"
+      - "traefik.http.routers.webapp-http.entrypoints=web"
+      - "traefik.http.routers.webapp-http.middlewares=to-https"
+      - "traefik.http.middlewares.to-https.redirectscheme.scheme=https"
+      - "traefik.http.services.webapp.loadbalancer.server.port=3000"
+    networks:
+      - web
+    restart: unless-stopped
+  db:
+    image: postgres:16
+    container_name: enginecode
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - web
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: enginecode-pgadmin
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - db
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.enginesmarket.co.uk`)"
+      - "traefik.http.routers.pgadmin.entrypoints=websecure"
+      - "traefik.http.routers.pgadmin.tls.certresolver=le"
+      - "traefik.http.services.pgadmin.loadbalancer.server.port=80"
+
