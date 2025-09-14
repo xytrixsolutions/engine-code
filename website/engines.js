@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const { pageData } = require("./src/app/data/data.ts");
+const { pageData } = require("./src/app/data/data.ts.ts");
 
 function sanitizeForJSON(obj) {
   if (obj === null || obj === undefined) return null;
@@ -52,20 +52,20 @@ async function main() {
     
       CREATE INDEX IF NOT EXISTS idx_engine_data_gin ON engines USING GIN (data);
     `);
-//     await client.query(`
-//   CREATE TABLE IF NOT EXISTS engines (
-//     id SERIAL PRIMARY KEY,
-//     brand TEXT NOT NULL,
-//     engine_code TEXT NOT NULL,
-//     data JSONB NOT NULL,
-//     created_at TIMESTAMPTZ DEFAULT NOW()
-//   );
+    //     await client.query(`
+    //   CREATE TABLE IF NOT EXISTS engines (
+    //     id SERIAL PRIMARY KEY,
+    //     brand TEXT NOT NULL,
+    //     engine_code TEXT NOT NULL,
+    //     data JSONB NOT NULL,
+    //     created_at TIMESTAMPTZ DEFAULT NOW()
+    //   );
 
-//   CREATE UNIQUE INDEX IF NOT EXISTS uq_engines_brand_engine_code 
-//     ON engines (brand, engine_code);
+    //   CREATE UNIQUE INDEX IF NOT EXISTS uq_engines_brand_engine_code 
+    //     ON engines (brand, engine_code);
 
-//   CREATE INDEX IF NOT EXISTS idx_engine_data_gin ON engines USING GIN (data);
-// `);
+    //   CREATE INDEX IF NOT EXISTS idx_engine_data_gin ON engines USING GIN (data);
+    // `);
 
     let count = 0;
 
@@ -82,7 +82,7 @@ async function main() {
           console.warn(`⚠️ Missing data for engine: ${brandKey}/${engineCode}`);
           continue;
         }
-        engineData.hero = engineData.hero || {}; 
+        engineData.hero = engineData.hero || {};
         engineData.hero.image = engineData?.hero?.image ?? heroImage;
         const enrichedData = {
           ...engineData,
@@ -99,13 +99,13 @@ async function main() {
         `,
           [brandKey, engineCode, JSON.stringify(cleanData)],
         );
-//         await client.query(
-//           `
-//   INSERT INTO engines (brand, engine_code, data)
-//   VALUES ($1, $2, $3)
-//   ON CONFLICT (brand, engine_code) DO UPDATE
-//   SET data = EXCLUDED.data, created_at = NOW()
-// `,
+        //         await client.query(
+        //           `
+        //   INSERT INTO engines (brand, engine_code, data)
+        //   VALUES ($1, $2, $3)
+        //   ON CONFLICT (brand, engine_code) DO UPDATE
+        //   SET data = EXCLUDED.data, created_at = NOW()
+        // `,
         //   [brandKey, engineCode, JSON.stringify(cleanData)],
         // );
 
@@ -118,9 +118,9 @@ async function main() {
     console.log(`✅ Successfully inserted ${count} engine records.`);
   } catch (err) {
     // try {
-      // await client.query("ROLLBACK");
+    // await client.query("ROLLBACK");
     // } catch (rollbackErr) {
-      // console.error("Rollback failed:", rollbackErr);
+    // console.error("Rollback failed:", rollbackErr);
     // }
     console.error("❌ Error during ingestion:", err);
 
