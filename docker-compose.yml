@@ -10,14 +10,14 @@ services:
     build: ./website
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.webapp.rule=Host(`enginecode.enginesmarket.co.uk`)"
-      - "traefik.http.routers.webapp.entrypoints=websecure"
-      - "traefik.http.routers.webapp.tls.certresolver=le"
-      - "traefik.http.routers.webapp-http.rule=Host(`enginecode.enginesmarket.co.uk`)"
-      - "traefik.http.routers.webapp-http.entrypoints=web"
-      - "traefik.http.routers.webapp-http.middlewares=to-https"
+      - "traefik.http.routers.enginecode.rule=Host(`enginecode.enginesmarket.co.uk`)"
+      - "traefik.http.routers.enginecode.entrypoints=websecure"
+      - "traefik.http.routers.enginecode.tls.certresolver=le"
+      - "traefik.http.routers.enginecode-http.rule=Host(`enginecode.enginesmarket.co.uk`)"
+      - "traefik.http.routers.enginecode-http.entrypoints=web"
+      - "traefik.http.routers.enginecode-http.middlewares=to-https"
       - "traefik.http.middlewares.to-https.redirectscheme.scheme=https"
-      - "traefik.http.services.webapp.loadbalancer.server.port=3000"
+      - "traefik.http.services.enginecode.loadbalancer.server.port=3000"
     networks:
       - web
     restart: unless-stopped
@@ -31,6 +31,8 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - web
+    ports:
+      - "5432:5432"
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: enginecode-pgadmin

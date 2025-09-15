@@ -4,9 +4,9 @@ WORKDIR /app
 COPY .env ./
 
 COPY package*.json ./
-RUN pnpm install
+#RUN pnpm install
 COPY . .
-RUN pnpm run build
+#RUN pnpm run build
 
 # --- runtime stage ---
 FROM node:22-alpine
