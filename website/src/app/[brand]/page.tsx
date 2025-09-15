@@ -125,6 +125,7 @@ import EngineCodeGuide from "./components/engine-code-guide";
 import EngineDatabase from "./components/engine-database";
 import EngineFamilies from "./components/engine-families";
 import EngineModelDatabase from "./components/engine-model-database";
+import { ProductionFacts } from "./components/engine-production-facts";
 import TechnologyOverview from "./components/engine-technology-overview";
 import EngineTimeline from "./components/engine-timeline";
 import { FrequentlyAskedQuestions } from "./components/frequently-asked-questions";
@@ -141,6 +142,7 @@ export default function HomePage() {
       <TechnologyOverview />
       <EngineCodeGuide />
       <EngineModelDatabase />
+      <ProductionFacts />
       <FrequentlyAskedQuestions />
       <ReferencesDisclaimers />
     </>

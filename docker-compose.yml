@@ -1,7 +1,7 @@
 version: "3.9"
 networks:
   web:
-    external: true 
+    external: true
 volumes:
   pgdata:
   pgadmin-data:
@@ -10,10 +10,10 @@ services:
     build: ./website
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.webapp.rule=Host(`khaki-kangaroo-21779.zap.cloud`)"
+      - "traefik.http.routers.webapp.rule=Host(`enginecode.enginesmarket.co.uk`)"
       - "traefik.http.routers.webapp.entrypoints=websecure"
       - "traefik.http.routers.webapp.tls.certresolver=le"
-      - "traefik.http.routers.webapp-http.rule=Host(`khaki-kangaroo-21779.zap.cloud`)"
+      - "traefik.http.routers.webapp-http.rule=Host(`enginecode.enginesmarket.co.uk`)"
       - "traefik.http.routers.webapp-http.entrypoints=web"
       - "traefik.http.routers.webapp-http.middlewares=to-https"
       - "traefik.http.middlewares.to-https.redirectscheme.scheme=https"
@@ -49,4 +49,3 @@ services:
       - "traefik.http.routers.pgadmin.entrypoints=websecure"
       - "traefik.http.routers.pgadmin.tls.certresolver=le"
       - "traefik.http.services.pgadmin.loadbalancer.server.port=80"
-
