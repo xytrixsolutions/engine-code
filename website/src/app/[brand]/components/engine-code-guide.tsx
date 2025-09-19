@@ -9,6 +9,7 @@ import {
   Search,
 } from "lucide-react";
 import { useState } from "react";
+import Container from "@/components/Container";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -17,7 +18,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import Container from "@/components/Container";
+import Image from "next/image";
 
 const modelGuides = [
   {
@@ -25,7 +26,7 @@ const modelGuides = [
     title: "BMW 320d (E90, 2007–2011) – N47 Engine",
     description:
       "Locate the engine code on the front timing cover, just below the camshaft cover. It is stamped into the metal or on a label near the timing chain housing.",
-    imageFilename: "bmw-e90-n47-engine-code-location.webp",
+    imageFilename: "image.png",
     altText:
       "BMW E90 320d N47 engine code location on timing cover – stamped near camshaft housing – UK model year 2009",
   },
@@ -34,7 +35,7 @@ const modelGuides = [
     title: "BMW 330i (F30, 2015–2019) – B48 Engine",
     description:
       'The engine code is located on a label attached to the intake manifold, near the turbocharger. It reads "B48B20O0" or "B48B20O1".',
-    imageFilename: "bmw-f30-b48-engine-code-intake-label.webp",
+    imageFilename: "image.png",
     altText:
       "BMW F30 330i B48B20 engine code on intake manifold label – turbo side – Euro 6 compliance",
   },
@@ -43,7 +44,7 @@ const modelGuides = [
     title: "BMW X3 (G01, 2018–Now) – B47D20 or B48B20",
     description:
       'Open the hood and look at the front left of the engine (passenger side). The code is on a white label near the timing cover. For diesel models, confirm "B47D20"; petrol models show "B48B20".',
-    imageFilename: "bmw-g01-x3-b47-b48-engine-code-location.webp",
+    imageFilename: "image.png",
     altText:
       "BMW G01 X3 engine code location for B47D20 and B48B20 – label near timing cover – UK registration model",
   },
@@ -52,7 +53,7 @@ const modelGuides = [
     title: "BMW 320i (E46, 2000–2005) – M54 Engine",
     description:
       'The engine code is cast into the front of the cylinder head, near the thermostat housing. Look for "M54B22" or "M54B30".',
-    imageFilename: "bmw-e46-m54-engine-code-cast-location.webp",
+    imageFilename: "image.png",
     altText:
       "BMW E46 320i M54B22 engine code cast into cylinder head – thermostat housing area – Euro 4 model",
   },
@@ -112,6 +113,68 @@ export default function EngineCodeGuide() {
       </Alert>
 
       {/* Method 1: Engine Bay */}
+      {/* <Card className="p-8 border-border bg-card"> */}
+      {/*   <div className="space-y-6"> */}
+      {/*     <div className="flex items-center gap-3"> */}
+      {/*       <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary"> */}
+      {/*         <Search className="h-5 w-5" /> */}
+      {/*       </div> */}
+      {/*       <h3 className="text-2xl font-semibold text-foreground"> */}
+      {/*         1. Engine Bay Sticker or Cast Marking */}
+      {/*       </h3> */}
+      {/*     </div> */}
+      {/*     <p className="text-muted-foreground leading-relaxed"> */}
+      {/*       The most reliable method. The engine code is stamped or labeled */}
+      {/*       directly on the engine block or cover. */}
+      {/*     </p> */}
+      {/**/}
+      {/* Model-Specific Guides */}
+      {/*     <div className="space-y-4"> */}
+      {/*       {modelGuides.map((guide) => ( */}
+      {/*         <Collapsible */}
+      {/*           key={guide.id} */}
+      {/*           open={openSections.includes(guide.id)} */}
+      {/*           onOpenChange={() => toggleSection(guide.id)} */}
+      {/*         > */}
+      {/*           <CollapsibleTrigger className="w-full"> */}
+      {/*             <Card className="p-4 hover:bg-accent/50 transition-colors cursor-pointer"> */}
+      {/*               <div className="flex items-center justify-between"> */}
+      {/*                 <h4 className="text-lg font-medium text-foreground text-left"> */}
+      {/*                   {guide.title} */}
+      {/*                 </h4> */}
+      {/*                 <ChevronDown */}
+      {/*                   className={`h-5 w-5 text-muted-foreground transition-transform ${ */}
+      {/*                     openSections.includes(guide.id) ? "rotate-180" : "" */}
+      {/*                   }`} */}
+      {/*                 /> */}
+      {/*               </div> */}
+      {/*             </Card> */}
+      {/*           </CollapsibleTrigger> */}
+      {/*           <CollapsibleContent className="mt-4"> */}
+      {/*             <Card className="p-6 bg-muted/30 border-border"> */}
+      {/*               <div className="space-y-4"> */}
+      {/*                 <p className="text-muted-foreground leading-relaxed"> */}
+      {/*                   {guide.description} */}
+      {/*                 </p> */}
+      {/**/}
+      {/* Image Placeholder */}
+      {/*                 <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 text-center"> */}
+      {/*                   <div className="text-muted-foreground space-y-2"> */}
+      {/*                     <div className="text-sm font-medium"> */}
+      {/*                       Image: {guide.imageFilename} */}
+      {/*                     </div> */}
+      {/*                     <div className="text-xs italic">{guide.altText}</div> */}
+      {/*                   </div> */}
+      {/*                 </div> */}
+      {/*               </div> */}
+      {/*             </Card> */}
+      {/*           </CollapsibleContent> */}
+      {/*         </Collapsible> */}
+      {/*       ))} */}
+      {/*     </div> */}
+      {/*   </div> */}
+      {/* </Card> */}
+      {/* Method 1: Engine Bay */}
       <Card className="p-8 border-border bg-card">
         <div className="space-y-6">
           <div className="flex items-center gap-3">
@@ -127,153 +190,212 @@ export default function EngineCodeGuide() {
             directly on the engine block or cover.
           </p>
 
-          {/* Model-Specific Guides */}
-          <div className="space-y-4">
-            {modelGuides.map((guide) => (
-              <Collapsible
-                key={guide.id}
-                open={openSections.includes(guide.id)}
-                onOpenChange={() => toggleSection(guide.id)}
-              >
-                <CollapsibleTrigger className="w-full">
-                  <Card className="p-4 hover:bg-accent/50 transition-colors cursor-pointer">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-lg font-medium text-foreground text-left">
-                        {guide.title}
-                      </h4>
-                      <ChevronDown
-                        className={`h-5 w-5 text-muted-foreground transition-transform ${
-                          openSections.includes(guide.id) ? "rotate-180" : ""
-                        }`}
-                      />
-                    </div>
-                  </Card>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="mt-4">
-                  <Card className="p-6 bg-muted/30 border-border">
-                    <div className="space-y-4">
-                      <p className="text-muted-foreground leading-relaxed">
-                        {guide.description}
-                      </p>
+          {/* 2x2 Grid for Accordions */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            {/* Left Column - First Two Accordions */}
+            <div className="space-y-4">
+              {modelGuides.slice(0, 2).map((guide) => (
+                <Collapsible
+                  key={guide.id}
+                  open={openSections.includes(guide.id)}
+                  onOpenChange={() => toggleSection(guide.id)}
+                >
+                  <CollapsibleTrigger className="w-full">
+                    <Card className="p-4 hover:bg-accent/50 transition-colors cursor-pointer">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-lg font-medium text-foreground text-left">
+                          {guide.title}
+                        </h4>
+                        <ChevronDown
+                          className={`h-5 w-5 text-muted-foreground transition-transform ${
+                            openSections.includes(guide.id) ? "rotate-180" : ""
+                          }`}
+                        />
+                      </div>
+                    </Card>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="mt-4">
+                    <Card className="p-6 bg-muted/30 border-border">
+                      <div className="space-y-4">
+                        <p className="text-muted-foreground leading-relaxed">
+                          {guide.description}
+                        </p>
 
-                      {/* Image Placeholder */}
-                      <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 text-center">
-                        <div className="text-muted-foreground space-y-2">
-                          <div className="text-sm font-medium">
-                            Image: {guide.imageFilename}
+                        {/* Image Placeholder */}
+                        <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 text-center">
+                          <div className="text-muted-foreground space-y-2">
+                            <Image
+                              src={`/${guide.imageFilename}`}
+                              alt="BMW Engine Timeline"
+                              width={0}
+                              height={0}
+                              sizes="100%"
+                              className="w-full rounded-xl"
+                            />
+                            <div className="text-xs italic">
+                              {guide.altText}
+                            </div>
                           </div>
-                          <div className="text-xs italic">{guide.altText}</div>
                         </div>
                       </div>
-                    </div>
-                  </Card>
-                </CollapsibleContent>
-              </Collapsible>
-            ))}
-          </div>
-        </div>
-      </Card>
-
-      {/* Method 2: V5C Registration */}
-      <Card className="p-8 border-border bg-card">
-        <div className="space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
-              <FileText className="h-5 w-5" />
-            </div>
-            <h3 className="text-2xl font-semibold text-foreground">
-              2. On Your V5C Registration Certificate
-            </h3>
-          </div>
-          <p className="text-muted-foreground leading-relaxed">
-            The engine code is listed under the{" "}
-            <strong className="text-foreground">"Engine Number"</strong> field
-            on the V5C (logbook). This is the legal identifier used by DVLA.
-          </p>
-
-          {/* V5C Image Placeholder */}
-          <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 text-center">
-            <div className="text-muted-foreground space-y-2">
-              <div className="text-sm font-medium">
-                Image: bmw-v5c-logbook-engine-number-field-uk.webp
-              </div>
-              <div className="text-xs italic">
-                Where to find engine code on UK V5C logbook – DVLA registration
-                document – Engine Number field
-              </div>
-            </div>
-          </div>
-
-          <Alert className="border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/20">
-            <AlertDescription className="text-sm text-muted-foreground">
-              <strong>Note:</strong> If the engine has been replaced, the V5C
-              may not reflect the current code. Always verify physically.
-            </AlertDescription>
-          </Alert>
-        </div>
-      </Card>
-
-      {/* Method 3: VIN Decoding */}
-      <Card className="p-8 border-border bg-card">
-        <div className="space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
-              <Hash className="h-5 w-5" />
-            </div>
-            <h3 className="text-2xl font-semibold text-foreground">
-              3. Decode Your VIN (Vehicle Identification Number)
-            </h3>
-          </div>
-          <p className="text-muted-foreground leading-relaxed">
-            The VIN (on windscreen, door jamb, or V5C) contains encoded
-            information, including engine type. Use a{" "}
-            <strong className="text-foreground">
-              BMW-specific VIN decoder
-            </strong>{" "}
-            to extract the engine code.
-          </p>
-
-          <div className="space-y-4">
-            <div className="p-4 bg-muted/30 rounded-lg border border-border">
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground">Recommended tool:</strong>{" "}
-                <a href="/vin-decoder" className="text-primary hover:underline">
-                  EngineCode.uk BMW VIN Decoder
-                </a>{" "}
-                <Badge variant="outline" className="text-xs ml-2">
-                  In Development
-                </Badge>
-              </p>
+                    </Card>
+                  </CollapsibleContent>
+                </Collapsible>
+              ))}
             </div>
 
-            <div className="p-4 bg-muted/30 rounded-lg border border-border">
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground">Manual method:</strong>{" "}
-                Positions 4–7 of the VIN indicate engine type (per BMW TIS Doc.
-                A15001). Example: VIN{" "}
-                <code className="bg-muted px-1 rounded">WBA...1A1A...</code> →
-                "1A1A" = N47D20A.
-              </p>
-            </div>
+            {/* Right Column - Last Two Accordions */}
+            <div className="space-y-4">
+              {modelGuides.slice(2, 4).map((guide) => (
+                <Collapsible
+                  key={guide.id}
+                  open={openSections.includes(guide.id)}
+                  onOpenChange={() => toggleSection(guide.id)}
+                >
+                  <CollapsibleTrigger className="w-full">
+                    <Card className="p-4 hover:bg-accent/50 transition-colors cursor-pointer">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-lg font-medium text-foreground text-left">
+                          {guide.title}
+                        </h4>
+                        <ChevronDown
+                          className={`h-5 w-5 text-muted-foreground transition-transform ${
+                            openSections.includes(guide.id) ? "rotate-180" : ""
+                          }`}
+                        />
+                      </div>
+                    </Card>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="mt-4">
+                    <Card className="p-6 bg-muted/30 border-border">
+                      <div className="space-y-4">
+                        <p className="text-muted-foreground leading-relaxed">
+                          {guide.description}
+                        </p>
 
-            {/* VIN Image Placeholder */}
-            <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 text-center">
-              <div className="text-muted-foreground space-y-2">
-                <div className="text-sm font-medium">
-                  Image: bmw-vin-plate-engine-code-segment-location.webp
-                </div>
-                <div className="text-xs italic">
-                  BMW VIN number plate with engine code segment highlighted –
-                  positions 4 to 7 – windscreen identification
-                </div>
-              </div>
+                        {/* Image Placeholder */}
+                        <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 text-center">
+                          <div className="text-muted-foreground space-y-2">
+                            <Image
+                              src={`/${guide.imageFilename}`}
+                              alt="BMW Engine Timeline"
+                              width={0}
+                              height={0}
+                              sizes="100%"
+                              className="w-full rounded-xl"
+                            />
+                            <div className="text-xs italic">
+                              {guide.altText}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </CollapsibleContent>
+                </Collapsible>
+              ))}
             </div>
           </div>
         </div>
       </Card>
 
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {/* Method 2: V5C Registration */}
+        <Card className="p-8 border-border bg-card">
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                <FileText className="h-5 w-5" />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground">
+                2. On Your V5C Registration Certificate
+              </h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              The engine code is listed under the{" "}
+              <strong className="text-foreground">"Engine Number"</strong> field
+              on the V5C (logbook). This is the legal identifier used by DVLA.
+            </p>
+
+            <Image
+              src={`/image.png`}
+              alt="BMW Engine Timeline"
+              width={0}
+              height={0}
+              sizes="100%"
+              className="w-full rounded-xl"
+            />
+
+            <Alert className="border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/20">
+              <AlertDescription className="text-sm text-muted-foreground">
+                <strong>Note:</strong> If the engine has been replaced, the V5C
+                may not reflect the current code. Always verify physically.
+              </AlertDescription>
+            </Alert>
+          </div>
+        </Card>
+
+        {/* Method 3: VIN Decoding */}
+        <Card className="p-8 border-border bg-card">
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                <Hash className="h-5 w-5" />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground">
+                3. Decode Your VIN (Vehicle Identification Number)
+              </h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              The VIN (on windscreen, door jamb, or V5C) contains encoded
+              information, including engine type. Use a{" "}
+              <strong className="text-foreground">
+                BMW-specific VIN decoder
+              </strong>{" "}
+              to extract the engine code.
+            </p>
+
+            <div className="space-y-4">
+              <div className="p-4 bg-muted/30 rounded-lg border border-border">
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">Recommended tool:</strong>{" "}
+                  <a
+                    href="/vin-decoder"
+                    className="text-primary hover:underline"
+                  >
+                    EngineCode.uk BMW VIN Decoder
+                  </a>{" "}
+                  <Badge variant="outline" className="text-xs ml-2">
+                    In Development
+                  </Badge>
+                </p>
+              </div>
+
+              <div className="p-4 bg-muted/30 rounded-lg border border-border">
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">Manual method:</strong>{" "}
+                  Positions 4–7 of the VIN indicate engine type (per BMW TIS
+                  Doc. A15001). Example: VIN{" "}
+                  <code className="bg-muted px-1 rounded">WBA...1A1A...</code> →
+                  "1A1A" = N47D20A.
+                </p>
+              </div>
+
+              {/* VIN Image Placeholder */}
+              <Image
+                src={`/image.png`}
+                alt="BMW Engine Timeline"
+                width={0}
+                height={0}
+                sizes="100%"
+                className="w-full rounded-xl"
+              />
+            </div>
+          </div>
+        </Card>
+      </div>
       {/* Source Disclaimer */}
-      <Card className="p-6 bg-muted/30 border-border">
+      <Card className="bg-muted/30 border-border px-6 py-3">
         <div className="flex items-start gap-2 text-sm text-muted-foreground">
           <Badge variant="outline" className="text-xs shrink-0 mt-0.5">
             †

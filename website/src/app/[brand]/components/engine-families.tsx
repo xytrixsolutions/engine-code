@@ -1416,6 +1416,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Image from "next/image";
+import { GiBarrel } from "react-icons/gi";
 
 const EngineFamilies = () => {
   const [openFamilies, setOpenFamilies] = useState<string[]>([]);
@@ -1766,7 +1768,7 @@ const EngineFamilies = () => {
       case "Petrol":
         return <Fuel className="h-4 w-4" />;
       case "Diesel":
-        return <Circle className="h-4 w-4 fill-current" />;
+        return <GiBarrel className="h-4 w-4 fill-current" />;
       case "Racing":
         return <Trophy className="h-4 w-4" />;
       case "Fuel Cell":
@@ -1903,6 +1905,15 @@ const EngineFamilies = () => {
           .
         </p>
       </div>
+
+      <Image
+        src="/image.png"
+        alt="BMW Engine Timeline"
+        width={0}
+        height={0}
+        sizes="100%"
+        className="w-full rounded-xl"
+      />
 
       {/* Engine Families */}
       <Card className="bg-card border-border">
@@ -2067,8 +2078,8 @@ const EngineFamilies = () => {
       </Card>
 
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30 border-border">
-        <CardContent className="p-6">
+      <Card className="bg-muted/30 border-border py-3">
+        <CardContent className="px-6">
           <div className="flex items-start gap-2 text-sm text-muted-foreground">
             <Badge
               variant="outline"

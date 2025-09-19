@@ -1,5 +1,6 @@
 "use client";
-import { Circle, ExternalLink, Fuel, Trophy, Zap } from "lucide-react";
+import { ExternalLink, Fuel, Trophy, Zap } from "lucide-react";
+import { GiBarrel } from "react-icons/gi";
 import Container from "@/components/Container";
 import {
   Accordion,
@@ -9,6 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
 
 const EngineTimeline = () => {
   const timelineData = [
@@ -18,14 +20,14 @@ const EngineTimeline = () => {
       engines: [
         {
           code: "M10",
-          type: "petrol",
+          type: "Petrol",
           years: "1970–1988",
           models: "2002, E12 5 Series",
           anchor: "m10",
         },
         {
           code: "M30",
-          type: "petrol",
+          type: "Petrol",
           years: "1968–1995",
           models: "E3, E9, E24 6 Series",
           anchor: "m30",
@@ -38,14 +40,14 @@ const EngineTimeline = () => {
       engines: [
         {
           code: "M40",
-          type: "petrol",
+          type: "Petrol",
           years: "1989–1994",
           models: "E30 316i, E36 316i",
           anchor: "m40",
         },
         {
           code: "M21",
-          type: "diesel",
+          type: "Diesel",
           years: "1983–1991",
           models: "E30 324d, E34 524td",
           anchor: "m21",
@@ -58,28 +60,28 @@ const EngineTimeline = () => {
       engines: [
         {
           code: "M42",
-          type: "petrol",
+          type: "Petrol",
           years: "1989–1996",
           models: "E30 318i",
           anchor: "m42",
         },
         {
           code: "M44",
-          type: "petrol",
+          type: "Petrol",
           years: "1996–2000",
           models: "E36 318i",
           anchor: "m44",
         },
         {
           code: "M51",
-          type: "diesel",
+          type: "Diesel",
           years: "1991–2000",
           models: "E34 525tds, E38 725tds",
           anchor: "m51",
         },
         {
           code: "M52",
-          type: "petrol",
+          type: "Petrol",
           years: "1994–2000",
           models: "E36 323i, E39 528i",
           anchor: "m52",
@@ -92,21 +94,21 @@ const EngineTimeline = () => {
       engines: [
         {
           code: "M54",
-          type: "petrol",
+          type: "Petrol",
           years: "2000–2006",
           models: "E46 330i, Z4",
           anchor: "m54",
         },
         {
           code: "M47",
-          type: "diesel",
+          type: "Diesel",
           years: "1998–2007",
           models: "E46 320d, E60 520d",
           anchor: "m47",
         },
         {
           code: "M62",
-          type: "petrol",
+          type: "Petrol",
           years: "1995–2005",
           models: "E39 540i, E53 X5",
           anchor: "m62",
@@ -119,35 +121,35 @@ const EngineTimeline = () => {
       engines: [
         {
           code: "N47",
-          type: "diesel",
+          type: "Diesel",
           years: "2007–2015",
           models: "E90 320d, F30 320d",
           anchor: "n47",
         },
         {
           code: "N20",
-          type: "petrol",
+          type: "Petrol",
           years: "2011–2017",
           models: "F30 328i",
           anchor: "n20",
         },
         {
           code: "B47",
-          type: "diesel",
+          type: "Diesel",
           years: "2014–Now",
           models: "F56 Mini, G20 318d",
           anchor: "b47",
         },
         {
           code: "B48",
-          type: "petrol",
+          type: "Petrol",
           years: "2015–Now",
           models: "G20 330i, Z4",
           anchor: "b48",
         },
         {
           code: "B37",
-          type: "diesel",
+          type: "Diesel",
           years: "2014–Now",
           models: "F56 Mini One D",
           anchor: "b37",
@@ -160,21 +162,21 @@ const EngineTimeline = () => {
       engines: [
         {
           code: "B58",
-          type: "petrol",
+          type: "Petrol",
           years: "2015–Now",
           models: "G20 M340i, G80 M3",
           anchor: "b58",
         },
         {
           code: "S58",
-          type: "petrol",
+          type: "Petrol",
           years: "2020–Now",
           models: "G80 M3, G82 M4",
           anchor: "s58",
         },
         {
           code: "P-Series",
-          type: "race",
+          type: "Race",
           years: "1982–Now",
           models: "M1 Procar, M Hybrid V8",
           anchor: "p-series",
@@ -191,11 +193,11 @@ const EngineTimeline = () => {
   ];
   const getEngineIcon = (type: string) => {
     switch (type) {
-      case "petrol":
+      case "Petrol":
         return <Fuel className="h-4 w-4" />;
-      case "diesel":
-        return <Circle className="h-4 w-4 fill-current" />;
-      case "race":
+      case "Diesel":
+        return <GiBarrel className="h-4 w-4" />;
+      case "Race":
         return <Trophy className="h-4 w-4" />;
       case "fuel cell":
         return <Zap className="h-4 w-4" />;
@@ -205,11 +207,11 @@ const EngineTimeline = () => {
   };
   const getEngineVariant = (type: string) => {
     switch (type) {
-      case "petrol":
+      case "Petrol":
         return "default";
-      case "diesel":
+      case "Diesel":
         return "secondary";
-      case "race":
+      case "Race":
         return "destructive";
       case "fuel cell":
         return "outline";
@@ -232,8 +234,8 @@ const EngineTimeline = () => {
           BMW Engine Evolution Timeline (1970–2025)
         </h2>
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-          Track 55+ years of BMW engineering across petrol, diesel, hybrid, and
-          race powertrains. Data sourced from{" "}
+          Track 55+ years of BMW engineering across Petrol, Diesel, hybrid, and
+          Race powertrains. Data sourced from{" "}
           <a
             href="https://www.bmwgroup.com/en.html"
             target="_blank"
@@ -255,6 +257,14 @@ const EngineTimeline = () => {
           </a>{" "}
           on vehicle type approval.
         </p>
+        <Image
+          src="/image.png"
+          alt="BMW Engine Timeline"
+          width={0}
+          height={0}
+          sizes="100%"
+          className="w-full rounded-xl"
+        />
       </div>
 
       {/* Desktop Timeline - Horizontal Scroll */}
@@ -364,13 +374,13 @@ const EngineTimeline = () => {
       </div>
 
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30 border-border">
-        <CardContent className="p-6">
-          <div className="flex items-start gap-2 text-sm text-muted-foreground">
-            <Badge variant="outline" className="text-xs shrink-0 mt-0.5">
+      <Card className="bg-muted/30 border-border p-3">
+        <CardContent>
+          <div className="flex items-start gap-2 text-xs text-muted-foreground">
+            <Badge variant="outline" className="shrink-0 mt-0.5">
               †
             </Badge>
-            <p className="text-left leading-relaxed">
+            <p className="text-left leading-relaxed" p-3>
               Engine production years verified via{" "}
               <a
                 href="https://www.bmwgroup.com/en.html"

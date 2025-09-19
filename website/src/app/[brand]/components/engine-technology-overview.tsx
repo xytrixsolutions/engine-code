@@ -1443,6 +1443,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Image from "next/image";
 
 // Define TypeScript interfaces
 interface Generation {
@@ -1968,6 +1969,15 @@ const TechnologyOverview = () => {
           .
         </p>
       </div>
+      <Image
+        src="/image.png"
+        alt="BMW Engine Timeline"
+        width={0}
+        height={0}
+        sizes="100%"
+        className="w-full rounded-xl"
+      />
+
       {/* Technology Sections */}
       <Card className="bg-card border-border">
         <CardHeader>
@@ -2169,8 +2179,8 @@ const TechnologyOverview = () => {
         </CardContent>
       </Card>
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30 border-border">
-        <CardContent className="p-6">
+      <Card className="bg-muted/30 border-border py-3">
+        <CardContent className="px-6">
           <div className="flex items-start gap-2 text-sm text-muted-foreground">
             <Badge
               variant="outline"
