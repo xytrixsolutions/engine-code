@@ -3684,13 +3684,21 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import DisclaimerCard from "./disclaimer-card";
+import Link from "next/link";
 
+interface Engine {
+  code: string;
+  fuel: string;
+  series: string;
+  url: string;
+}
 const EngineDatabase = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [fuelFilter, setFuelFilter] = useState("all");
   const [seriesFilter, setSeriesFilter] = useState("all");
 
-  const engineData = [
+  const engineData: Engine[] = [
     {
       code: "B36 B07 A",
       fuel: "Petrol",
@@ -4687,7 +4695,7 @@ const EngineDatabase = () => {
   };
 
   // Mobile card component for engine details
-  const EngineCard = ({ engine }: { engine: any }) => (
+  const EngineCard = ({ engine }: { engine: Engine }) => (
     <Card className="border-border mb-4">
       <CardContent className="p-4">
         <div className="flex justify-between items-start mb-3">
@@ -4695,10 +4703,7 @@ const EngineDatabase = () => {
             <h3 className="font-bold text-lg text-foreground">{engine.code}</h3>
             <div className="flex items-center gap-1">
               {getFuelIcon(engine.fuel)}
-              <Badge
-                variant={getFuelVariant(engine.fuel) as any}
-                className="text-xs"
-              >
+              <Badge variant={getFuelVariant(engine.fuel)} className="text-xs">
                 {engine.fuel}
               </Badge>
             </div>
@@ -5024,42 +5029,30 @@ const EngineDatabase = () => {
       </div>
 
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30 border-border py-3">
-        <CardContent className="px-6">
-          <div className="flex items-start gap-2 text-sm text-muted-foreground">
-            <Badge
-              variant="outline"
-              className="text-xs shrink-0 mt-0.5 border-border text-foreground"
-            >
-              †
-            </Badge>
-            <p className="text-left leading-relaxed">
-              Engine specifications and technical data sourced from{" "}
-              <a
-                href="https://www.bmwgroup.com/en.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                BMW Group Technical Documentation
-                <ExternalLink className="h-3 w-3" />
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                EU Vehicle Type Approval Database
-                <ExternalLink className="h-3 w-3" />
-              </a>
-              . All specifications are verified against official BMW service
-              documentation.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
+      <DisclaimerCard>
+        Engine specifications and technical data sourced from{" "}
+        <Link
+          href="https://www.bmwgroup.com/en.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          BMW Group Technical Documentation
+          <ExternalLink className="h-3 w-3" />
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          EU Vehicle Type Approval Database
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        . All specifications are verified against official BMW service
+        documentation.
+      </DisclaimerCard>
     </Container>
   );
 };

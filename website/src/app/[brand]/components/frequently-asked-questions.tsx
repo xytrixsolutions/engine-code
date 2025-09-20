@@ -13,8 +13,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import DisclaimerCard from "./disclaimer-card";
+import Link from "next/link";
 
-const faqData = [
+import type { ReactNode } from "react";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+interface FaqItem {
+  question: string;
+  answer: ReactNode;
+}
+const faqData: FaqItem[] = [
   {
     question: "What does a BMW engine code mean?",
     answer: (
@@ -36,14 +45,14 @@ const faqData = [
         </ul>
         <p className="text-xs text-muted-foreground mt-2">
           Source:{" "}
-          <a
+          <Link
             href="https://www.bmw-techinfo.com/"
             target="_blank"
             rel="noreferrer noopener"
             className="text-primary hover:underline inline-flex items-center gap-1"
           >
             BMW TIS Doc. A15001 <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
         </p>
       </>
     ),
@@ -60,14 +69,14 @@ const faqData = [
         </p>
         <p className="text-xs text-muted-foreground mt-2">
           Source:{" "}
-          <a
+          <Link
             href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
             target="_blank"
             rel="noreferrer noopener"
             className="text-primary hover:underline inline-flex items-center gap-1"
           >
             Regulation (EC) No 715/2007 <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
         </p>
       </>
     ),
@@ -110,14 +119,14 @@ const faqData = [
         </p>
         <p className="text-xs text-muted-foreground mt-2">
           Source:{" "}
-          <a
+          <Link
             href="https://www.gov.uk/vehicle-approval"
             target="_blank"
             rel="noreferrer noopener"
             className="text-primary hover:underline inline-flex items-center gap-1"
           >
             DVLA Vehicle Approval <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
         </p>
       </>
     ),
@@ -262,14 +271,14 @@ const faqData = [
         </p>
         <p className="text-xs text-muted-foreground mt-2">
           Source:{" "}
-          <a
+          <Link
             href="https://www.gov.uk/change-engine-mot"
             target="_blank"
             rel="noreferrer noopener"
             className="text-primary hover:underline inline-flex items-center gap-1"
           >
             DVLA guidelines <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
         </p>
       </>
     ),
@@ -308,7 +317,7 @@ const faqData = [
         </p>
         <p className="text-xs text-muted-foreground mt-2">
           Source:{" "}
-          <a
+          <Link
             href="https://www.bmw-techinfo.com/document/A15001"
             target="_blank"
             rel="noreferrer noopener"
@@ -316,7 +325,7 @@ const faqData = [
           >
             BMW TIS Doc. A15001 – VIN Structure{" "}
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
         </p>
       </>
     ),
@@ -339,7 +348,7 @@ const faqData = [
       <>
         <p>
           Use{" "}
-          <a
+          <Link
             href="https://www.bmw-techinfo.com/"
             target="_blank"
             rel="noreferrer noopener"
@@ -347,28 +356,28 @@ const faqData = [
           >
             BMW TIS (Technical Information System){" "}
             <ExternalLink className="h-3 w-3" />
-          </a>{" "}
+          </Link>{" "}
           or{" "}
-          <a
+          <Link
             href="https://www.bmwgroup.com/en.html"
             target="_blank"
             rel="noreferrer noopener"
             className="text-primary hover:underline inline-flex items-center gap-1"
           >
             BMW Group Product Reports <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
           . Public data also in EU type-approval documents.
         </p>
         <p className="text-xs text-muted-foreground mt-2">
           Source:{" "}
-          <a
+          <Link
             href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
             target="_blank"
             rel="noreferrer noopener"
             className="text-primary hover:underline inline-flex items-center gap-1"
           >
             CELEX:32007R0715 <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
         </p>
       </>
     ),
@@ -406,58 +415,52 @@ export function FrequentlyAskedQuestions() {
         </CardHeader>
         <CardContent>
           <Accordion type="single" collapsible className="w-full">
-            {faqData.map((faq, index) => (
-              <AccordionItem key={faq.question} value={`item-${index}`}>
-                <AccordionTrigger className="text-left">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm space-y-2">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+            <ScrollArea className="h-[365px]">
+              {faqData.map((faq, index) => (
+                <AccordionItem key={faq.question} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left hover:no-underline cursor-pointer">
+                    <p className="text-lg">{faq.question}</p>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm space-y-2">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </ScrollArea>
           </Accordion>
         </CardContent>
       </Card>
 
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30">
-        <CardContent className="pt-6">
-          <p className="text-xs text-muted-foreground">
-            <sup>†</sup> All answers based on{" "}
-            <a
-              href="https://www.bmwgroup.com/en.html"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              BMW Group technical documentation{" "}
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            ,{" "}
-            <a
-              href="https://www.gov.uk"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              UK government vehicle standards{" "}
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            , and{" "}
-            <a
-              href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              EU Regulation (EC) No 715/2007{" "}
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            .
-          </p>
-        </CardContent>
-      </Card>
+      <DisclaimerCard>
+        <Link
+          href="https://www.bmwgroup.com/en.html"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          BMW Group technical documentation <ExternalLink className="h-3 w-3" />
+        </Link>
+        ,{" "}
+        <Link
+          href="https://www.gov.uk"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          UK government vehicle standards <ExternalLink className="h-3 w-3" />
+        </Link>
+        , and{" "}
+        <Link
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          EU Regulation (EC) No 715/2007 <ExternalLink className="h-3 w-3" />
+        </Link>
+        .
+      </DisclaimerCard>
     </Container>
   );
 }

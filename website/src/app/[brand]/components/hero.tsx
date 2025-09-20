@@ -104,12 +104,13 @@
 //
 // export default Hero;
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import type { JSX } from "react";
 import Container from "@/components/Container";
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import Counter from "./counter";
-import Image from "next/image";
+import DisclaimerCard from "./disclaimer-card";
 
 const Hero = (): JSX.Element => {
   // Define stats data to avoid repetition
@@ -144,14 +145,24 @@ const Hero = (): JSX.Element => {
         </div>
       </div>
 
-      <Image
-        src="/image.png"
-        alt="BMW Engine Timeline"
-        width={0}
-        height={0}
-        sizes="100%"
-        className="w-full rounded-xl"
-      />
+      <div className="grid grid-cols-1 sm:grid-cols-[auto_auto] justify-between items-center gap-y-6 sm:gap-x-8">
+        <Image
+          src="/bmw/hero1.jpg"
+          alt="BMW Engine Timeline"
+          width={0}
+          height={0}
+          sizes="100%"
+          className="w-full sm:w-max rounded-xl"
+        />
+        <Image
+          src="/bmw/hero2.png"
+          alt="BMW Engine Timeline"
+          width={0}
+          height={0}
+          sizes="100%"
+          className="w-full sm:w-max rounded-xl"
+        />
+      </div>
 
       {/* Description */}
       <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
@@ -182,36 +193,29 @@ const Hero = (): JSX.Element => {
       </div>
 
       {/* Source Disclaimer */}
-      <Card className="p-3 bg-muted/30 border-border">
-        <div className="flex items-start gap-2 text-sm text-muted-foreground">
-          <Badge variant="outline" className="text-xs shrink-0 mt-0.5">
-            †
-          </Badge>
-          <p className="text-left leading-relaxed">
-            Data sourced from{" "}
-            <a
-              href="https://www.bmwgroup.com/en.html"
-              rel="noreferrer noopener"
-              target="_blank"
-              className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-            >
-              BMW Group PT-2023
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            ,{" "}
-            <a
-              href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-              rel="noreferrer noopener"
-              target="_blank"
-              className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-            >
-              EU Regulation (EC) No 715/2007
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            , and BMW Technical Service Information (TIS) documents.
-          </p>
-        </div>
-      </Card>
+      <DisclaimerCard>
+        Data sourced from{" "}
+        <Link
+          href="https://www.bmwgroup.com/en.html"
+          rel="noreferrer noopener"
+          target="_blank"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          BMW Group PT-2023
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        ,{" "}
+        <Link
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+          rel="noreferrer noopener"
+          target="_blank"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          EU Regulation (EC) No 715/2007
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        , and BMW Technical Service Information (TIS) documents.
+      </DisclaimerCard>
     </Container>
   );
 };

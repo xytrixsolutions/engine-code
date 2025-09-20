@@ -8,6 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { randomInt } from "crypto";
+import Link from "next/link";
+import DisclaimerCard from "./disclaimer-card";
 
 const productionData = [
   {
@@ -81,23 +84,23 @@ export function ProductionFacts() {
         <p className="text-lg text-muted-foreground max-w-4xl mx-auto text-pretty">
           Authoritative data on BMW's global engine production, plant
           operations, and strategic partnerships. All figures sourced from{" "}
-          <a
+          <Link
             href="https://www.bmwgroup.com/en/general/company.html"
             target="_blank"
             rel="noreferrer noopener"
             className="text-primary hover:underline inline-flex items-center gap-1"
           >
             BMW Group Annual Reports <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
           ,{" "}
-          <a
+          <Link
             href="https://www.bmwgroup.com/en/sustainability.html"
             target="_blank"
             rel="noreferrer noopener"
             className="text-primary hover:underline inline-flex items-center gap-1"
           >
             Sustainability Reports <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
           , and EU industrial compliance records.
         </p>
       </div>
@@ -140,14 +143,14 @@ export function ProductionFacts() {
                       {plant.special}
                     </Badge>
                   )}
-                  <a
+                  <Link
                     href={plant.link}
                     target="_blank"
                     rel="noreferrer noopener"
                     className="text-xs text-primary hover:underline inline-flex items-center gap-1"
                   >
                     Source <ExternalLink className="h-3 w-3" />
-                  </a>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -184,7 +187,7 @@ export function ProductionFacts() {
               <tbody>
                 {productionData.map((row) => (
                   <tr
-                    key={(row.total as unknown as number)++}
+                    key={`${row.year}-${row.total}-${row.hybrid}`}
                     className="border-b hover:bg-muted/50"
                   >
                     <td className="p-3 font-medium">{row.year}</td>
@@ -200,14 +203,14 @@ export function ProductionFacts() {
           <p className="text-sm text-muted-foreground mt-4">
             <em>Note:</em> Diesel production has declined steadily due to Euro
             6d and WLTP regulations (
-            <a
+            <Link
               href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
               target="_blank"
               rel="noreferrer noopener"
               className="text-primary hover:underline inline-flex items-center gap-1"
             >
               Regulation (EC) No 715/2007 <ExternalLink className="h-3 w-3" />
-            </a>
+            </Link>
             ). Hybrid and plug-in hybrid integration rising.
           </p>
         </CardContent>
@@ -256,7 +259,7 @@ export function ProductionFacts() {
             </div>
             <p className="text-xs text-muted-foreground">
               <em>Source:</em>{" "}
-              <a
+              <Link
                 href="https://www.bmwgroup.com/en/report/2024/bmw-group-report/world-of-production/index.html"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -264,7 +267,7 @@ export function ProductionFacts() {
               >
                 BMW Group Production Report 2024{" "}
                 <ExternalLink className="h-3 w-3" />
-              </a>
+              </Link>
             </p>
           </div>
         </CardContent>
@@ -319,7 +322,7 @@ export function ProductionFacts() {
           </div>
           <p className="text-xs text-muted-foreground mt-4">
             <em>Source:</em>{" "}
-            <a
+            <Link
               href="https://www.bmwgroup.com/en/sustainability/environment/production-steyr.html"
               target="_blank"
               rel="noreferrer noopener"
@@ -327,7 +330,7 @@ export function ProductionFacts() {
             >
               BMW Group Sustainability & Innovation Reports{" "}
               <ExternalLink className="h-3 w-3" />
-            </a>
+            </Link>
           </p>
         </CardContent>
       </Card>
@@ -368,7 +371,7 @@ export function ProductionFacts() {
             </ul>
             <p className="text-xs text-muted-foreground">
               <em>Source:</em>{" "}
-              <a
+              <Link
                 href="https://www.bmwgroup.com/en/innovation/technology/partnerships.html"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -376,7 +379,7 @@ export function ProductionFacts() {
               >
                 BMW Group: Strategic Partnerships – Toyota Collaboration{" "}
                 <ExternalLink className="h-3 w-3" />
-              </a>
+              </Link>
             </p>
           </div>
         </CardContent>
@@ -418,7 +421,7 @@ export function ProductionFacts() {
           </div>
           <p className="text-sm text-muted-foreground mt-4">
             This aligns with{" "}
-            <a
+            <Link
               href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017R1151"
               target="_blank"
               rel="noreferrer noopener"
@@ -426,59 +429,53 @@ export function ProductionFacts() {
             >
               Commission Regulation (EU) 2017/1151{" "}
               <ExternalLink className="h-3 w-3" />
-            </a>{" "}
+            </Link>{" "}
             (WLTP/RDE) and EU 2035 ICE phase-out roadmap.
           </p>
         </CardContent>
       </Card>
 
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30">
-        <CardContent className="pt-6">
-          <p className="text-xs text-muted-foreground">
-            <sup>†</sup> All production data sourced from{" "}
-            <a
-              href="https://www.bmwgroup.com/en/investor-relations/publications.html"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              BMW Group Annual & Sustainability Reports (2020–2023){" "}
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            . Partnership details from{" "}
-            <a
-              href="https://www.bmwgroup.com/en/innovation.html"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              BMW Innovation Portal <ExternalLink className="h-3 w-3" />
-            </a>
-            . Emissions regulations per{" "}
-            <a
-              href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              EU Regulation (EC) No 715/2007{" "}
-              <ExternalLink className="h-3 w-3" />
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017R1151"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              Commission Regulation (EU) 2017/1151{" "}
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            .
-          </p>
-        </CardContent>
-      </Card>
+      <DisclaimerCard>
+        <Link
+          href="https://www.bmwgroup.com/en/investor-relations/publications.html"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          BMW Group Annual & Sustainability Reports (2020–2023){" "}
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        . Partnership details from{" "}
+        <Link
+          href="https://www.bmwgroup.com/en/innovation.html"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          BMW Innovation Portal <ExternalLink className="h-3 w-3" />
+        </Link>
+        . Emissions regulations per{" "}
+        <Link
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          EU Regulation (EC) No 715/2007 <ExternalLink className="h-3 w-3" />
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017R1151"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          Commission Regulation (EU) 2017/1151{" "}
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        .
+      </DisclaimerCard>
     </Container>
   );
 }

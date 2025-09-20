@@ -1,5 +1,6 @@
 "use client";
-import { ExternalLink, Fuel, Trophy, Zap } from "lucide-react";
+import { ExternalLink, Fuel, Trophy, X, Zap } from "lucide-react";
+import Image from "next/image";
 import { GiBarrel } from "react-icons/gi";
 import Container from "@/components/Container";
 import {
@@ -10,13 +11,23 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import DisclaimerCard from "./disclaimer-card";
+import Link from "next/link";
+import { ImageDialog } from "./image-dialog";
 
 const EngineTimeline = () => {
   const timelineData = [
     {
       decade: "1970s",
       years: "1970–1979",
+      image: "/bmw/Engines/1-bmw-m10.webp",
       engines: [
         {
           code: "M10",
@@ -37,6 +48,7 @@ const EngineTimeline = () => {
     {
       decade: "1980s",
       years: "1980–1989",
+      image: "/bmw/Engines/2-bmw-m20.webp",
       engines: [
         {
           code: "M40",
@@ -57,6 +69,7 @@ const EngineTimeline = () => {
     {
       decade: "1990s",
       years: "1990–1999",
+      image: "/bmw/Engines/3-bmw-m40.webp",
       engines: [
         {
           code: "M42",
@@ -91,6 +104,7 @@ const EngineTimeline = () => {
     {
       decade: "2000s",
       years: "2000–2009",
+      image: "/bmw/Engines/4-bmw-s54.webp",
       engines: [
         {
           code: "M54",
@@ -116,6 +130,7 @@ const EngineTimeline = () => {
       ],
     },
     {
+      image: "/bmw/Engines/6-bmw-b47d20.webp",
       decade: "2010s",
       years: "2010–2019",
       engines: [
@@ -157,6 +172,7 @@ const EngineTimeline = () => {
       ],
     },
     {
+      image: "/bmw/Engines/7-bmw_p48.webp",
       decade: "2020s",
       years: "2020–Now",
       engines: [
@@ -257,14 +273,14 @@ const EngineTimeline = () => {
           </a>{" "}
           on vehicle type approval.
         </p>
-        <Image
-          src="/image.png"
-          alt="BMW Engine Timeline"
-          width={0}
-          height={0}
-          sizes="100%"
-          className="w-full rounded-xl"
-        />
+        {/* <Image */}
+        {/*   src="/image.png" */}
+        {/*   alt="BMW Engine Timeline" */}
+        {/*   width={0} */}
+        {/*   height={0} */}
+        {/*   sizes="100%" */}
+        {/*   className="w-full rounded-xl" */}
+        {/* /> */}
       </div>
 
       {/* Desktop Timeline - Horizontal Scroll */}
@@ -287,6 +303,59 @@ const EngineTimeline = () => {
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-3">
+                  <ImageDialog src={period.image} alt={"BMW Engine Timeline"} />
+                  {/* <Dialog> */}
+                  {/*   <DialogTrigger asChild> */}
+                  {/*     <Image */}
+                  {/*       src={period.image} */}
+                  {/*       alt="BMW Engine Timeline" */}
+                  {/*       width={200} */}
+                  {/*       height={200} */}
+                  {/*       sizes="100%" */}
+                  {/*       className="w-full h-48 object-cover rounded-xl" */}
+                  {/*     /> */}
+                  {/*   </DialogTrigger> */}
+                  {/*   <DialogContent */}
+                  {/*     className="max-w-max p-0" */}
+                  {/*     showCloseButton={false} */}
+                  {/*   > */}
+                  {/*     <DialogTitle hidden></DialogTitle> */}
+                  {/*     <DialogClose asChild> */}
+                  {/*       <button */}
+                  {/*         type="button" */}
+                  {/*         className="absolute top-2 right-2 bg-transparent text-white/60 hover:text-white transition" */}
+                  {/*       > */}
+                  {/*         <X className="h-5 w-5" /> */}
+                  {/*       </button> */}
+                  {/*     </DialogClose> */}
+                  {/*     <Image */}
+                  {/*       src={period.image} */}
+                  {/*       alt="BMW Engine Timeline" */}
+                  {/*       width={0} */}
+                  {/*       height={0} */}
+                  {/*       sizes="100%" */}
+                  {/*       className="w-full object-contain rounded-lg" */}
+                  {/*     /> */}
+                  {/*   </DialogContent> */}
+                  {/* </Dialog> */}
+
+                  {/* <Image */}
+                  {/*   src={period.image} */}
+                  {/*   alt="BMW Engine Timeline" */}
+                  {/*   width={256} */}
+                  {/*   height={256} */}
+                  {/*   sizes="100%" */}
+                  {/*   className=" rounded-xl" */}
+                  {/* /> */}
+                  {/* <Image */}
+                  {/*   src={period.image} */}
+                  {/*   alt="BMW Engine Timeline" */}
+                  {/*   width={256} */}
+                  {/*   height={256} */}
+                  {/*   sizes="100%" */}
+                  {/*   className="w-full h-48 object-cover rounded-xl" */}
+                  {/* /> */}
+
                   {period.engines.map((engine) => (
                     <Card
                       key={engine.code}
@@ -374,38 +443,29 @@ const EngineTimeline = () => {
       </div>
 
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30 border-border p-3">
-        <CardContent>
-          <div className="flex items-start gap-2 text-xs text-muted-foreground">
-            <Badge variant="outline" className="shrink-0 mt-0.5">
-              †
-            </Badge>
-            <p className="text-left leading-relaxed" p-3>
-              Engine production years verified via{" "}
-              <a
-                href="https://www.bmwgroup.com/en.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                BMW Group Product Reports
-                <ExternalLink className="h-3 w-3" />
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                EU type-approval records
-                <ExternalLink className="h-3 w-3" />
-              </a>
-              .
-            </p>
-          </div>
-        </CardContent>
-      </Card>
+      <DisclaimerCard>
+        Engine production years verified via{" "}
+        <Link
+          href="https://www.bmwgroup.com/en.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          BMW Group Product Reports
+          <ExternalLink className="h-3 w-3" />
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          EU type-approval records
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        .
+      </DisclaimerCard>
     </Container>
   );
 };

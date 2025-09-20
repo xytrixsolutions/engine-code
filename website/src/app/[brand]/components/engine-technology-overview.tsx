@@ -369,7 +369,7 @@
 //           A technical breakdown of BMW's core engine systems — including
 //           VALVETRONIC, TwinPower Turbo, timing architectures, and modular design
 //           — with documented reliability impacts. All data sourced from{" "}
-//           <a
+//           <Link
 //             href="https://www.bmwgroup.com/en.html"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -377,9 +377,9 @@
 //           >
 //             BMW Group PT-2023
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           ,{" "}
-//           <a
+//           <Link
 //             href="https://www.bmw-techinfo.com/"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -387,9 +387,9 @@
 //           >
 //             BMW TIS
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           , and{" "}
-//           <a
+//           <Link
 //             href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -397,7 +397,7 @@
 //           >
 //             EU Regulation (EC) No 715/2007
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           .
 //         </p>
 //       </div>
@@ -573,7 +573,7 @@
 //                             >
 //                               🔍
 //                             </Badge>
-//                             <a
+//                             <Link
 //                               href={source.url}
 //                               target="_blank"
 //                               rel="noopener noreferrer"
@@ -581,7 +581,7 @@
 //                             >
 //                               {source.name}
 //                               <ExternalLink className="h-3 w-3" />
-//                             </a>
+//                             </Link>
 //                           </div>
 //                         ))}
 //                       </div>
@@ -606,7 +606,7 @@
 //             </Badge>
 //             <p className="text-left leading-relaxed">
 //               All technical descriptions and failure data sourced from{" "}
-//               <a
+//               <Link
 //                 href="https://www.bmwgroup.com/en.html"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -614,9 +614,9 @@
 //               >
 //                 BMW Group Product Technical Reports
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>
+//               </Link>
 //               ,{" "}
-//               <a
+//               <Link
 //                 href="https://www.bmw-techinfo.com/"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -624,9 +624,9 @@
 //               >
 //                 BMW TIS Service Information
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>
+//               </Link>
 //               , and{" "}
-//               <a
+//               <Link
 //                 href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -634,7 +634,7 @@
 //               >
 //                 EU Regulation (EC) No 715/2007
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>{" "}
+//               </Link>{" "}
 //               on vehicle type-approval.
 //             </p>
 //           </div>
@@ -1108,7 +1108,7 @@
 //                 >
 //                   🔍
 //                 </Badge>
-//                 <a
+//                 <Link
 //                   href={source.url}
 //                   target="_blank"
 //                   rel="noopener noreferrer"
@@ -1116,7 +1116,7 @@
 //                 >
 //                   {source.name}
 //                   <ExternalLink className="h-3 w-3" />
-//                 </a>
+//                 </Link>
 //               </div>
 //             ))}
 //           </div>
@@ -1136,7 +1136,7 @@
 //           A technical breakdown of BMW's core engine systems — including
 //           VALVETRONIC, TwinPower Turbo, timing architectures, and modular design
 //           — with documented reliability impacts. All data sourced from{" "}
-//           <a
+//           <Link
 //             href="https://www.bmwgroup.com/en.html"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -1144,9 +1144,9 @@
 //           >
 //             BMW Group PT-2023
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           ,{" "}
-//           <a
+//           <Link
 //             href="https://www.bmw-techinfo.com/"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -1154,9 +1154,9 @@
 //           >
 //             BMW TIS
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           , and{" "}
-//           <a
+//           <Link
 //             href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -1164,7 +1164,7 @@
 //           >
 //             EU Regulation (EC) No 715/2007
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           .
 //         </p>
 //       </div>
@@ -1340,7 +1340,7 @@
 //                                   >
 //                                     🔍
 //                                   </Badge>
-//                                   <a
+//                                   <Link
 //                                     href={source.url}
 //                                     target="_blank"
 //                                     rel="noopener noreferrer"
@@ -1348,7 +1348,7 @@
 //                                   >
 //                                     {source.name}
 //                                     <ExternalLink className="h-3 w-3" />
-//                                   </a>
+//                                   </Link>
 //                                 </div>
 //                               ))}
 //                             </div>
@@ -1381,7 +1381,7 @@
 //             </Badge>
 //             <p className="text-left leading-relaxed">
 //               All technical descriptions and failure data sourced from{" "}
-//               <a
+//               <Link
 //                 href="https://www.bmwgroup.com/en.html"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -1389,9 +1389,9 @@
 //               >
 //                 BMW Group Product Technical Reports
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>
+//               </Link>
 //               ,{" "}
-//               <a
+//               <Link
 //                 href="https://www.bmw-techinfo.com/"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -1399,9 +1399,9 @@
 //               >
 //                 BMW TIS Service Information
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>
+//               </Link>
 //               , and{" "}
-//               <a
+//               <Link
 //                 href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -1409,7 +1409,7 @@
 //               >
 //                 EU Regulation (EC) No 715/2007
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>{" "}
+//               </Link>{" "}
 //               on vehicle type-approval.
 //             </p>
 //           </div>
@@ -1444,6 +1444,10 @@ import {
 } from "@/components/ui/collapsible";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import DisclaimerCard from "./disclaimer-card";
+import Link from "next/link";
+import { ImageDialog } from "./image-dialog";
 
 // Define TypeScript interfaces
 interface Generation {
@@ -1453,6 +1457,7 @@ interface Generation {
 }
 
 interface CommonFailure {
+  id: number;
   issue: string;
   code?: string;
   note?: string;
@@ -1467,6 +1472,7 @@ interface Technology {
   id: string;
   name: string;
   subtitle: string;
+  image: string;
   icon: React.ReactNode;
   description: string;
   howItWorks: string;
@@ -1491,6 +1497,7 @@ const TechnologyOverview = () => {
       id: "valvetronic",
       name: "VALVETRONIC",
       subtitle: "Variable Valve Lift (1999–Present)",
+      image: "/bmw/Tech/valvetronic.webp",
       icon: <Settings className="h-5 w-5" />,
       description:
         "BMW's proprietary VALVETRONIC system eliminates the throttle butterfly by continuously varying intake valve lift, improving efficiency and throttle response.",
@@ -1529,9 +1536,13 @@ const TechnologyOverview = () => {
         "B58B30",
       ],
       commonFailures: [
-        { issue: "Eccentric shaft sensor failure", code: "P151A" },
-        { issue: "Intermediate lever wear", note: "especially N52, N53" },
-        { issue: "Actuator motor seizure", code: "" },
+        {
+          id: 1,
+          issue: "Intermediate lever wear",
+          note: "especially N52, N53",
+        },
+        { id: 2, issue: "Eccentric shaft sensor failure", code: "P151A" },
+        { id: 3, issue: "Actuator motor seizure", code: "" },
       ],
       sources: [
         {
@@ -1548,6 +1559,7 @@ const TechnologyOverview = () => {
       id: "twinpower",
       name: "TwinPower Turbo",
       subtitle: "BMW's Integrated Performance System",
+      image: "/bmw/Tech/twinpower-turbocharged.jpg",
       icon: <Zap className="h-5 w-5" />,
       description:
         "TwinPower Turbo is BMW's branding for engines combining turbocharging, direct fuel injection (High Precision Injection), VALVETRONIC (petrol), and Double-VANOS (variable cam timing).",
@@ -1578,15 +1590,22 @@ const TechnologyOverview = () => {
       affectedEngines: ["N54B30", "N20B20", "B48B20", "B58B30"],
       commonFailures: [
         {
+          id: 1,
           issue: "N54B30: High performance, high failure rate",
           note: "HPFP, rods",
         },
-        { issue: "N20B20: Over-turboed, wastegate issues", code: "" },
         {
+          id: 2,
+          issue: "N20B20: Over-turboed, wastegate issues",
+          code: "",
+        },
+        {
+          id: 3,
           issue: "B48B20: Reliable with maintenance",
           note: "carbon buildup risk",
         },
         {
+          id: 4,
           issue: "B58B30: Forged internals, track-capable",
           note: "water pump common",
         },
@@ -1606,6 +1625,7 @@ const TechnologyOverview = () => {
       id: "timing",
       name: "Timing Systems",
       subtitle: "Chain vs. Belt – Reliability by Design",
+      image: "/bmw/Tech/timing-system.jpg",
       icon: <Cog className="h-5 w-5" />,
       description:
         "BMW uses timing chains on most engines, but design affects longevity significantly.",
@@ -1630,12 +1650,13 @@ const TechnologyOverview = () => {
       ],
       affectedEngines: ["M54", "N52", "B58", "N47D20A", "N47D20C", "M47D20"],
       commonFailures: [
-        { issue: "B58: Lifetime chain", note: "BMW TIS A24902" },
+        { id: 1, issue: "B58: Lifetime chain", note: "BMW TIS A24902" },
         {
+          id: 2,
           issue: "N47: Tensioner failure common",
           note: "chain jumps → engine damage",
         },
-        { issue: "M47: Tensioner wear after 120,000 miles", code: "" },
+        { id: 3, issue: "M47: Tensioner wear after 120,000 miles", code: "" },
       ],
       sources: [
         {
@@ -1652,6 +1673,7 @@ const TechnologyOverview = () => {
       id: "hpfp",
       name: "High-Pressure Fuel Pump (HPFP)",
       subtitle: "Petrol Engine Weak Point",
+      image: "/bmw/Tech/high-pressure-fuel-pump-hpfp.jpg",
       icon: <Fuel className="h-5 w-5" />,
       description:
         "The HPFP delivers fuel at up to 200 bar for direct injection systems.",
@@ -1676,9 +1698,14 @@ const TechnologyOverview = () => {
       ],
       affectedEngines: ["N54B30", "N20B20", "B48B20", "N55B30"],
       commonFailures: [
-        { issue: "Wear in N54/N55", note: "lean misfire", code: "P0171" },
-        { issue: "Electrical failure in B48", note: "limp mode" },
-        { issue: "Noise ('ticking')", note: "often first symptom" },
+        {
+          id: 1,
+          issue: "Wear in N54/N55",
+          note: "lean misfire",
+          code: "P0171",
+        },
+        { id: 2, issue: "Electrical failure in B48", note: "limp mode" },
+        { id: 3, issue: "Noise ('ticking')", note: "often first symptom" },
       ],
       sources: [
         {
@@ -1695,6 +1722,7 @@ const TechnologyOverview = () => {
       id: "common-rail",
       name: "Common Rail Diesel",
       subtitle: "From M47 to B47",
+      image: "/bmw/Tech/Common-Rail-Diesel.JPG",
       icon: <Database className="h-5 w-5" />,
       description:
         "BMW's diesel evolution focused on pressure, emissions, and refinement.",
@@ -1719,9 +1747,9 @@ const TechnologyOverview = () => {
       ],
       affectedEngines: ["M47D20", "N47D20A", "N47D20C", "B47D20", "B37C15A"],
       commonFailures: [
-        { issue: "M47: Euro 3–4 compliance", code: "" },
-        { issue: "N47: Euro 5 compliance", code: "" },
-        { issue: "B47: Euro 6d — includes SCR and AdBlue", code: "" },
+        { id: 1, issue: "M47: Euro 3–4 compliance", code: "" },
+        { id: 2, issue: "N47: Euro 5 compliance", code: "" },
+        { id: 3, issue: "B47: Euro 6d — includes SCR and AdBlue", code: "" },
       ],
       sources: [
         {
@@ -1738,6 +1766,7 @@ const TechnologyOverview = () => {
       id: "modular",
       name: "Modular Engine Design",
       subtitle: "B-Series: B38, B48, B58",
+      image: "/bmw/Tech/Modular-Engine-Design.jpg",
       icon: <Wrench className="h-5 w-5" />,
       description:
         "Introduced in 2014, the Modular Engine Family (MEP) shares cylinder spacing (91mm), bore (82mm), stroke variants, mounting points, and ECU architecture.",
@@ -1750,9 +1779,9 @@ const TechnologyOverview = () => {
       ],
       affectedEngines: ["B38A15A", "B48B20", "B58B30"],
       commonFailures: [
-        { issue: "B38: Carbon buildup", note: "no port injection" },
-        { issue: "B48: HPFP, VANOS rattle", code: "" },
-        { issue: "B58: Water pump, carbon", note: "less than B48" },
+        { id: 1, issue: "B38: Carbon buildup", note: "no port injection" },
+        { id: 2, issue: "B48: HPFP, VANOS rattle", code: "" },
+        { id: 3, issue: "B58: Water pump, carbon", note: "less than B48" },
       ],
       sources: [
         {
@@ -1769,6 +1798,7 @@ const TechnologyOverview = () => {
       id: "hybrid",
       name: "Hybrid & iPerformance",
       subtitle: "Electrified Powertrains",
+      image: "/bmw/Tech/hybrid-iperformane.jpg",
       icon: <Gauge className="h-5 w-5" />,
       description:
         "BMW's iPerformance models integrate petrol engines with electric motors for enhanced efficiency and performance.",
@@ -1794,10 +1824,15 @@ const TechnologyOverview = () => {
       affectedEngines: ["B38A15A", "B48B20"],
       commonFailures: [
         {
+          id: 1,
           issue: "Electric components: highly reliable",
           note: "BMW TIS A25001",
         },
-        { issue: "Combined system complexity", note: "increases service cost" },
+        {
+          id: 2,
+          issue: "Combined system complexity",
+          note: "increases service cost",
+        },
       ],
       sources: [
         {
@@ -1875,7 +1910,7 @@ const TechnologyOverview = () => {
           <div className="space-y-2">
             {tech.commonFailures.map((failure: CommonFailure) => (
               <Card
-                key={failure.code}
+                key={`failure-${failure.id}`}
                 className="p-3 bg-muted/20 border-border"
               >
                 <div className="space-y-1">
@@ -1909,7 +1944,7 @@ const TechnologyOverview = () => {
                 >
                   🔍
                 </Badge>
-                <a
+                <Link
                   href={source.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -1917,7 +1952,7 @@ const TechnologyOverview = () => {
                 >
                   {source.name}
                   <ExternalLink className="h-3 w-3" />
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -1937,7 +1972,7 @@ const TechnologyOverview = () => {
           A technical breakdown of BMW's core engine systems — including
           VALVETRONIC, TwinPower Turbo, timing architectures, and modular design
           — with documented reliability impacts. All data sourced from{" "}
-          <a
+          <Link
             href="https://www.bmwgroup.com/en.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -1945,9 +1980,9 @@ const TechnologyOverview = () => {
           >
             BMW Group PT-2023
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
           ,{" "}
-          <a
+          <Link
             href="https://www.bmw-techinfo.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1955,9 +1990,9 @@ const TechnologyOverview = () => {
           >
             BMW TIS
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
           , and{" "}
-          <a
+          <Link
             href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
             target="_blank"
             rel="noopener noreferrer"
@@ -1965,18 +2000,10 @@ const TechnologyOverview = () => {
           >
             EU Regulation (EC) No 715/2007
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
           .
         </p>
       </div>
-      <Image
-        src="/image.png"
-        alt="BMW Engine Timeline"
-        width={0}
-        height={0}
-        sizes="100%"
-        className="w-full rounded-xl"
-      />
 
       {/* Technology Sections */}
       <Card className="bg-card border-border">
@@ -2031,23 +2058,34 @@ const TechnologyOverview = () => {
                     <div className="hidden md:block">
                       <Card className="border-border bg-background">
                         <CardContent className="p-6 space-y-6">
-                          {/* Description */}
-                          <div className="space-y-2">
-                            <h4 className="font-semibold text-foreground">
-                              Overview
-                            </h4>
-                            <p className="text-muted-foreground leading-relaxed">
-                              {tech.description}
-                            </p>
-                          </div>
-                          {/* How it Works */}
-                          <div className="space-y-2">
-                            <h4 className="font-semibold text-foreground">
-                              How it Works
-                            </h4>
-                            <p className="text-muted-foreground leading-relaxed">
-                              {tech.howItWorks}
-                            </p>
+                          <div className="grid grid-cols-2 gap-8">
+                            <div className="max-w-md">
+                              {/* Description */}
+                              <div className="space-y-2">
+                                <h4 className="font-semibold text-foreground">
+                                  Overview
+                                </h4>
+                                <p className="text-muted-foreground leading-relaxed">
+                                  {tech.description}
+                                </p>
+                              </div>
+                              {/* How it Works */}
+                              <div className="space-y-2">
+                                <h4 className="font-semibold text-foreground">
+                                  How it Works
+                                </h4>
+                                <p className="text-muted-foreground leading-relaxed">
+                                  {tech.howItWorks}
+                                </p>
+                              </div>
+                            </div>
+                            <div className="flex justify-center">
+                              <ImageDialog
+                                src={tech.image}
+                                alt="BMW Engine Timeline"
+                                className="h-[500px] w-[500px]"
+                              />
+                            </div>
                           </div>
                           {/* Generations/Evolution */}
                           <div className="space-y-3">
@@ -2106,7 +2144,7 @@ const TechnologyOverview = () => {
                               {tech.commonFailures.map(
                                 (failure: CommonFailure) => (
                                   <Card
-                                    key={failure.code}
+                                    key={`failure-${failure.id}`}
                                     className="p-3 bg-muted/20 border-border"
                                   >
                                     <div className="flex items-start justify-between">
@@ -2151,7 +2189,7 @@ const TechnologyOverview = () => {
                                   >
                                     🔍
                                   </Badge>
-                                  <a
+                                  <Link
                                     href={source.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -2159,7 +2197,7 @@ const TechnologyOverview = () => {
                                   >
                                     {source.name}
                                     <ExternalLink className="h-3 w-3" />
-                                  </a>
+                                  </Link>
                                 </div>
                               ))}
                             </div>
@@ -2179,51 +2217,40 @@ const TechnologyOverview = () => {
         </CardContent>
       </Card>
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30 border-border py-3">
-        <CardContent className="px-6">
-          <div className="flex items-start gap-2 text-sm text-muted-foreground">
-            <Badge
-              variant="outline"
-              className="text-xs shrink-0 mt-0.5 border-border text-foreground"
-            >
-              †
-            </Badge>
-            <p className="text-left leading-relaxed">
-              All technical descriptions and failure data sourced from{" "}
-              <a
-                href="https://www.bmwgroup.com/en.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                BMW Group Product Technical Reports
-                <ExternalLink className="h-3 w-3" />
-              </a>
-              ,{" "}
-              <a
-                href="https://www.bmw-techinfo.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                BMW TIS Service Information
-                <ExternalLink className="h-3 w-3" />
-              </a>
-              , and{" "}
-              <a
-                href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                EU Regulation (EC) No 715/2007
-                <ExternalLink className="h-3 w-3" />
-              </a>{" "}
-              on vehicle type-approval.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
+      <DisclaimerCard>
+        {" "}
+        All technical descriptions and failure data sourced from{" "}
+        <Link
+          href="https://www.bmwgroup.com/en.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          BMW Group Product Technical Reports
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        ,{" "}
+        <Link
+          href="https://www.bmw-techinfo.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          BMW TIS Service Information
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        , and{" "}
+        <Link
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          EU Regulation (EC) No 715/2007
+          <ExternalLink className="h-3 w-3" />
+        </Link>{" "}
+        on vehicle type-approval.
+      </DisclaimerCard>
     </Container>
   );
 };

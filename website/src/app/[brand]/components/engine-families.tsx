@@ -418,7 +418,7 @@
 //           Expand each engine family to view every variant, specifications, model
 //           compatibility, and documented reliability concerns. All data sourced
 //           from{" "}
-//           <a
+//           <Link
 //             href="https://www.bmwgroup.com/en.html"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -426,9 +426,9 @@
 //           >
 //             BMW Group Product Technical Reports
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           ,{" "}
-//           <a
+//           <Link
 //             href="https://www.bmw-techinfo.com/"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -436,9 +436,9 @@
 //           >
 //             BMW TIS / ISTA
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           , and{" "}
-//           <a
+//           <Link
 //             href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -446,7 +446,7 @@
 //           >
 //             EU Regulation (EC) No 715/2007
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           .
 //         </p>
 //       </div>
@@ -565,7 +565,7 @@
 //                                   {engine.issues}
 //                                 </TableCell>
 //                                 <TableCell>
-//                                   <a
+//                                   <Link
 //                                     href={engine.sourceUrl}
 //                                     target="_blank"
 //                                     rel="noopener noreferrer"
@@ -573,7 +573,7 @@
 //                                   >
 //                                     {engine.source}
 //                                     <ExternalLink className="h-3 w-3" />
-//                                   </a>
+//                                   </Link>
 //                                 </TableCell>
 //                                 <TableCell>
 //                                   <Button
@@ -617,7 +617,7 @@
 //             </Badge>
 //             <p className="text-left leading-relaxed">
 //               Engine specifications and service data verified via{" "}
-//               <a
+//               <Link
 //                 href="https://www.bmwgroup.com/en.html"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -625,9 +625,9 @@
 //               >
 //                 BMW Group Product Technical Reports
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>
+//               </Link>
 //               ,{" "}
-//               <a
+//               <Link
 //                 href="https://www.bmw-techinfo.com/"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -635,9 +635,9 @@
 //               >
 //                 BMW TIS
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>
+//               </Link>
 //               , and{" "}
-//               <a
+//               <Link
 //                 href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -645,7 +645,7 @@
 //               >
 //                 EU Regulation (EC) No 715/2007
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>{" "}
+//               </Link>{" "}
 //               on vehicle type-approval.
 //             </p>
 //           </div>
@@ -1100,7 +1100,7 @@
 //           </div>
 //
 //           <div className="pt-2 flex justify-between items-center">
-//             <a
+//             <Link
 //               href={engine.sourceUrl}
 //               target="_blank"
 //               rel="noopener noreferrer"
@@ -1108,7 +1108,7 @@
 //             >
 //               {engine.source}
 //               <ExternalLink className="h-3 w-3" />
-//             </a>
+//             </Link>
 //
 //             <Button
 //               variant="ghost"
@@ -1138,10 +1138,9 @@
 //           Full Technical Breakdown (1970–2025)
 //         </div>
 //         <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-pretty px-4">
-//           Expand each engine family to view every variant, specifications, model
 //           compatibility, and documented reliability concerns. All data sourced
 //           from{" "}
-//           <a
+//           <Link
 //             href="https://www.bmwgroup.com/en.html"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -1149,9 +1148,9 @@
 //           >
 //             BMW Group Product Technical Reports
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           ,{" "}
-//           <a
+//           <Link
 //             href="https://www.bmw-techinfo.com/"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -1159,9 +1158,9 @@
 //           >
 //             BMW TIS / ISTA
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           , and{" "}
-//           <a
+//           <Link
 //             href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
 //             target="_blank"
 //             rel="noopener noreferrer"
@@ -1169,7 +1168,7 @@
 //           >
 //             EU Regulation (EC) No 715/2007
 //             <ExternalLink className="h-3 w-3" />
-//           </a>
+//           </Link>
 //           .
 //         </p>
 //       </div>
@@ -1288,7 +1287,7 @@
 //                                     {engine.issues}
 //                                   </TableCell>
 //                                   <TableCell>
-//                                     <a
+//                                     <Link
 //                                       href={engine.sourceUrl}
 //                                       target="_blank"
 //                                       rel="noopener noreferrer"
@@ -1296,7 +1295,7 @@
 //                                     >
 //                                       {engine.source}
 //                                       <ExternalLink className="h-3 w-3" />
-//                                     </a>
+//                                     </Link>
 //                                   </TableCell>
 //                                   <TableCell>
 //                                     <Button
@@ -1348,7 +1347,7 @@
 //             </Badge>
 //             <p className="text-left leading-relaxed">
 //               Engine specifications and service data verified via{" "}
-//               <a
+//               <Link
 //                 href="https://www.bmwgroup.com/en.html"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -1356,9 +1355,9 @@
 //               >
 //                 BMW Group Product Technical Reports
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>
+//               </Link>
 //               ,{" "}
-//               <a
+//               <Link
 //                 href="https://www.bmw-techinfo.com/"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -1366,9 +1365,9 @@
 //               >
 //                 BMW TIS
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>
+//               </Link>
 //               , and{" "}
-//               <a
+//               <Link
 //                 href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
@@ -1376,7 +1375,7 @@
 //               >
 //                 EU Regulation (EC) No 715/2007
 //                 <ExternalLink className="h-3 w-3" />
-//               </a>{" "}
+//               </Link>{" "}
 //               on vehicle type-approval.
 //             </p>
 //           </div>
@@ -1397,7 +1396,9 @@ import {
   Trophy,
   Zap,
 } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
+import { GiBarrel } from "react-icons/gi";
 import Container from "@/components/Container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -1416,8 +1417,28 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import Image from "next/image";
-import { GiBarrel } from "react-icons/gi";
+import DisclaimerCard from "./disclaimer-card";
+import { ImageDialog } from "./image-dialog";
+
+interface Engine {
+  code: string;
+  type: "Petrol" | "Diesel" | "Racing" | string;
+  displacement: string;
+  years: string;
+  models: string;
+  issues: string;
+  source: string;
+  sourceUrl: string;
+  specUrl: string;
+}
+
+interface EngineFamily {
+  id: string;
+  name: string;
+  description: string;
+  imageUrl: string;
+  engines: Engine[];
+}
 
 const EngineFamilies = () => {
   const [openFamilies, setOpenFamilies] = useState<string[]>([]);
@@ -1429,11 +1450,12 @@ const EngineFamilies = () => {
     );
   };
 
-  const engineFamilies = [
+  const engineFamilies: EngineFamily[] = [
     {
       id: "m10",
       name: "M10 Series",
       description: "Inline-4 & Inline-6, 1961–1988",
+      imageUrl: "/bmw/Engines/1-bmw-m10.webp",
       engines: [
         {
           code: "M10 B16",
@@ -1477,6 +1499,7 @@ const EngineFamilies = () => {
       id: "m20",
       name: "M20 Series",
       description: "Inline-6, 1981–1993",
+      imageUrl: "/bmw/Engines/2-bmw-m20.webp",
       engines: [
         {
           code: "M20 B20",
@@ -1520,6 +1543,7 @@ const EngineFamilies = () => {
       id: "m40",
       name: "M40 / M43 Series",
       description: "Inline-4, 1989–2000",
+      imageUrl: "/bmw/Engines/3-bmw-m40.webp",
       engines: [
         {
           code: "M40 B16",
@@ -1551,6 +1575,7 @@ const EngineFamilies = () => {
       id: "m50",
       name: "M50 / M52 / M54 Series",
       description: "Inline-6, 1990–2006",
+      imageUrl: "/bmw/Engines/bmw-m50.jpg",
       engines: [
         {
           code: "M50 B20",
@@ -1594,6 +1619,7 @@ const EngineFamilies = () => {
       id: "m47",
       name: "M47 / N47 Series",
       description: "Diesel, 1998–2015",
+      imageUrl: "/bmw/Engines/8-bmw-n-series.webp",
       engines: [
         {
           code: "M47 D20",
@@ -1637,6 +1663,7 @@ const EngineFamilies = () => {
       id: "b37",
       name: "B37 / B38 / B47 / B48 Series",
       description: "Modular Engines, 2014–Now",
+      imageUrl: "/bmw/Engines/6-bmw-b47d20.webp",
       engines: [
         {
           code: "B37 C15 A",
@@ -1680,6 +1707,7 @@ const EngineFamilies = () => {
       id: "s-engines",
       name: "S-Series & P-Series",
       description: "Performance & Racing Engines",
+      imageUrl: "/bmw/Engines/4-bmw-s50b32.webp",
       engines: [
         {
           code: "S14 B23",
@@ -1734,6 +1762,7 @@ const EngineFamilies = () => {
       id: "n-engines",
       name: "N-Series",
       description: "Turbocharged Petrol & Diesel, 2007–2015",
+      imageUrl: "/bmw/Engines/n-series.jpg",
       engines: [
         {
           code: "N20 B20 A",
@@ -1794,7 +1823,7 @@ const EngineFamilies = () => {
   };
 
   // Mobile card component for engine details
-  const EngineCard = ({ engine }: { engine: any }) => (
+  const EngineCard = ({ engine }: { engine: Engine }) => (
     <Card className="border-border mb-4">
       <CardContent className="p-4">
         <div className="flex justify-between items-start mb-3">
@@ -1803,7 +1832,7 @@ const EngineFamilies = () => {
             <div className="flex items-center gap-1">
               {getEngineIcon(engine.type)}
               <Badge
-                variant={getEngineVariant(engine.type) as any}
+                variant={getEngineVariant(engine.type)}
                 className="text-xs"
               >
                 {engine.type}
@@ -1832,7 +1861,7 @@ const EngineFamilies = () => {
           </div>
 
           <div className="pt-2 flex justify-between items-center">
-            <a
+            <Link
               href={engine.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -1840,7 +1869,7 @@ const EngineFamilies = () => {
             >
               {engine.source}
               <ExternalLink className="h-3 w-3" />
-            </a>
+            </Link>
 
             <Button
               variant="ghost"
@@ -1873,7 +1902,7 @@ const EngineFamilies = () => {
           Expand each engine family to view every variant, specifications, model
           compatibility, and documented reliability concerns. All data sourced
           from{" "}
-          <a
+          <Link
             href="https://www.bmwgroup.com/en.html"
             target="_blank"
             rel="noopener noreferrer"
@@ -1881,9 +1910,9 @@ const EngineFamilies = () => {
           >
             BMW Group Product Technical Reports
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
           ,{" "}
-          <a
+          <Link
             href="https://www.bmw-techinfo.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1891,9 +1920,9 @@ const EngineFamilies = () => {
           >
             BMW TIS / ISTA
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
           , and{" "}
-          <a
+          <Link
             href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
             target="_blank"
             rel="noopener noreferrer"
@@ -1901,19 +1930,10 @@ const EngineFamilies = () => {
           >
             EU Regulation (EC) No 715/2007
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
           .
         </p>
       </div>
-
-      <Image
-        src="/image.png"
-        alt="BMW Engine Timeline"
-        width={0}
-        height={0}
-        sizes="100%"
-        className="w-full rounded-xl"
-      />
 
       {/* Engine Families */}
       <Card className="bg-card border-border">
@@ -1922,7 +1942,7 @@ const EngineFamilies = () => {
             Engine Family Database
           </CardTitle>
         </CardHeader>
-        <CardContent className="p-0">
+        <CardContent className="px-0">
           <ScrollArea className="h-[800px]">
             <div className="space-y-2 p-6">
               {engineFamilies.map((family) => (
@@ -1932,8 +1952,8 @@ const EngineFamilies = () => {
                   onOpenChange={() => toggleFamily(family.id)}
                 >
                   <CollapsibleTrigger asChild>
-                    <Card className="cursor-pointer hover:bg-accent/70 transition-colors border-border bg-accent text-foreground">
-                      <CardContent className="p-4">
+                    <Card className="cursor-pointer hover:bg-accent/70 transition-colors border-border bg-accent text-foreground py-3">
+                      <CardContent>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             {openFamilies.includes(family.id) ? (
@@ -1950,12 +1970,11 @@ const EngineFamilies = () => {
                               </p>
                             </div>
                           </div>
-                          <Badge
-                            variant="outline"
-                            className="text-xs border-border text-foreground"
-                          >
-                            {family.engines.length} engines
-                          </Badge>
+                          <ImageDialog
+                            src={family.imageUrl}
+                            alt={family.name}
+                            className="w-[125px] h-[125px]"
+                          />
                         </div>
                       </CardContent>
                     </Card>
@@ -2007,9 +2026,7 @@ const EngineFamilies = () => {
                                     <div className="flex items-center gap-2">
                                       {getEngineIcon(engine.type)}
                                       <Badge
-                                        variant={
-                                          getEngineVariant(engine.type) as any
-                                        }
+                                        variant={getEngineVariant(engine.type)}
                                         className="text-xs"
                                       >
                                         {engine.type}
@@ -2029,7 +2046,7 @@ const EngineFamilies = () => {
                                     {engine.issues}
                                   </TableCell>
                                   <TableCell>
-                                    <a
+                                    <Link
                                       href={engine.sourceUrl}
                                       target="_blank"
                                       rel="noopener noreferrer"
@@ -2037,7 +2054,7 @@ const EngineFamilies = () => {
                                     >
                                       {engine.source}
                                       <ExternalLink className="h-3 w-3" />
-                                    </a>
+                                    </Link>
                                   </TableCell>
                                   <TableCell>
                                     <Button
@@ -2078,51 +2095,39 @@ const EngineFamilies = () => {
       </Card>
 
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30 border-border py-3">
-        <CardContent className="px-6">
-          <div className="flex items-start gap-2 text-sm text-muted-foreground">
-            <Badge
-              variant="outline"
-              className="text-xs shrink-0 mt-0.5 border-border text-foreground"
-            >
-              †
-            </Badge>
-            <p className="text-left leading-relaxed">
-              Engine specifications and service data verified via{" "}
-              <a
-                href="https://www.bmwgroup.com/en.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                BMW Group Product Technical Reports
-                <ExternalLink className="h-3 w-3" />
-              </a>
-              ,{" "}
-              <a
-                href="https://www.bmw-techinfo.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                BMW TIS
-                <ExternalLink className="h-3 w-3" />
-              </a>
-              , and{" "}
-              <a
-                href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-              >
-                EU Regulation (EC) No 715/2007
-                <ExternalLink className="h-3 w-3" />
-              </a>{" "}
-              on vehicle type-approval.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
+      <DisclaimerCard>
+        Engine specifications and service data verified via{" "}
+        <Link
+          href="https://www.bmwgroup.com/en.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          BMW Group Product Technical Reports
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        ,{" "}
+        <Link
+          href="https://www.bmw-techinfo.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          BMW TIS
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        , and{" "}
+        <Link
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          EU Regulation (EC) No 715/2007
+          <ExternalLink className="h-3 w-3" />
+        </Link>{" "}
+        on vehicle type-approval.
+      </DisclaimerCard>
     </Container>
   );
 };

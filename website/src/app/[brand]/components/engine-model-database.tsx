@@ -468,6 +468,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import DisclaimerCard from "./disclaimer-card";
 
 interface EngineModel {
   model: string;
@@ -993,40 +994,36 @@ export default function EngineModelDatabase() {
         </Card>
 
         {/* Source Disclaimer */}
-        <Alert>
-          <Info className="h-4 w-4" />
-          <AlertDescription className="text-sm">
-            <sup>†</sup> Engine-model compatibility based on{" "}
-            <Link
-              href="https://www.bmw-techinfo.com/document/A15001"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              BMW ISTA FA Allocation Codes <ExternalLink className="h-3 w-3" />
-            </Link>
-            ,{" "}
-            <Link
-              href="https://www.gov.uk/vehicle-approval"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              UK DVLA V5C records <ExternalLink className="h-3 w-3" />
-            </Link>
-            , and{" "}
-            <Link
-              href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              EU Regulation (EC) No 715/2007 – Article 7 (Vehicle
-              Identification) <ExternalLink className="h-3 w-3" />
-            </Link>
-            . Data reflects UK/EU production variants only.
-          </AlertDescription>
-        </Alert>
+        <DisclaimerCard>
+          <Link
+            href="https://www.bmw-techinfo.com/document/A15001"
+            target="_blank"
+            rel="noopener"
+            className="text-primary hover:underline inline-flex items-center gap-1"
+          >
+            BMW ISTA FA Allocation Codes <ExternalLink className="h-3 w-3" />
+          </Link>
+          ,{" "}
+          <Link
+            href="https://www.gov.uk/vehicle-approval"
+            target="_blank"
+            rel="noopener"
+            className="text-primary hover:underline inline-flex items-center gap-1"
+          >
+            UK DVLA V5C records <ExternalLink className="h-3 w-3" />
+          </Link>
+          , and{" "}
+          <Link
+            href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+            target="_blank"
+            rel="noopener"
+            className="text-primary hover:underline inline-flex items-center gap-1"
+          >
+            EU Regulation (EC) No 715/2007 – Article 7 (Vehicle Identification){" "}
+            <ExternalLink className="h-3 w-3" />
+          </Link>
+          . Data reflects UK/EU production variants only.
+        </DisclaimerCard>
       </div>
     </Container>
   );

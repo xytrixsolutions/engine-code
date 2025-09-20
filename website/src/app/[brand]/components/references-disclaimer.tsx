@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import DisclaimerCard from "./disclaimer-card";
 
 export function ReferencesDisclaimers() {
   return (
@@ -246,33 +247,28 @@ export function ReferencesDisclaimers() {
       </Card>
 
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30 border-l-4 border-l-primary">
-        <CardContent className="pt-6">
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            <sup>†</sup> All engine specifications, compatibility data, and
-            production facts are verified against{" "}
-            <a
-              href="https://www.bmwgroup.com/en.html"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              BMW Group official documentation{" "}
-              <ExternalLink className="h-3 w-3" />
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              EU type-approval regulations <ExternalLink className="h-3 w-3" />
-            </a>
-            . Information is accurate as of 2025.
-          </p>
-        </CardContent>
-      </Card>
+      <DisclaimerCard>
+        All engine specifications, compatibility data, and production facts are
+        verified against{" "}
+        <a
+          href="https://www.bmwgroup.com/en.html"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          BMW Group official documentation <ExternalLink className="h-3 w-3" />
+        </a>{" "}
+        and{" "}
+        <a
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          EU type-approval regulations <ExternalLink className="h-3 w-3" />
+        </a>
+        . Information is accurate as of 2025.
+      </DisclaimerCard>
     </Container>
   );
 }

@@ -19,6 +19,15 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import Image from "next/image";
+import DisclaimerCard from "./disclaimer-card";
+import Link from "next/link";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ImageDialog } from "./image-dialog";
 
 const modelGuides = [
   {
@@ -26,7 +35,7 @@ const modelGuides = [
     title: "BMW 320d (E90, 2007–2011) – N47 Engine",
     description:
       "Locate the engine code on the front timing cover, just below the camshaft cover. It is stamped into the metal or on a label near the timing chain housing.",
-    imageFilename: "image.png",
+    imageFileName: "/bmw/how-to-find-your-engine-code/n47.jpg",
     altText:
       "BMW E90 320d N47 engine code location on timing cover – stamped near camshaft housing – UK model year 2009",
   },
@@ -35,7 +44,7 @@ const modelGuides = [
     title: "BMW 330i (F30, 2015–2019) – B48 Engine",
     description:
       'The engine code is located on a label attached to the intake manifold, near the turbocharger. It reads "B48B20O0" or "B48B20O1".',
-    imageFilename: "image.png",
+    imageFileName: "/bmw/how-to-find-your-engine-code/b48.jpg",
     altText:
       "BMW F30 330i B48B20 engine code on intake manifold label – turbo side – Euro 6 compliance",
   },
@@ -44,7 +53,7 @@ const modelGuides = [
     title: "BMW X3 (G01, 2018–Now) – B47D20 or B48B20",
     description:
       'Open the hood and look at the front left of the engine (passenger side). The code is on a white label near the timing cover. For diesel models, confirm "B47D20"; petrol models show "B48B20".',
-    imageFilename: "image.png",
+    imageFileName: "/bmw/how-to-find-your-engine-code/b47.jpg",
     altText:
       "BMW G01 X3 engine code location for B47D20 and B48B20 – label near timing cover – UK registration model",
   },
@@ -53,7 +62,7 @@ const modelGuides = [
     title: "BMW 320i (E46, 2000–2005) – M54 Engine",
     description:
       'The engine code is cast into the front of the cylinder head, near the thermostat housing. Look for "M54B22" or "M54B30".',
-    imageFilename: "image.png",
+    imageFileName: "/bmw/how-to-find-your-engine-code/m54.jpg",
     altText:
       "BMW E46 320i M54B22 engine code cast into cylinder head – thermostat housing area – Euro 4 model",
   },
@@ -222,21 +231,45 @@ export default function EngineCodeGuide() {
                         </p>
 
                         {/* Image Placeholder */}
-                        <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 text-center">
-                          <div className="text-muted-foreground space-y-2">
-                            <Image
-                              src={`/${guide.imageFilename}`}
-                              alt="BMW Engine Timeline"
-                              width={0}
-                              height={0}
-                              sizes="100%"
-                              className="w-full rounded-xl"
-                            />
-                            <div className="text-xs italic">
-                              {guide.altText}
-                            </div>
-                          </div>
-                        </div>
+                        {/* <Image */}
+                        {/*   src={guide.imageFileName} */}
+                        {/*   alt={guide.altText} */}
+                        {/*   width={0} */}
+                        {/*   height={0} */}
+                        {/*   sizes="100%" */}
+                        {/*   className="w-full rounded-xl" */}
+                        {/* /> */}
+                        <ImageDialog
+                          src={guide.imageFileName}
+                          alt={guide.altText}
+                          className="h-auto"
+                          buttonColor="black"
+                        />
+                        {/* <Dialog> */}
+                        {/*   <DialogTrigger asChild> */}
+                        {/*     <Image */}
+                        {/*       src={guide.imageFileName} */}
+                        {/*       alt={guide.altText} */}
+                        {/*       width={200} // thumbnail size */}
+                        {/*       height={200} */}
+                        {/*       className="w-full object-contain rounded-xl cursor-pointer" */}
+                        {/*     /> */}
+                        {/*   </DialogTrigger> */}
+                        {/*   <DialogContent */}
+                        {/*     showCloseButton={false} */}
+                        {/*     className="p-0 bg-transparent border-0 border-transparent" */}
+                        {/*   > */}
+                        {/*     <DialogTitle className="hidden"></DialogTitle> */}
+                        {/*     <Image */}
+                        {/*       src={guide.imageFileName} */}
+                        {/*       alt={guide.altText} */}
+                        {/*       width={0} // thumbnail size */}
+                        {/*       height={0} */}
+                        {/*       sizes="100%" */}
+                        {/*       className="w-full h-auto rounded-xl" */}
+                        {/*     /> */}
+                        {/*   </DialogContent> */}
+                        {/* </Dialog> */}
                       </div>
                     </Card>
                   </CollapsibleContent>
@@ -273,22 +306,12 @@ export default function EngineCodeGuide() {
                           {guide.description}
                         </p>
 
-                        {/* Image Placeholder */}
-                        <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 text-center">
-                          <div className="text-muted-foreground space-y-2">
-                            <Image
-                              src={`/${guide.imageFilename}`}
-                              alt="BMW Engine Timeline"
-                              width={0}
-                              height={0}
-                              sizes="100%"
-                              className="w-full rounded-xl"
-                            />
-                            <div className="text-xs italic">
-                              {guide.altText}
-                            </div>
-                          </div>
-                        </div>
+                        <ImageDialog
+                          src={guide.imageFileName}
+                          alt={guide.altText}
+                          className="h-auto"
+                          buttonColor="black"
+                        />
                       </div>
                     </Card>
                   </CollapsibleContent>
@@ -318,7 +341,7 @@ export default function EngineCodeGuide() {
             </p>
 
             <Image
-              src={`/image.png`}
+              src={`/bmw/how-to-find-your-engine-code/v5c.jpg`}
               alt="BMW Engine Timeline"
               width={0}
               height={0}
@@ -327,7 +350,7 @@ export default function EngineCodeGuide() {
             />
 
             <Alert className="border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/20">
-              <AlertDescription className="text-sm text-muted-foreground">
+              <AlertDescription className="text-sm text-muted-foreground inline">
                 <strong>Note:</strong> If the engine has been replaced, the V5C
                 may not reflect the current code. Always verify physically.
               </AlertDescription>
@@ -343,7 +366,7 @@ export default function EngineCodeGuide() {
                 <Hash className="h-5 w-5" />
               </div>
               <h3 className="text-2xl font-semibold text-foreground">
-                3. Decode Your VIN (Vehicle Identification Number)
+                3. Decode Your VIN
               </h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
@@ -356,34 +379,8 @@ export default function EngineCodeGuide() {
             </p>
 
             <div className="space-y-4">
-              <div className="p-4 bg-muted/30 rounded-lg border border-border">
-                <p className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">Recommended tool:</strong>{" "}
-                  <a
-                    href="/vin-decoder"
-                    className="text-primary hover:underline"
-                  >
-                    EngineCode.uk BMW VIN Decoder
-                  </a>{" "}
-                  <Badge variant="outline" className="text-xs ml-2">
-                    In Development
-                  </Badge>
-                </p>
-              </div>
-
-              <div className="p-4 bg-muted/30 rounded-lg border border-border">
-                <p className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">Manual method:</strong>{" "}
-                  Positions 4–7 of the VIN indicate engine type (per BMW TIS
-                  Doc. A15001). Example: VIN{" "}
-                  <code className="bg-muted px-1 rounded">WBA...1A1A...</code> →
-                  "1A1A" = N47D20A.
-                </p>
-              </div>
-
-              {/* VIN Image Placeholder */}
               <Image
-                src={`/image.png`}
+                src={`/bmw/how-to-find-your-engine-code/decode.webp`}
                 alt="BMW Engine Timeline"
                 width={0}
                 height={0}
@@ -395,46 +392,39 @@ export default function EngineCodeGuide() {
         </Card>
       </div>
       {/* Source Disclaimer */}
-      <Card className="bg-muted/30 border-border px-6 py-3">
-        <div className="flex items-start gap-2 text-sm text-muted-foreground">
-          <Badge variant="outline" className="text-xs shrink-0 mt-0.5">
-            †
-          </Badge>
-          <p className="text-left leading-relaxed">
-            Engine code locations per{" "}
-            <a
-              href="https://www.bmw-techinfo.com/document/A15001"
-              rel="noreferrer noopener"
-              target="_blank"
-              className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-            >
-              BMW TIS Document A15001 – Vehicle Identification
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            . V5C field definitions from{" "}
-            <a
-              href="https://www.gov.uk/get-vehicle-information-from-dvla"
-              rel="noreferrer noopener"
-              target="_blank"
-              className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-            >
-              DVLA Guide to Vehicle Registration
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            . VIN structure compliant with{" "}
-            <a
-              href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
-              rel="noreferrer noopener"
-              target="_blank"
-              className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
-            >
-              EU Regulation (EC) No 715/2007, Article 7
-              <ExternalLink className="h-3 w-3" />
-            </a>
-            .
-          </p>
-        </div>
-      </Card>
+      <DisclaimerCard>
+        Engine code locations per{" "}
+        <Link
+          href="https://www.bmw-techinfo.com/document/A15001"
+          rel="noreferrer noopener"
+          target="_blank"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          BMW TIS Document A15001 – Vehicle Identification
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        . V5C field definitions from{" "}
+        <Link
+          href="https://www.gov.uk/get-vehicle-information-from-dvla"
+          rel="noreferrer noopener"
+          target="_blank"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          DVLA Guide to Vehicle Registration
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        . VIN structure compliant with{" "}
+        <Link
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32007R0715"
+          rel="noreferrer noopener"
+          target="_blank"
+          className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
+        >
+          EU Regulation (EC) No 715/2007, Article 7
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+        .
+      </DisclaimerCard>
     </Container>
   );
 }
