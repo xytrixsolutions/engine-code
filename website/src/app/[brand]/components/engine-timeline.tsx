@@ -1,6 +1,6 @@
 "use client";
 import { ExternalLink, Fuel, Trophy, X, Zap } from "lucide-react";
-import Image from "next/image";
+import Link from "next/link";
 import { GiBarrel } from "react-icons/gi";
 import Container from "@/components/Container";
 import {
@@ -11,15 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import DisclaimerCard from "./disclaimer-card";
-import Link from "next/link";
 import { ImageDialog } from "./image-dialog";
 
 const EngineTimeline = () => {
@@ -282,7 +274,6 @@ const EngineTimeline = () => {
         {/*   className="w-full rounded-xl" */}
         {/* /> */}
       </div>
-
       {/* Desktop Timeline - Horizontal Scroll */}
       <div className="hidden lg:block">
         <div className="overflow-x-auto">
@@ -388,7 +379,57 @@ const EngineTimeline = () => {
           </div>
         </div>
       </div>
-
+      {/* Mobile Timeline - Accordion */}
+      {/* <div className="lg:hidden"> */}
+      {/*   <Accordion type="single" collapsible className="w-full space-y-2"> */}
+      {/*     {timelineData.map((period) => ( */}
+      {/*       <AccordionItem */}
+      {/*         key={period.decade} */}
+      {/*         value={period.decade} */}
+      {/*         className="border-border" */}
+      {/*       > */}
+      {/*         <AccordionTrigger className="text-left hover:no-underline"> */}
+      {/*           <div className="flex flex-col items-start"> */}
+      {/*             <span className="font-semibold text-foreground"> */}
+      {/*               {period.decade} */}
+      {/*             </span> */}
+      {/*             <span className="text-sm text-muted-foreground"> */}
+      {/*               {period.years} */}
+      {/*             </span> */}
+      {/*           </div> */}
+      {/*         </AccordionTrigger> */}
+      {/*         <AccordionContent className="space-y-3 pt-2"> */}
+      {/*           {period.engines.map((engine) => ( */}
+      {/*             <Card */}
+      {/*               key={engine.code} */}
+      {/*               className="p-3 cursor-pointer hover:bg-accent/50 transition-colors border-border bg-background" */}
+      {/*               onClick={() => handleEngineClick(engine.anchor)} */}
+      {/*             > */}
+      {/*               <div className="flex items-center justify-between mb-2"> */}
+      {/*                 <div className="flex items-center gap-2"> */}
+      {/*                   {getEngineIcon(engine.type)} */}
+      {/*                   <span className="font-semibold text-foreground"> */}
+      {/*                     {engine.code} */}
+      {/*                   </span> */}
+      {/*                 </div> */}
+      {/*                 <Badge */}
+      {/*                   // biome-ignore lint/suspicious/noExplicitAny: <idk> */}
+      {/*                   variant={getEngineVariant(engine.type) as any} */}
+      {/*                   className="text-xs" */}
+      {/*                 > */}
+      {/*                   {engine.type} */}
+      {/*                 </Badge> */}
+      {/*               </div> */}
+      {/*               <div className="text-xs text-muted-foreground space-y-1"> */}
+      {/*                 <div className="font-medium">{engine.years}</div> */}
+      {/*                 <div className="text-pretty">{engine.models}</div> */}
+      {/*               </div> */}
+      {/*             </Card> */}
+      {/*           ))} */}
+      {/*         </AccordionContent> */}
+      {/*       </AccordionItem> */}
+      {/*     ))} */}
+      {/*   </Accordion> */}
       {/* Mobile Timeline - Accordion */}
       <div className="lg:hidden">
         <Accordion type="single" collapsible className="w-full space-y-2">
@@ -409,6 +450,13 @@ const EngineTimeline = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="space-y-3 pt-2">
+                {/* ✅ MOBILE IMAGE ADDITION HERE */}
+                <ImageDialog
+                  src={period.image}
+                  alt={`${period.decade} BMW Engine`}
+                  className="h-48 sm:h-64 w-full object-cover rounded-lg"
+                />
+
                 {period.engines.map((engine) => (
                   <Card
                     key={engine.code}
@@ -423,7 +471,6 @@ const EngineTimeline = () => {
                         </span>
                       </div>
                       <Badge
-                        // biome-ignore lint/suspicious/noExplicitAny: <idk>
                         variant={getEngineVariant(engine.type) as any}
                         className="text-xs"
                       >
@@ -440,8 +487,8 @@ const EngineTimeline = () => {
             </AccordionItem>
           ))}
         </Accordion>
-      </div>
-
+      </div>{" "}
+      {/* </div> */}
       {/* Source Disclaimer */}
       <DisclaimerCard>
         Engine production years verified via{" "}

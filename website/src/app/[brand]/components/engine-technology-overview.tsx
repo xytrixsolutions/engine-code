@@ -1433,6 +1433,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 import Container from "@/components/Container";
 import { Badge } from "@/components/ui/badge";
@@ -1443,10 +1444,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import Image from "next/image";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import DisclaimerCard from "./disclaimer-card";
-import Link from "next/link";
 import { ImageDialog } from "./image-dialog";
 
 // Define TypeScript interfaces
@@ -1851,6 +1849,12 @@ const TechnologyOverview = () => {
   const TechnologyCard = ({ tech }: { tech: Technology }) => (
     <Card className="border-border mb-4">
       <CardContent className="p-4 space-y-4">
+        <ImageDialog
+          src={tech.image}
+          alt={`${tech.name} Technical Diagram`}
+          className="w-full h-48 sm:h-64 object-cover"
+        />
+
         {/* Description */}
         <div className="space-y-2">
           <h4 className="font-semibold text-foreground">Overview</h4>

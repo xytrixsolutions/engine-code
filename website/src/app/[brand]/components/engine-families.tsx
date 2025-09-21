@@ -1953,7 +1953,7 @@ const EngineFamilies = () => {
                 >
                   <CollapsibleTrigger asChild>
                     <Card className="cursor-pointer hover:bg-accent/70 transition-colors border-border bg-accent text-foreground py-3">
-                      <CardContent>
+                      <CardContent className="px-3 sm:px-6">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             {openFamilies.includes(family.id) ? (
@@ -1962,10 +1962,10 @@ const EngineFamilies = () => {
                               <ChevronRight className="h-5 w-5 text-foreground" />
                             )}
                             <div>
-                              <h3 className="font-semibold text-lg text-foreground">
+                              <h3 className="font-semibold  sm:text-lg text-foreground">
                                 {family.name}
                               </h3>
-                              <p className="text-sm text-muted-foreground">
+                              <p className="text-xs sm:text-sm text-muted-foreground">
                                 {family.description}
                               </p>
                             </div>
@@ -1973,7 +1973,7 @@ const EngineFamilies = () => {
                           <ImageDialog
                             src={family.imageUrl}
                             alt={family.name}
-                            className="w-[125px] h-[125px]"
+                            className="w-[93.75] h-[93.75] sm:w-[125px] sm:h-[125px]"
                           />
                         </div>
                       </CardContent>
