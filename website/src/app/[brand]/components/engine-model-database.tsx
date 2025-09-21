@@ -16,7 +16,7 @@ interface EngineModel {
   model: string;
   chassis: string;
   years: string;
-  image?: string;
+  image: string;
   engines: Array<{
     code: string;
     href: string;
@@ -26,7 +26,7 @@ interface EngineModel {
 interface ThirdPartyModel {
   vehicle: string;
   years: string;
-  image?: string;
+  image: string;
   engines: Array<{
     code: string;
     href: string;
@@ -264,35 +264,35 @@ const thirdPartyModels: ThirdPartyModel[] = [
 const BMWModelCard = ({ model }: { model: EngineModel }) => (
   <Card className="border-border mb-4">
     <CardContent className="p-5">
+      <h3 className="font-bold text-lg text-foreground">
+        BMW {model.model} ({model.chassis})
+      </h3>
       <div className="flex items-start gap-3">
         <Image
-          src={model.image || "/images/placeholder-chassis.png"}
+          src={model.image}
           alt={`${model.model} chassis ${model.chassis}`}
           width={216}
           height={144}
-          className="object-contain"
+          className="object-cover"
           priority={false}
         />
-        <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-lg text-foreground">{model.model}</h3>
-          <p className="text-sm text-muted-foreground">
-            Chassis: {model.chassis}
-          </p>
-        </div>
       </div>
 
       <div className="mt-4">
         <h4 className="text-sm font-medium text-foreground mb-2">
           Available Engines:
         </h4>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 justify-center">
           {model.engines.map((engine) => (
             <Link
               key={engine.code}
               href={engine.href}
               className="text-primary hover:underline"
             >
-              <Badge variant="outline" className="hover:bg-primary/10 text-xs">
+              <Badge
+                variant="outline"
+                className="hover:bg-primary/10 text-[10px] px-0.5 py-0.5"
+              >
                 {engine.code}
               </Badge>
             </Link>
@@ -306,42 +306,37 @@ const BMWModelCard = ({ model }: { model: EngineModel }) => (
 const ThirdPartyModelCard = ({ model }: { model: ThirdPartyModel }) => (
   <Card className="border-border mb-4">
     <CardContent className="p-5">
+      <h3 className="font-bold text-lg text-foreground">{model.vehicle}</h3>
+      <p className="text-sm text-muted-foreground">Years: {model.years}</p>
       <div className="flex items-start gap-3">
         <Image
           src={model.image || "/images/placeholder-chassis.png"}
-          alt={`${model.vehicle} vehicle`}
+          alt={`${model.vehicle} years ${model.years}`}
           width={216}
           height={144}
-          className="object-contain"
+          className="object-cover"
           priority={false}
         />
-        <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-lg text-foreground">{model.vehicle}</h3>
-          <p className="text-sm text-muted-foreground">{model.years}</p>
-        </div>
       </div>
 
       <div className="mt-4">
         <h4 className="text-sm font-medium text-foreground mb-2">
-          BMW Engine Used:
+          BMW Engines Used:
         </h4>
-        <div className="space-y-2">
+        <div className="flex flex-wrap gap-2 justify-center">
           {model.engines.map((engine) => (
-            <div key={engine.code} className="flex items-center gap-2">
-              <Link href={engine.href} className="text-primary hover:underline">
-                <Badge
-                  variant="outline"
-                  className="hover:bg-primary/10 text-xs"
-                >
-                  {engine.code}
-                </Badge>
-              </Link>
-              {engine.note && (
-                <span className="text-xs text-muted-foreground">
-                  ({engine.note})
-                </span>
-              )}
-            </div>
+            <Link
+              key={engine.code}
+              href={engine.href}
+              className="text-primary hover:underline"
+            >
+              <Badge
+                variant="outline"
+                className="hover:bg-primary/10 text-[10px] px-0.5 py-0.5"
+              >
+                {engine.code}
+              </Badge>
+            </Link>
           ))}
         </div>
       </div>
@@ -406,6 +401,8 @@ export default function EngineModelDatabase() {
                   <table className="w-full">
                     <thead className="sticky top-0 bg-primary text-primary-foreground">
                       <tr>
+                        <th className="text-left p-3 font-semibold"></th>
+
                         <th className="text-left p-3 font-semibold">
                           Model (Chassis)
                         </th>
@@ -425,20 +422,20 @@ export default function EngineModelDatabase() {
                             index % 2 === 0 ? "bg-muted/50" : "bg-background"
                           }
                         >
-                          <td className="p-3 font-medium">
-                            <div className="flex items-center gap-3">
-                              <Image
-                                src={model.image || ""}
-                                alt={`${model.model} chassis ${model.chassis}`}
-                                width={48}
-                                height={32}
-                                className="rounded border border-muted object-contain"
-                                priority={false} // Set to true only for above-the-fold images if needed
-                              />
-                              <span>
-                                {model.model} ({model.chassis})
-                              </span>
-                            </div>
+                          <td className="flex justify-center">
+                            <Image
+                              src={model.image || ""}
+                              alt={`${model.model} chassis ${model.chassis}`}
+                              width={162}
+                              height={108}
+                              className="object-contain"
+                              priority={false} // Set to true only for above-the-fold images if needed
+                            />
+                          </td>
+                          <td className="p-3 font-medium text-left">
+                            <span>
+                              {model.model} ({model.chassis})
+                            </span>
                           </td>
                           <td className="p-3 text-muted-foreground">
                             {model.years}
@@ -502,6 +499,7 @@ export default function EngineModelDatabase() {
                   <table className="w-full">
                     <thead className="sticky top-0 bg-primary text-primary-foreground">
                       <tr>
+                        <th className="text-left p-3 font-semibold"></th>
                         <th className="text-left p-3 font-semibold">
                           Vehicle Model
                         </th>
@@ -521,21 +519,19 @@ export default function EngineModelDatabase() {
                             index % 2 === 0 ? "bg-muted/50" : "bg-background"
                           }
                         >
-                          <td className="p-3 font-medium">
-                            <div className="flex items-center gap-3">
-                              <Image
-                                src={
-                                  model.image ||
-                                  "/images/placeholder-chassis.png"
-                                }
-                                alt={`${model.vehicle} vehicle`}
-                                width={48}
-                                height={32}
-                                className="rounded border border-muted object-contain"
-                                priority={false}
-                              />
-                              <span>{model.vehicle}</span>
-                            </div>
+                          <td className="flex justify-center">
+                            <Image
+                              src={model.image}
+                              alt={`${model.vehicle} vehicle`}
+                              width={162}
+                              height={108}
+                              className="object-contain"
+                              priority={false}
+                            />
+                          </td>
+
+                          <td className="p-3 font-medium text-left">
+                            <span>{model.vehicle}</span>
                           </td>
                           <td className="p-3 text-muted-foreground">
                             {model.years}

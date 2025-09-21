@@ -1,6 +1,6 @@
-import { getAllBrands } from "@/app/lib/engine-data";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Metadata } from "next";
+import { getAllBrands } from "@/app/lib/engine-data";
 
 export const metadata: Metadata = {
   title: "Engine Database - All Brands",

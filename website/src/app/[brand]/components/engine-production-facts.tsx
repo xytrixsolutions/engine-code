@@ -1,4 +1,5 @@
 import { ExternalLink, Factory, TrendingUp, Truck, Zap } from "lucide-react";
+import Link from "next/link";
 import Container from "@/components/Container";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -8,8 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { randomInt } from "crypto";
-import Link from "next/link";
 import DisclaimerCard from "./disclaimer-card";
 
 const productionData = [
@@ -118,7 +117,7 @@ export function ProductionFacts() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-3">
+          <div className="grid gap-6 grid-cols-1 lg:grid-cols-3">
             {plants.map((plant) => (
               <Card key={plant.name} className="border-l-4 border-l-primary">
                 <CardHeader className="pb-3">
