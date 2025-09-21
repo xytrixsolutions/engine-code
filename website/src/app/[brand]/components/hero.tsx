@@ -145,14 +145,15 @@ const Hero = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-[auto_auto] justify-between items-center gap-y-6 sm:gap-x-8">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-[auto_auto] justify-between items-center gap-y-6 sm:gap-x-8 px-6 md:px-0"> */}
+      <div className="grid grid-cols-1 sm:grid-cols-[auto_auto] items-center gap-y-6 sm:gap-x-8 px-6 md:px-0">
         <Image
           src="/bmw/hero1.jpg"
           alt="BMW Engine Timeline"
           width={0}
           height={0}
           sizes="100%"
-          className="w-full sm:w-max rounded-xl"
+          className="w-full h-max rounded-xl "
         />
         <Image
           src="/bmw/hero2.png"
@@ -160,7 +161,7 @@ const Hero = (): JSX.Element => {
           width={0}
           height={0}
           sizes="100%"
-          className="w-full sm:w-max rounded-xl"
+          className="w-full h-max rounded-xl "
         />
       </div>
 

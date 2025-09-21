@@ -1,12 +1,25 @@
 FROM node:22-alpine AS builder
 WORKDIR /app
 
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# Copy Environment
 COPY .env ./
 
-COPY package*.json ./
-#RUN pnpm install
+# COPY package*.json ./
+
+# Copy lockfiles and manifest
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
+
+# Install deps
+RUN pnpm install --frozen-lockfile
+
+# Copy rest of the source
 COPY . .
-#RUN pnpm run build
+
+# Build
+RUN pnpm run build
 
 # --- runtime stage ---
 FROM node:22-alpine
