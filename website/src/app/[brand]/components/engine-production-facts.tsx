@@ -77,7 +77,7 @@ export function ProductionFacts() {
     <Container spaceY={8}>
       {/* Header */}
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold text-balance">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-balance">
           BMW Engine Production Facts: Manufacturing, Output & Partnerships
         </h1>
         <p className="text-lg text-muted-foreground max-w-4xl mx-auto text-pretty">

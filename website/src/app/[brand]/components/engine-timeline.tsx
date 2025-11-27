@@ -19,7 +19,7 @@ const EngineTimeline = () => {
     {
       decade: "1970s",
       years: "1970–1979",
-      image: "/bmw/Engines/1-bmw-m10.webp",
+      image: "/bmw/Engines/timeline/resized-engine-450x400-removebg-preview.webp",
       engines: [
         {
           code: "M10",
@@ -40,7 +40,7 @@ const EngineTimeline = () => {
     {
       decade: "1980s",
       years: "1980–1989",
-      image: "/bmw/Engines/2-bmw-m20.webp",
+      image: "/bmw/Engines/timeline/2-bmw-m20-removebg-preview.webp",
       engines: [
         {
           code: "M40",
@@ -61,7 +61,7 @@ const EngineTimeline = () => {
     {
       decade: "1990s",
       years: "1990–1999",
-      image: "/bmw/Engines/3-bmw-m40.webp",
+      image: "/bmw/Engines/timeline/3-bmw-m40-removebg-preview.webp",
       engines: [
         {
           code: "M42",
@@ -96,7 +96,7 @@ const EngineTimeline = () => {
     {
       decade: "2000s",
       years: "2000–2009",
-      image: "/bmw/Engines/4-bmw-s54.webp",
+      image: "/bmw/Engines/timeline/4-bmw-s54-removebg-preview.webp",
       engines: [
         {
           code: "M54",
@@ -122,7 +122,7 @@ const EngineTimeline = () => {
       ],
     },
     {
-      image: "/bmw/Engines/6-bmw-b47d20.webp",
+      image: "/bmw/Engines/timeline/6-bmw-b47d20-removebg-preview.webp",
       decade: "2010s",
       years: "2010–2019",
       engines: [
@@ -164,7 +164,7 @@ const EngineTimeline = () => {
       ],
     },
     {
-      image: "/bmw/Engines/7-bmw_p48.webp",
+      image: "/bmw/Engines/timeline/bmwengine-removebg-preview.webp",
       decade: "2020s",
       years: "2020–Now",
       engines: [
@@ -238,7 +238,7 @@ const EngineTimeline = () => {
     <Container spaceY={8}>
       {/* Section Header */}
       <div className="text-center space-y-4">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-balance">
           BMW Engine Evolution Timeline (1970–2025)
         </h2>
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
@@ -348,10 +348,19 @@ const EngineTimeline = () => {
                   {/* /> */}
 
                   {period.engines.map((engine) => (
-                    <Card
+                    <div
                       key={engine.code}
-                      className="p-3 cursor-pointer hover:bg-accent/50 transition-colors border-border bg-background"
+                      role="button"
+                      tabIndex={0}
                       onClick={() => handleEngineClick(engine.anchor)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+                          e.preventDefault();
+                          handleEngineClick(engine.anchor);
+                        }
+                      }}
+                      className="p-3 cursor-pointer hover:bg-accent/50 transition-colors border-border bg-background rounded-md"
+                      aria-label={`Open ${engine.code} engine family`}
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
@@ -371,7 +380,7 @@ const EngineTimeline = () => {
                         <div className="font-medium">{engine.years}</div>
                         <div className="text-pretty">{engine.models}</div>
                       </div>
-                    </Card>
+                    </div>
                   ))}
                 </CardContent>
               </Card>
@@ -454,14 +463,23 @@ const EngineTimeline = () => {
                 <ImageDialog
                   src={period.image}
                   alt={`${period.decade} BMW Engine`}
-                  className="h-48 sm:h-64 w-full object-cover rounded-lg"
+                // className="h-48 sm:h-64 w-full object-cover rounded-lg"
                 />
 
                 {period.engines.map((engine) => (
-                  <Card
+                  <div
                     key={engine.code}
-                    className="p-3 cursor-pointer hover:bg-accent/50 transition-colors border-border bg-background"
+                    role="button"
+                    tabIndex={0}
                     onClick={() => handleEngineClick(engine.anchor)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+                        e.preventDefault();
+                        handleEngineClick(engine.anchor);
+                      }
+                    }}
+                    className="p-3 cursor-pointer hover:bg-accent/50 transition-colors border-border bg-background rounded-md"
+                    aria-label={`Open ${engine.code} engine family`}
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
@@ -481,7 +499,7 @@ const EngineTimeline = () => {
                       <div className="font-medium">{engine.years}</div>
                       <div className="text-pretty">{engine.models}</div>
                     </div>
-                  </Card>
+                  </div>
                 ))}
               </AccordionContent>
             </AccordionItem>

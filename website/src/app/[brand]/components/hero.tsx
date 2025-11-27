@@ -153,7 +153,7 @@ const Hero = (): JSX.Element => {
           width={0}
           height={0}
           sizes="100%"
-          className="w-full h-max rounded-xl "
+          className="w-full h-max max-w-[600px] rounded-xl "
         />
         <Image
           src="/bmw/hero2.png"
@@ -161,7 +161,7 @@ const Hero = (): JSX.Element => {
           width={0}
           height={0}
           sizes="100%"
-          className="w-full h-max rounded-xl "
+          className="w-full h-max max-w-[450px] rounded-xl "
         />
       </div>
 

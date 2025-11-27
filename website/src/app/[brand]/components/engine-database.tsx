@@ -4697,7 +4697,7 @@ const EngineDatabase = () => {
   // Mobile card component for engine details
   const EngineCard = ({ engine }: { engine: Engine }) => (
     <Card className="border-border mb-4">
-      <CardContent className="p-4">
+      <CardContent className="px-3">
         <div className="flex justify-between items-start mb-3">
           <div className="flex items-center gap-2">
             <h3 className="font-bold text-lg text-foreground">{engine.code}</h3>
@@ -4736,7 +4736,7 @@ const EngineDatabase = () => {
   return (
     <Container spaceY={4}>
       <div className="text-center space-y-4">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-balance">
           Complete Engine Database
         </h2>
         <div className="text-lg md:text-4xl text-muted-foreground font-medium"></div>
@@ -4887,7 +4887,7 @@ const EngineDatabase = () => {
 
               {/* Mobile Card View - Hidden on desktop */}
               <div className="md:hidden p-4">
-                <ScrollArea className="h-[600px]">
+                <ScrollArea className="h-[300px]">
                   {filteredEngines.length === 0 ? (
                     <div className="flex flex-col items-center justify-center py-12 text-center">
                       <Search className="h-12 w-12 text-muted-foreground mb-4" />
