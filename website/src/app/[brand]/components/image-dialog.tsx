@@ -37,7 +37,7 @@ export function ImageDialog({
           {...(!fill && { width: thumbWidth, height: thumbHeight })}
           fill={fill}
           sizes="100%"
-          className={cn("w-full h-48 object-cover rounded-xl", className)}
+          className={cn("w-full min-h-48 max-h-96 object-contain rounded-xl", className)}
         />
       </DialogTrigger>
       <DialogContent className="max-w-max p-0" showCloseButton={false}>

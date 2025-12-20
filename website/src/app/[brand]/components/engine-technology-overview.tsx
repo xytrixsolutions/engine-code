@@ -1495,7 +1495,7 @@ const TechnologyOverview = () => {
       id: "valvetronic",
       name: "VALVETRONIC",
       subtitle: "Variable Valve Lift (1999–Present)",
-      image: "/bmw/Tech/valvetronic.webp",
+      image: "/bmw/technology-revolution/valvetronic-removebg-preview 1.webp",
       icon: <Settings className="h-5 w-5" />,
       description:
         "BMW's proprietary VALVETRONIC system eliminates the throttle butterfly by continuously varying intake valve lift, improving efficiency and throttle response.",
@@ -1557,7 +1557,7 @@ const TechnologyOverview = () => {
       id: "twinpower",
       name: "TwinPower Turbo",
       subtitle: "BMW's Integrated Performance System",
-      image: "/bmw/Tech/twinpower-turbocharged.jpg",
+      image: "/bmw/technology-revolution/twinpower-turbocharged-removebg-preview 1.webp",
       icon: <Zap className="h-5 w-5" />,
       description:
         "TwinPower Turbo is BMW's branding for engines combining turbocharging, direct fuel injection (High Precision Injection), VALVETRONIC (petrol), and Double-VANOS (variable cam timing).",
@@ -1623,7 +1623,7 @@ const TechnologyOverview = () => {
       id: "timing",
       name: "Timing Systems",
       subtitle: "Chain vs. Belt – Reliability by Design",
-      image: "/bmw/Tech/timing-system.jpg",
+      image: "/bmw/technology-revolution/timing-system-removebg-preview 1.webp",
       icon: <Cog className="h-5 w-5" />,
       description:
         "BMW uses timing chains on most engines, but design affects longevity significantly.",
@@ -1671,7 +1671,7 @@ const TechnologyOverview = () => {
       id: "hpfp",
       name: "High-Pressure Fuel Pump (HPFP)",
       subtitle: "Petrol Engine Weak Point",
-      image: "/bmw/Tech/high-pressure-fuel-pump-hpfp.jpg",
+      image: "/bmw/technology-revolution/high-pressure-fuel-pump-hpfp-removebg-preview 1.webp",
       icon: <Fuel className="h-5 w-5" />,
       description:
         "The HPFP delivers fuel at up to 200 bar for direct injection systems.",
@@ -1720,7 +1720,7 @@ const TechnologyOverview = () => {
       id: "common-rail",
       name: "Common Rail Diesel",
       subtitle: "From M47 to B47",
-      image: "/bmw/Tech/Common-Rail-Diesel.JPG",
+      image: "/bmw/technology-revolution/Common-Rail-Diesel-removebg-preview 1.webp",
       icon: <Database className="h-5 w-5" />,
       description:
         "BMW's diesel evolution focused on pressure, emissions, and refinement.",
@@ -1764,7 +1764,7 @@ const TechnologyOverview = () => {
       id: "modular",
       name: "Modular Engine Design",
       subtitle: "B-Series: B38, B48, B58",
-      image: "/bmw/Tech/Modular-Engine-Design.jpg",
+      image: "/bmw/technology-revolution/Modular-Engine-Design-removebg-preview 1.webp",
       icon: <Wrench className="h-5 w-5" />,
       description:
         "Introduced in 2014, the Modular Engine Family (MEP) shares cylinder spacing (91mm), bore (82mm), stroke variants, mounting points, and ECU architecture.",
@@ -1796,7 +1796,7 @@ const TechnologyOverview = () => {
       id: "hybrid",
       name: "Hybrid & iPerformance",
       subtitle: "Electrified Powertrains",
-      image: "/bmw/Tech/hybrid-iperformane.jpg",
+      image: "/bmw/technology-revolution/hybrid-iperformane-removebg-preview 1.webp",
       icon: <Gauge className="h-5 w-5" />,
       description:
         "BMW's iPerformance models integrate petrol engines with electric motors for enhanced efficiency and performance.",
@@ -1969,7 +1969,7 @@ const TechnologyOverview = () => {
     <Container spaceY={8}>
       {/* Section Header */}
       <div className="text-center space-y-4">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-balance">
           BMW Engine Technology & Innovations
         </h2>
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-pretty px-4">
@@ -2073,6 +2073,7 @@ const TechnologyOverview = () => {
                                   {tech.description}
                                 </p>
                               </div>
+                              <br />                    
                               {/* How it Works */}
                               <div className="space-y-2">
                                 <h4 className="font-semibold text-foreground">

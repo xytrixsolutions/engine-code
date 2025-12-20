@@ -1455,7 +1455,7 @@ const EngineFamilies = () => {
       id: "m10",
       name: "M10 Series",
       description: "Inline-4 & Inline-6, 1961–1988",
-      imageUrl: "/bmw/Engines/1-bmw-m10.webp",
+      imageUrl: "/bmw/Engines/timeline/resized-engine-450x400-removebg-preview.webp",
       engines: [
         {
           code: "M10 B16",
@@ -1499,7 +1499,7 @@ const EngineFamilies = () => {
       id: "m20",
       name: "M20 Series",
       description: "Inline-6, 1981–1993",
-      imageUrl: "/bmw/Engines/2-bmw-m20.webp",
+      imageUrl: "/bmw/Engines/timeline/2-bmw-m20-removebg-preview.webp",
       engines: [
         {
           code: "M20 B20",
@@ -1543,7 +1543,7 @@ const EngineFamilies = () => {
       id: "m40",
       name: "M40 / M43 Series",
       description: "Inline-4, 1989–2000",
-      imageUrl: "/bmw/Engines/3-bmw-m40.webp",
+      imageUrl: "/bmw/Engines/timeline/3-bmw-m40-removebg-preview.webp",
       engines: [
         {
           code: "M40 B16",
@@ -1575,7 +1575,7 @@ const EngineFamilies = () => {
       id: "m50",
       name: "M50 / M52 / M54 Series",
       description: "Inline-6, 1990–2006",
-      imageUrl: "/bmw/Engines/bmw-m50.jpg",
+      imageUrl: "/bmw/Engines/timeline/bmw-m50-removebg-preview 1.png",
       engines: [
         {
           code: "M50 B20",
@@ -1619,7 +1619,7 @@ const EngineFamilies = () => {
       id: "m47",
       name: "M47 / N47 Series",
       description: "Diesel, 1998–2015",
-      imageUrl: "/bmw/Engines/8-bmw-n-series.webp",
+      imageUrl: "/bmw/Engines/timeline/8-bmw-n-series-removebg-preview 1.png",
       engines: [
         {
           code: "M47 D20",
@@ -1663,7 +1663,7 @@ const EngineFamilies = () => {
       id: "b37",
       name: "B37 / B38 / B47 / B48 Series",
       description: "Modular Engines, 2014–Now",
-      imageUrl: "/bmw/Engines/6-bmw-b47d20.webp",
+      imageUrl: "/bmw/Engines/timeline/6-bmw-b47d20-removebg-preview.webp",
       engines: [
         {
           code: "B37 C15 A",
@@ -1707,7 +1707,7 @@ const EngineFamilies = () => {
       id: "s-engines",
       name: "S-Series & P-Series",
       description: "Performance & Racing Engines",
-      imageUrl: "/bmw/Engines/4-bmw-s50b32.webp",
+      imageUrl: "/bmw/Engines/timeline/4-bmw-s50b32-removebg-preview 1.png",
       engines: [
         {
           code: "S14 B23",
@@ -1762,7 +1762,7 @@ const EngineFamilies = () => {
       id: "n-engines",
       name: "N-Series",
       description: "Turbocharged Petrol & Diesel, 2007–2015",
-      imageUrl: "/bmw/Engines/n-series.jpg",
+      imageUrl: "/bmw/Engines/timeline/8-bmw-n-series-removebg-preview 1.png",
       engines: [
         {
           code: "N20 B20 A",
@@ -1892,7 +1892,7 @@ const EngineFamilies = () => {
     <Container spaceY={8}>
       {/* Section Header */}
       <div className="text-center space-y-4">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-balance">
           BMW Engines by Family
         </h2>
         <div className="text-lg md:text-4xl text-muted-foreground font-medium">

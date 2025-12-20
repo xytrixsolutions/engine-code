@@ -389,7 +389,7 @@ export function FrequentlyAskedQuestions() {
     <Container spaceY={4}>
       {/* Header */}
       <div className="text-center space-y-4">
-        <h2 className="text-3xl font-bold text-balance flex items-center justify-center gap-2">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-balance flex items-center justify-center gap-2">
           <HelpCircle className="h-8 w-8" />
           BMW Engine Codes: Frequently Asked Questions (UK Owners)
         </h2>

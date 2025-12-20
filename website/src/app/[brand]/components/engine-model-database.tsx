@@ -39,7 +39,7 @@ const bmwModels: EngineModel[] = [
     model: "114d",
     chassis: "E81/E82",
     years: "2007–2013",
-    image: "/bmw/chassis/e82.png",
+    image: "/bmw/cars/e82 1.png",
     engines: [
       { code: "N47D16A", href: "/bmw/n47d16a-specs" },
       { code: "M47TUD16", href: "/bmw/m47tud16-specs" },
@@ -49,7 +49,7 @@ const bmwModels: EngineModel[] = [
     model: "116i",
     chassis: "F20",
     years: "2012–2019",
-    image: "/bmw/chassis/f20.png",
+    image: "/bmw/cars/f20 1.png",
     engines: [
       { code: "B38A15A", href: "/bmw/b38a15a-specs" },
       { code: "N13B16A", href: "/bmw/n13b16a-specs" },
@@ -59,7 +59,7 @@ const bmwModels: EngineModel[] = [
     model: "118d",
     chassis: "F40",
     years: "2017–2023",
-    image: "/bmw/chassis/f40.png",
+    image: "/bmw/cars/f40 1.png",
     engines: [
       { code: "B47D20A", href: "/bmw/b47d20a-specs" },
       { code: "B47D20B", href: "/bmw/b47d20b-specs" },
@@ -79,7 +79,7 @@ const bmwModels: EngineModel[] = [
     model: "318d",
     chassis: "E90",
     years: "2007–2011",
-    image: "/bmw/chassis/e90.png",
+    image: "/bmw/cars/e90 1.png",
     engines: [
       { code: "N47D20A", href: "/bmw/n47d20a-specs" },
       { code: "M47TUD20", href: "/bmw/m47tud20-specs" },
@@ -89,7 +89,7 @@ const bmwModels: EngineModel[] = [
     model: "320d",
     chassis: "F30",
     years: "2012–2019",
-    image: "/bmw/chassis/f30.png",
+    image: "/bmw/cars/f30 1.png",
     engines: [
       { code: "N47D20C", href: "/bmw/n47d20c-specs" },
       { code: "B47D20A", href: "/bmw/b47d20a-specs" },
@@ -100,7 +100,7 @@ const bmwModels: EngineModel[] = [
     model: "330i",
     chassis: "G20",
     years: "2019–Now",
-    image: "/bmw/chassis/g20.png",
+    image: "/bmw/cars/g20 1.png",
     engines: [
       { code: "B48B20O1", href: "/bmw/b48b20o1-specs" },
       { code: "B48B20O2", href: "/bmw/b48b20o2-specs" },
@@ -110,7 +110,7 @@ const bmwModels: EngineModel[] = [
     model: "520d",
     chassis: "F10",
     years: "2010–2017",
-    image: "/bmw/chassis/f10.png",
+    image: "/bmw/cars/f10 1.png",
     engines: [
       { code: "N47D20C", href: "/bmw/n47d20c-specs" },
       { code: "B47D20A", href: "/bmw/b47d20a-specs" },
@@ -120,14 +120,14 @@ const bmwModels: EngineModel[] = [
     model: "530e",
     chassis: "G30",
     years: "2017–Now",
-    image: "/bmw/chassis/g30.png",
+    image: "/bmw/cars/g30 1.png",
     engines: [{ code: "B48B20O1 + eDrive", href: "/bmw/b48b20o1-specs" }],
   },
   {
     model: "X1",
     chassis: "F48",
     years: "2016–Now",
-    image: "/bmw/chassis/f48.png",
+    image: "/bmw/cars/f48 1.png",
     engines: [
       { code: "B38A15A", href: "/bmw/b38a15a-specs" },
       { code: "B47D20A", href: "/bmw/b47d20a-specs" },
@@ -138,7 +138,7 @@ const bmwModels: EngineModel[] = [
     model: "X3",
     chassis: "G01",
     years: "2018–Now",
-    image: "/bmw/chassis/g01.png",
+    image: "/bmw/cars/g01 1.png",
     engines: [
       { code: "B48B20O1", href: "/bmw/b48b20o1-specs" },
       { code: "B58B30A", href: "/bmw/b58b30a-specs" },
@@ -149,7 +149,7 @@ const bmwModels: EngineModel[] = [
     model: "X5",
     chassis: "F15",
     years: "2013–2018",
-    image: "/bmw/chassis/f15.png",
+    image: "/bmw/cars/f15 1.png",
     engines: [
       { code: "N55B30A", href: "/bmw/n55b30a-specs" },
       { code: "B47D20A", href: "/bmw/b47d20a-specs" },
@@ -160,7 +160,7 @@ const bmwModels: EngineModel[] = [
     model: "Z3",
     chassis: "E36/7",
     years: "1995–2002",
-    image: "/bmw/chassis/e37.png",
+    image: "/bmw/cars/e37 1.png",
     engines: [
       { code: "M44B19", href: "/bmw/m44b19-specs" },
       { code: "M54B22", href: "/bmw/m54b22-specs" },
@@ -171,7 +171,7 @@ const bmwModels: EngineModel[] = [
     model: "Z4",
     chassis: "G29",
     years: "2018–Now",
-    image: "/bmw/chassis/g29.png",
+    image: "/bmw/cars/g29 1.png",
     engines: [
       { code: "B48B20O1", href: "/bmw/b48b20o1-specs" },
       { code: "S58B30A", href: "/bmw/s58b30a-specs" },
@@ -181,35 +181,35 @@ const bmwModels: EngineModel[] = [
     model: "M3",
     chassis: "E46",
     years: "2000–2006",
-    image: "/bmw/chassis/e46.png",
+    image: "/bmw/cars/e46 1.png",
     engines: [{ code: "S54B32", href: "/bmw/s54b32-specs" }],
   },
   {
     model: "M3",
     chassis: "G80",
     years: "2020–Now",
-    image: "/bmw/chassis/g80.png",
+    image: "/bmw/cars/g80 1.png",
     engines: [{ code: "S58B30A", href: "/bmw/s58b30a-specs" }],
   },
   {
     model: "M5",
     chassis: "F90",
     years: "2018–Now",
-    image: "/bmw/chassis/f90.png",
+    image: "/bmw/cars/f90 1.png",
     engines: [{ code: "S63B44C", href: "/bmw/s63b44c-specs" }],
   },
   {
     model: "X3 M",
     chassis: "F97",
     years: "2019–Now",
-    image: "/bmw/chassis/f97.png",
+    image: "/bmw/cars/f97 1.png",
     engines: [{ code: "S58B30A", href: "/bmw/s58b30a-specs" }],
   },
   {
     model: "i3",
     chassis: "G28",
     years: "2013–2022",
-    image: "/bmw/chassis/g28.png",
+    image: "/bmw/cars/g28 1.png",
     engines: [{ code: "B38A15A (Range Extender)", href: "/bmw/b38a15a-specs" }],
   },
 ];
@@ -227,13 +227,13 @@ const thirdPartyModels: ThirdPartyModel[] = [
   {
     vehicle: "Mini One D (F55)",
     years: "2015–Now",
-    image: "/bmw/chassis/mini-f55.png",
+    image: "/bmw/cars/mini-f55 1.png",
     engines: [{ code: "B37C15A", href: "/bmw/b37c15a-specs" }],
   },
   {
     vehicle: "Toyota GR Supra (J29)",
     years: "2019–Now",
-    image: "/bmw/chassis/g28.png",
+    image: "/bmw/cars/g28 1.png",
     engines: [
       { code: "B48B20O1", href: "/bmw/b48b20o1-specs" },
       { code: "B58B30A", href: "/bmw/b58b30a-specs" },
@@ -242,7 +242,7 @@ const thirdPartyModels: ThirdPartyModel[] = [
   {
     vehicle: "Land Rover Freelander 2 (L359)",
     years: "2007–2014",
-    image: "/bmw/chassis/lr-l359.png",
+    image: "/bmw/cars/lr-l359 1.png",
     engines: [
       { code: "N47D20A", href: "/bmw/n47d20a-specs", note: "marketed as TD4" },
     ],
@@ -250,24 +250,24 @@ const thirdPartyModels: ThirdPartyModel[] = [
   {
     vehicle: "Alpina B7 (G12)",
     years: "2016–2022",
-    image: "/bmw/chassis/alpina-g12.png",
+    image: "/bmw/cars/alpina-g12 1.png",
     engines: [{ code: "N63B44C", href: "/bmw/n63b44c-specs", note: "tuned" }],
   },
   {
     vehicle: "Alpina D5 (G30)",
     years: "2017–Now",
-    image: "/bmw/chassis/alpina-g30.png",
+    image: "/bmw/cars/alpina-g30 1.png",
     engines: [{ code: "B57D30A", href: "/bmw/b57d30a-specs", note: "tuned" }],
   },
 ];
 
 const BMWModelCard = ({ model }: { model: EngineModel }) => (
-  <Card className="border-border mb-4">
-    <CardContent className="p-5">
+  <Card className="border-border mb-2">
+    <CardContent className="p-1">
       <h3 className="font-bold text-lg text-foreground">
         BMW {model.model} ({model.chassis})
       </h3>
-      <div className="flex items-start gap-3">
+      <div className="flex items-center justify-center gap-3">
         <Image
           src={model.image}
           alt={`${model.model} chassis ${model.chassis}`}
@@ -291,7 +291,7 @@ const BMWModelCard = ({ model }: { model: EngineModel }) => (
             >
               <Badge
                 variant="outline"
-                className="hover:bg-primary/10 text-[10px] px-0.5 py-0.5"
+                className="hover:bg-primary/10 text-[12px] px-0.5 py-0.5"
               >
                 {engine.code}
               </Badge>
@@ -304,11 +304,11 @@ const BMWModelCard = ({ model }: { model: EngineModel }) => (
 );
 
 const ThirdPartyModelCard = ({ model }: { model: ThirdPartyModel }) => (
-  <Card className="border-border mb-4">
-    <CardContent className="p-5">
+  <Card className="border-border mb-2">
+    <CardContent className="p-1">
       <h3 className="font-bold text-lg text-foreground">{model.vehicle}</h3>
       <p className="text-sm text-muted-foreground">Years: {model.years}</p>
-      <div className="flex items-start gap-3">
+      <div className="flex items-center justify-center gap-3">
         <Image
           src={model.image || "/images/placeholder-chassis.png"}
           alt={`${model.vehicle} years ${model.years}`}
@@ -332,7 +332,7 @@ const ThirdPartyModelCard = ({ model }: { model: ThirdPartyModel }) => (
             >
               <Badge
                 variant="outline"
-                className="hover:bg-primary/10 text-[10px] px-0.5 py-0.5"
+                className="hover:bg-primary/10 text-[12px] px-0.5 py-0.5"
               >
                 {engine.code}
               </Badge>
@@ -348,7 +348,7 @@ export default function EngineModelDatabase() {
   return (
     <Container centerText>
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-foreground mb-4 text-balance">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-balance">
           BMW Models & Compatible Engines: Full UK/EU Production Guide
         </h1>
         <p className="text-lg text-muted-foreground text-pretty leading-relaxed px-4">
