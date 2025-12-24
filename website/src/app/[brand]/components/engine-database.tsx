@@ -3687,854 +3687,71 @@ import {
 import DisclaimerCard from "./disclaimer-card";
 import Link from "next/link";
 
+// TypeScript interfaces
 interface Engine {
   code: string;
   fuel: string;
   series: string;
   url: string;
 }
-const EngineDatabase = () => {
+
+interface EngineListItem {
+  id: string;
+  name: string;
+}
+
+interface EngineDatabaseProps {
+  brandSlug: string;
+  engines: EngineListItem[];
+}
+
+// Helper function to extract series from engine code
+function extractSeries(engineCode: string): string {
+  // Extract first letter(s) before any number
+  const match = engineCode.match(/^([A-Za-z]+)/);
+  return match ? match[1].toUpperCase() : "Other";
+}
+
+// Helper function to detect fuel type from engine code
+function detectFuelType(engineCode: string): string {
+  // D in the code typically indicates diesel (e.g., N47D20, B47D20)
+  // Check for 'D' followed by numbers in the engine code
+  if (/[A-Z]\d*D\d/.test(engineCode.toUpperCase())) {
+    return "Diesel";
+  }
+  return "Petrol";
+}
+
+// Helper function to transform DB engine to component format
+function transformEngine(engine: EngineListItem, brandSlug: string): Engine {
+  const engineId = engine.id;
+  return {
+    code: engine.name,
+    fuel: detectFuelType(engineId),
+    series: extractSeries(engine.name),
+    url: `/${brandSlug}/${engineId}-specs`,
+  };
+}
+
+const EngineDatabase = ({ brandSlug, engines }: EngineDatabaseProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [fuelFilter, setFuelFilter] = useState("all");
   const [seriesFilter, setSeriesFilter] = useState("all");
 
-  const engineData: Engine[] = [
-    {
-      code: "B36 B07 A",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b36b07a-specs",
-    },
-    {
-      code: "B37 C15 A",
-      fuel: "Diesel",
-      series: "B",
-      url: "/bmw/b37c15a-specs",
-    },
-    {
-      code: "B37 D15 A",
-      fuel: "Diesel",
-      series: "B",
-      url: "/bmw/b37d15a-specs",
-    },
-    {
-      code: "B38 A15 A",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b38a15a-specs",
-    },
-    {
-      code: "B38 B15 A",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b38b15a-specs",
-    },
-    {
-      code: "B42 S20 A",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b42s20a-specs",
-    },
-    {
-      code: "B46 A20 B",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b46a20b-specs",
-    },
-    {
-      code: "B46 B20 B",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b46b20b-specs",
-    },
-    {
-      code: "B47 C20 A",
-      fuel: "Diesel",
-      series: "B",
-      url: "/bmw/b47c20a-specs",
-    },
-    {
-      code: "B47 C20 B",
-      fuel: "Diesel",
-      series: "B",
-      url: "/bmw/b47c20b-specs",
-    },
-    {
-      code: "B47 D20 A",
-      fuel: "Diesel",
-      series: "B",
-      url: "/bmw/b47d20a-specs",
-    },
-    {
-      code: "B47 D20 B",
-      fuel: "Diesel",
-      series: "B",
-      url: "/bmw/b47d20b-specs",
-    },
-    {
-      code: "B48 A20 A",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b48a20a-specs",
-    },
-    {
-      code: "B48 A20 B",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b48a20b-specs",
-    },
-    {
-      code: "B48 A20 F",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b48a20f-specs",
-    },
-    {
-      code: "B48 B16 A",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b48b16a-specs",
-    },
-    {
-      code: "B48 B20 A",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b48b20a-specs",
-    },
-    {
-      code: "B48 B20 B",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b48b20b-specs",
-    },
-    {
-      code: "B57 D30 A",
-      fuel: "Diesel",
-      series: "B",
-      url: "/bmw/b57d30a-specs",
-    },
-    {
-      code: "B57 D30 B",
-      fuel: "Diesel",
-      series: "B",
-      url: "/bmw/b57d30b-specs",
-    },
-    {
-      code: "B57 D30 C",
-      fuel: "Diesel",
-      series: "B",
-      url: "/bmw/b57d30c-specs",
-    },
-    {
-      code: "B58 B30 A",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b58b30a-specs",
-    },
-    {
-      code: "B58 B30 C",
-      fuel: "Petrol",
-      series: "B",
-      url: "/bmw/b58b30c-specs",
-    },
-    { code: "E41/4", fuel: "Petrol", series: "E", url: "/bmw/e41-4-specs" },
-    { code: "M10 B15", fuel: "Petrol", series: "M", url: "/bmw/m10b15-specs" },
-    {
-      code: "M10 B16 (164VA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b16-164va-specs",
-    },
-    {
-      code: "M10 B16 (164VB)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b16-164vb-specs",
-    },
-    {
-      code: "M10 B16 (16A)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b16-16a-specs",
-    },
-    {
-      code: "M10 B16 A",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b16a-specs",
-    },
-    { code: "M10 B18", fuel: "Petrol", series: "M", url: "/bmw/m10b18-specs" },
-    {
-      code: "M10 B18 (184EA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b18-184ea-specs",
-    },
-    {
-      code: "M10 B18 (184EB)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b18-184eb-specs",
-    },
-    {
-      code: "M10 B18 (184EZ)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b18-184ez-specs",
-    },
-    {
-      code: "M10 B18 (184KA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b18-184ka-specs",
-    },
-    {
-      code: "M10 B18 (184VA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b18-184va-specs",
-    },
-    {
-      code: "M10 B18 (184VB)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b18-184vb-specs",
-    },
-    {
-      code: "M10 B18 (184VC)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b18-184vc-specs",
-    },
-    {
-      code: "M10 B18 (184VD)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b18-184vd-specs",
-    },
-    { code: "M10 B20", fuel: "Petrol", series: "M", url: "/bmw/m10b20-specs" },
-    {
-      code: "M10 B20 (23EA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b20-23ea-specs",
-    },
-    {
-      code: "M10 B20 A",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m10b20a-specs",
-    },
-    { code: "M118", fuel: "Petrol", series: "M", url: "/bmw/m118-specs" },
-    { code: "M12/7", fuel: "Petrol", series: "M", url: "/bmw/m12-7-specs" },
-    { code: "M12/10", fuel: "Petrol", series: "M", url: "/bmw/m12-10-specs" },
-    { code: "M12/13", fuel: "Petrol", series: "M", url: "/bmw/m12-13-specs" },
-    {
-      code: "M20 B20 (206EA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b20-206ea-specs",
-    },
-    {
-      code: "M20 B20 (206EB)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b20-206eb-specs",
-    },
-    {
-      code: "M20 B20 (206EC)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b20-206ec-specs",
-    },
-    {
-      code: "M20 B20 (206EZ)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b20-206ez-specs",
-    },
-    {
-      code: "M20 B20 (206KA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b20-206ka-specs",
-    },
-    {
-      code: "M20 B20 (206VA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b20-206va-specs",
-    },
-    {
-      code: "M20 B23 (236EA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b23-236ea-specs",
-    },
-    {
-      code: "M20 B23 (236EB)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b23-236eb-specs",
-    },
-    {
-      code: "M20 B23 (236EC)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b23-236ec-specs",
-    },
-    {
-      code: "M20 B23 (236EW)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b23-236ew-specs",
-    },
-    {
-      code: "M20 B25 (256E1)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b25-256e1-specs",
-    },
-    {
-      code: "M20 B25 (256E2)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b25-256e2-specs",
-    },
-    {
-      code: "M20 B25 (256EX)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b25-256ex-specs",
-    },
-    {
-      code: "M20 B25 (256K1)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b25-256k1-specs",
-    },
-    {
-      code: "M20 B27 (276EA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b27-276ea-specs",
-    },
-    {
-      code: "M20 B27 (276EB)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b27-276eb-specs",
-    },
-    {
-      code: "M20 B27 (276KA)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b27-276ka-specs",
-    },
-    {
-      code: "M20 B27 (276KB)",
-      fuel: "Petrol",
-      series: "M",
-      url: "/bmw/m20b27-276kb-specs",
-    },
-    {
-      code: "M21 D24 (246DA)",
-      fuel: "Diesel",
-      series: "M",
-      url: "/bmw/m21d24-246da-specs",
-    },
-    {
-      code: "M21 D24 (246DB)",
-      fuel: "Diesel",
-      series: "M",
-      url: "/bmw/m21d24-246db-specs",
-    },
-    {
-      code: "M21 D24 (246TA)",
-      fuel: "Diesel",
-      series: "M",
-      url: "/bmw/m21d24-246ta-specs",
-    },
-    {
-      code: "M21 D24 (246TB)",
-      fuel: "Diesel",
-      series: "M",
-      url: "/bmw/m21d24-246tb-specs",
-    },
-    {
-      code: "N13 B16 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n13b16a-specs",
-    },
-    {
-      code: "N20 B16 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n20b16a-specs",
-    },
-    {
-      code: "N20 B20 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n20b20a-specs",
-    },
-    {
-      code: "N20 B20 B",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n20b20b-specs",
-    },
-    {
-      code: "N20 B20 D",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n20b20d-specs",
-    },
-    {
-      code: "N26 B20 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n26b20a-specs",
-    },
-    {
-      code: "N40 B16 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n40b16a-specs",
-    },
-    {
-      code: "N42 B18 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n42b18a-specs",
-    },
-    {
-      code: "N42 B20 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n42b20a-specs",
-    },
-    {
-      code: "N43 B16 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n43b16a-specs",
-    },
-    {
-      code: "N43 B16 AA",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n43b16aa-specs",
-    },
-    {
-      code: "N43 B20 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n43b20a-specs",
-    },
-    {
-      code: "N45 B16 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n45b16a-specs",
-    },
-    {
-      code: "N45 B16 AC",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n45b16ac-specs",
-    },
-    {
-      code: "N45 B20 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n45b20a-specs",
-    },
-    {
-      code: "N46 B18 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n46b18a-specs",
-    },
-    {
-      code: "N46 B20 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n46b20a-specs",
-    },
-    {
-      code: "N46 B20 B",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n46b20b-specs",
-    },
-    {
-      code: "N46 B20 BD",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n46b20bd-specs",
-    },
-    {
-      code: "N46 B20 C",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n46b20c-specs",
-    },
-    {
-      code: "N46 B20 CB",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n46b20cb-specs",
-    },
-    {
-      code: "N46 B20 CC",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n46b20cc-specs",
-    },
-    {
-      code: "N46 B20 CD",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n46b20cd-specs",
-    },
-    {
-      code: "N46 B20 E",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n46b20e-specs",
-    },
-    {
-      code: "N47 D16 A",
-      fuel: "Diesel",
-      series: "N",
-      url: "/bmw/n47d16a-specs",
-    },
-    {
-      code: "N47 D20 A",
-      fuel: "Diesel",
-      series: "N",
-      url: "/bmw/n47d20a-specs",
-    },
-    {
-      code: "N47 D20 B",
-      fuel: "Diesel",
-      series: "N",
-      url: "/bmw/n47d20b-specs",
-    },
-    {
-      code: "N47 D20 C",
-      fuel: "Diesel",
-      series: "N",
-      url: "/bmw/n47d20c-specs",
-    },
-    {
-      code: "N47 D20 D",
-      fuel: "Diesel",
-      series: "N",
-      url: "/bmw/n47d20d-specs",
-    },
-    {
-      code: "N52 B25 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b25a-specs",
-    },
-    {
-      code: "N52 B25 AE",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b25ae-specs",
-    },
-    {
-      code: "N52 B25 AF",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b25af-specs",
-    },
-    {
-      code: "N52 B25 B",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b25b-specs",
-    },
-    {
-      code: "N52 B25 BE",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b25be-specs",
-    },
-    {
-      code: "N52 B25 BF",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b25bf-specs",
-    },
-    {
-      code: "N52 B30 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b30a-specs",
-    },
-    {
-      code: "N52 B30 AF",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b30af-specs",
-    },
-    {
-      code: "N52 B30 B",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b30b-specs",
-    },
-    {
-      code: "N52 B30 BF",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n52b30bf-specs",
-    },
-    {
-      code: "N53 B30 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n53b30a-specs",
-    },
-    {
-      code: "N54 B30 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n54b30a-specs",
-    },
-    {
-      code: "N55 B30 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n55b30a-specs",
-    },
-    {
-      code: "N57 D30 A",
-      fuel: "Diesel",
-      series: "N",
-      url: "/bmw/n57d30a-specs",
-    },
-    {
-      code: "N57 D30 B",
-      fuel: "Diesel",
-      series: "N",
-      url: "/bmw/n57d30b-specs",
-    },
-    {
-      code: "N57 D30 C",
-      fuel: "Diesel",
-      series: "N",
-      url: "/bmw/n57d30c-specs",
-    },
-    {
-      code: "N62 B36 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n62b36a-specs",
-    },
-    {
-      code: "N62 B40 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n62b40a-specs",
-    },
-    {
-      code: "N62 B44 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n62b44a-specs",
-    },
-    {
-      code: "N62 B48 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n62b48a-specs",
-    },
-    {
-      code: "N62 B48 B",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n62b48b-specs",
-    },
-    {
-      code: "N63 B44 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n63b44a-specs",
-    },
-    {
-      code: "N63 B44 B",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n63b44b-specs",
-    },
-    {
-      code: "N63 B44 C",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n63b44c-specs",
-    },
-    {
-      code: "N73 B60 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n73b60a-specs",
-    },
-    {
-      code: "N73 B60 B",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n73b60b-specs",
-    },
-    {
-      code: "N74 B60 A",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n74b60a-specs",
-    },
-    {
-      code: "N74 B66 B",
-      fuel: "Petrol",
-      series: "N",
-      url: "/bmw/n74b66b-specs",
-    },
-    { code: "P65B40", fuel: "Petrol", series: "P", url: "/bmw/p65b40-specs" },
-    { code: "P65B44", fuel: "Petrol", series: "P", url: "/bmw/p65b44-specs" },
-    { code: "P66B44", fuel: "Petrol", series: "P", url: "/bmw/p66b44-specs" },
-    { code: "P68B20", fuel: "Petrol", series: "P", url: "/bmw/p68b20-specs" },
-    {
-      code: "P68B20TU",
-      fuel: "Petrol",
-      series: "P",
-      url: "/bmw/p68b20tu-specs",
-    },
-    { code: "P76B20", fuel: "Petrol", series: "P", url: "/bmw/p76b20-specs" },
-    { code: "P80", fuel: "Petrol", series: "P", url: "/bmw/p80-specs" },
-    { code: "P82", fuel: "Petrol", series: "P", url: "/bmw/p82-specs" },
-    { code: "P84", fuel: "Petrol", series: "P", url: "/bmw/p84-specs" },
-    { code: "P92B36", fuel: "Petrol", series: "P", url: "/bmw/p92b36-specs" },
-    {
-      code: "S14 B23 (234EA)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s14b23-234ea-specs",
-    },
-    {
-      code: "S14 B23 (234S1)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s14b23-234s1-specs",
-    },
-    {
-      code: "S14 B23 (234S2)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s14b23-234s2-specs",
-    },
-    {
-      code: "S38 B35 (356ED)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s38b35-356ed-specs",
-    },
-    {
-      code: "S38 B35 AF",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s38b35-af-specs",
-    },
-    {
-      code: "S38 B36 (366S1)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s38b36-366s1-specs",
-    },
-    {
-      code: "S38 B38 (386S1)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s38b38-386s1-specs",
-    },
-    {
-      code: "S50 B30 (306S1)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s50b30-306s1-specs",
-    },
-    {
-      code: "S50 B32 (326S1)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s50b32-326s1-specs",
-    },
-    {
-      code: "S50 B32 (326S3)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s50b32-326s3-specs",
-    },
-    {
-      code: "S54 B32 (326S4)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s54b32-326s4-specs",
-    },
-    { code: "S54R", fuel: "Petrol", series: "S", url: "/bmw/s54r-specs" },
-    {
-      code: "S55 B30 A",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s55b30a-specs",
-    },
-    {
-      code: "S62 B50 (508S1)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s62b50-508s1-specs",
-    },
-    {
-      code: "S63 B44 B",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s63b44b-specs",
-    },
-    {
-      code: "S65 B40 A",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s65b40a-specs",
-    },
-    {
-      code: "S65 B44 A",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s65b44a-specs",
-    },
-    {
-      code: "S70 B56 (56121)",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s70b56-56121-specs",
-    },
-    {
-      code: "S85 B50 A",
-      fuel: "Petrol",
-      series: "S",
-      url: "/bmw/s85b50a-specs",
-    },
-  ];
+  // Transform engines from DB format to component format
+  const engineData: Engine[] = useMemo(() => {
+    return engines.map((engine) => transformEngine(engine, brandSlug));
+  }, [engines, brandSlug]);
+
+  // Get brand display name (capitalize first letter)
+  const brandName = brandSlug.charAt(0).toUpperCase() + brandSlug.slice(1);
 
   const uniqueSeries = useMemo(() => {
     const series = [
       ...new Set(engineData.map((engine) => engine.series)),
     ].sort();
     return series;
-  }, []);
+  }, [engineData]);
 
   const filteredEngines = useMemo(() => {
     return engineData.filter((engine) => {
@@ -4548,7 +3765,7 @@ const EngineDatabase = () => {
         seriesFilter === "all" || engine.series === seriesFilter;
       return matchesSearch && matchesFuel && matchesSeries;
     });
-  }, [searchTerm, fuelFilter, seriesFilter]);
+  }, [engineData, searchTerm, fuelFilter, seriesFilter]);
 
   // Sample data for third-party manufacturers using BMW engines
   const thirdPartyEngines = [
@@ -4741,7 +3958,7 @@ const EngineDatabase = () => {
         </h2>
         <div className="text-lg md:text-4xl text-muted-foreground font-medium"></div>
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-pretty px-4">
-          Search and explore BMW's complete engine catalog with detailed
+          Search and explore {brandName}'s complete engine catalog with detailed
           specifications, technical data, and model compatibility information.
         </p>
       </div>
@@ -4924,7 +4141,7 @@ const EngineDatabase = () => {
           <Card className="bg-card border-border">
             <CardHeader>
               <CardTitle className="text-foreground">
-                BMW Engines Used by Third Party Manufacturers
+                {brandName} Engines Used by Third Party Manufacturers
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -4960,9 +4177,11 @@ const EngineDatabase = () => {
               <div className="mt-4 text-sm text-muted-foreground">
                 <p className="font-medium mb-1">Notable partnerships:</p>
                 <ul className="list-disc pl-5 space-y-1">
-                  <li>Toyota: Supra collaboration using BMW B48/B58 engines</li>
-                  <li>Rolls-Royce: Luxury vehicles with BMW powertrains</li>
-                  <li>Wiesmann: German sports cars with BMW M engines</li>
+                  <li>Third-party vehicles powered by {brandName} engines</li>
+                  <li>OEM partnerships featuring {brandName} powertrains</li>
+                  <li>
+                    Performance collaborations with {brandName} technology
+                  </li>
                 </ul>
               </div>
             </CardContent>
@@ -5015,12 +4234,12 @@ const EngineDatabase = () => {
               </ScrollArea>
               <div className="mt-4 text-sm text-muted-foreground">
                 <p className="font-medium mb-1">
-                  BMW electrification strategy:
+                  {brandName} electrification strategy:
                 </p>
                 <ul className="list-disc pl-5 space-y-1">
-                  <li>Full EV models: i3, i4, iX, i7</li>
-                  <li>Plug-in Hybrids: 330e, 530e, 745e, X5 xDrive45e</li>
-                  <li>Goal: 50% electric vehicles by 2030</li>
+                  <li>Full EV models available in the lineup</li>
+                  <li>Plug-in Hybrid variants across model range</li>
+                  <li>Continued expansion of electrified powertrain options</li>
                 </ul>
               </div>
             </CardContent>
@@ -5032,12 +4251,12 @@ const EngineDatabase = () => {
       <DisclaimerCard>
         Engine specifications and technical data sourced from{" "}
         <Link
-          href="https://www.bmwgroup.com/en.html"
+          href={`https://www.${brandSlug}.com`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-foreground hover:text-primary underline underline-offset-4 transition-colors"
         >
-          BMW Group Technical Documentation
+          {brandName} Official Technical Documentation
           <ExternalLink className="h-3 w-3" />
         </Link>{" "}
         and{" "}
@@ -5050,7 +4269,7 @@ const EngineDatabase = () => {
           EU Vehicle Type Approval Database
           <ExternalLink className="h-3 w-3" />
         </Link>
-        . All specifications are verified against official BMW service
+        . All specifications are verified against official {brandName} service
         documentation.
       </DisclaimerCard>
     </Container>
