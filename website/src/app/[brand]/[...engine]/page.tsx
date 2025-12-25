@@ -1,4 +1,8 @@
-import { getAllEngineSlugs, getEnginePageData } from "@/app/lib/engine-data";
+// ISR Configuration: Pages are generated on-demand and cached for 24 hours
+// Cache warming script (scripts/warm-cache.ts) should be run post-deployment
+// to pre-warm all pages for SEO without hitting Vercel's 75MB build limit
+
+import { getEnginePageData } from "@/app/lib/engine-data";
 import type { Metadata } from "next";
 import Head from "next/head";
 import { notFound } from "next/navigation";
@@ -11,15 +15,6 @@ import Hero from "./components/Hero";
 import ResearchResources from "./components/ResearchResources";
 import StickyButton from "./components/StickyButton";
 import TechnicalSpecifications from "./components/TechnicalSpecifications";
-
-const generateStaticParams = async (): Promise<EnginePageProps[]> => {
-  const slugs = await getAllEngineSlugs();
-
-  return slugs.map(({ brand, engine }) => ({
-    brand,
-    engine: [`${engine}-specs`],
-  }));
-};
 
 const generateMetadata = async (props: {
   params: Promise<EnginePageProps>;
@@ -106,6 +101,6 @@ const EnginePage = async (props: {
 };
 
 export const dynamicParams = true;
-export const revalidate = 86400; // regenerate once a day
+export const revalidate = 86400; // regenerate once a day (ISR)
 export default EnginePage;
-export { generateMetadata, generateStaticParams };
+export { generateMetadata };

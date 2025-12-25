@@ -7,7 +7,10 @@
     "build": "NODE_OPTIONS=--max-old-space-size=8192 next build",
     "build:16": "NODE_OPTIONS=--max-old-space-size=16384 next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "warm-cache": "npx tsx scripts/warm-cache.ts",
+    "warm-cache:production": "BASE_URL=https://engine-code.com npx tsx scripts/warm-cache.ts",
+    "warm-cache:preview": "BASE_URL=$VERCEL_URL npx tsx scripts/warm-cache.ts"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

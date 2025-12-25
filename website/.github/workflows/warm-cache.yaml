@@ -1,0 +1,72 @@
+name: Cache Warming
+
+on:
+  # Trigger after Vercel deployment completes
+  deployment_status:
+  # Allow manual triggering
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'Base URL to warm (e.g., https://engine-code.com)'
+        required: true
+        default: 'https://engine-code.com'
+      concurrency:
+        description: 'Number of concurrent requests'
+        required: false
+        default: '20'
+
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+jobs:
+  warm-cache:
+    # Only run on successful production deployments or manual trigger
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' && 
+       github.event.deployment_status.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  # Allow up to 60 minutes for 8000+ pages
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Wait for deployment to stabilize
+        run: sleep 30
+
+      - name: Warm cache (Deployment Trigger)
+        if: github.event_name == 'deployment_status'
+        env:
+          BASE_URL: ${{ github.event.deployment_status.target_url }}
+          CONCURRENCY: '20'
+        run: pnpm warm-cache
+
+      - name: Warm cache (Manual Trigger)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          BASE_URL: ${{ github.event.inputs.base_url }}
+          CONCURRENCY: ${{ github.event.inputs.concurrency }}
+        run: pnpm warm-cache
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Cache Warming Complete 🔥" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Target:** ${{ github.event.deployment_status.target_url || github.event.inputs.base_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
