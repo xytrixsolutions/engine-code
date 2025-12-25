@@ -51,13 +51,19 @@ const EnginePage = async (props: {
     schema,
     researchResources,
   } = engineData;
-  const rawFuelType = (technicalSpecifications.engineSpecs.find(
-    spec => /^fuel\s*type$/i.test(spec.name as string)
-  ) || {}).value ?? "";
+  const rawFuelType =
+    (
+      technicalSpecifications.engineSpecs.find((spec) =>
+        /^fuel\s*type$/i.test(spec.name as string),
+      ) || {}
+    ).value ?? "";
 
-  const fuelType = /^(gasoline|petrol|petrol\s*\(gasoline\)|gasoline\s*\(petrol\))$/i.test(rawFuelType as string)
-    ? "Petrol"
-    : rawFuelType;
+  const fuelType =
+    /^(gasoline|petrol|petrol\s*\(gasoline\)|gasoline\s*\(petrol\))$/i.test(
+      rawFuelType as string,
+    )
+      ? "Petrol"
+      : rawFuelType;
   return (
     <>
       <Head>
@@ -76,19 +82,19 @@ const EnginePage = async (props: {
       <TechnicalSpecifications
         {...technicalSpecifications}
         engine={engine}
-      // fuelType={fuelType}
+        // fuelType={fuelType}
       />
       <CompatibleModels
         {...compatibleModels}
         engine={engine}
-      // fuelType={fuelType}
+        // fuelType={fuelType}
       />
       <Banner hidden bannerImage={bannerImage} />
       <CommonReliabilityIssues
         {...commonReliabilityIssues}
         engine={engine}
         brand={params.brand}
-      // fuelType={fuelType}
+        // fuelType={fuelType}
       />
       <FAQs faqData={faqs} brand={params.brand} engine={engine} />
       <ResearchResources
@@ -99,7 +105,7 @@ const EnginePage = async (props: {
   );
 };
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 export const revalidate = 86400; // regenerate once a day
 export default EnginePage;
 export { generateMetadata, generateStaticParams };
