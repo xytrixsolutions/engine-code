@@ -3938,12 +3938,12 @@ const EngineDatabase = ({ brandSlug, engines }: EngineDatabaseProps) => {
             variant="ghost"
             size="sm"
             className="h-7 px-2 text-xs text-foreground hover:bg-accent"
-            onClick={() =>
-              window.open(`https://enginecode.uk${engine.url}`, "_blank")
-            }
+            asChild
           >
-            View Specs
-            <ExternalLink className="h-3 w-3 ml-1" />
+            <Link href={engine.url}>
+              View Specs
+              <ExternalLink className="h-3 w-3 ml-1" />
+            </Link>
           </Button>
         </div>
       </CardContent>
@@ -4084,15 +4084,12 @@ const EngineDatabase = ({ brandSlug, engines }: EngineDatabaseProps) => {
                               variant="ghost"
                               size="sm"
                               className="h-8 text-foreground hover:bg-accent hover:text-foreground mx-auto"
-                              onClick={() =>
-                                window.open(
-                                  `https://enginecode.uk${engine.url}`,
-                                  "_blank",
-                                )
-                              }
+                              asChild
                             >
-                              View Specs
-                              <ExternalLink className="h-3 w-3 ml-2" />
+                              <Link href={engine.url}>
+                                View Specs
+                                <ExternalLink className="h-3 w-3 ml-2" />
+                              </Link>
                             </Button>
                           </TableCell>
                         </TableRow>
